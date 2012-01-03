@@ -1,0 +1,6 @@
+Build.PL
+lib/Lair.pm
+lib/Lair/Context.pm
+lib/Lair/Mixin/Build.pm
+MANIFEST			This list of files
+t/00-load.t
