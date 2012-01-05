@@ -58,21 +58,25 @@ sub handle
     # does the request path have an "unnecessary" trailing slash?
     # if so, remove it and redirect to the resulting URI
     if ($c->path ne '/' && $c->path =~ m!/$!) {
-		my $newpath = $`;
-		my $uri = $c->uri;
-		$uri->path($newpath);
+        my $newpath = $`;
+        my $uri = $c->uri;
+        $uri->path($newpath);
 		
-		$c->res->redirect($uri, 301);
-		return $c->_respond;
-	}
+        $c->res->redirect($uri, 301);
+        return $c->_respond;
+    }
 
-	# is this an OPTIONS request?
-	if ($c->method eq 'OPTIONS') {
-		# get all available methods by using Leyland::Negotiator
-		# and return a 204 No Content response
-		$c->log->debug('Finding supported methods for requested path.');
-		return $c->_respond(204, { 'Allow' => join(', ', Leyland::Negotiator->find_options($c, $self->routes)) });
-	} else {
+    # is this an OPTIONS request?
+    if ($c->method eq 'OPTIONS') {
+        # get all available methods by using Leyland::Negotiator
+        # and return a 204 No Content response
+        $c->log->debug('Finding supported methods for requested path.');
+        return $c->_respond(204,
+            {
+                'Allow' => join(', ', Leyland::Negotiator->find_options($c, $self->routes))
+             });
+    }
+    else {
 		# negotiate for routes and invoke the first matching route (if any).
 		# handle route passes and return the final output after UTF-8 encoding.
 		# if at any point an expception is raised, handle it.
