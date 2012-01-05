@@ -22,9 +22,11 @@ sub BUILD
 {
     my ($self,$params) = @_;
     my $class = $self->class;
+
     my @defaults = grep { defined }
-        map { /^_default_(\w+)$/ ; $1 }
-            Package::Subroutine->findsubs($class);
+        map {
+              /^_default_(\w+)$/ ? $1 : () 
+        } Package::Subroutine->findsubs($class);
 
     foreach my $key (@defaults) {
         if(exists($params->{$key})) {
