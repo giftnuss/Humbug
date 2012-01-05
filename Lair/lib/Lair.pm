@@ -11,13 +11,26 @@ use Badger::Class
         'config',
         'context_class', # context_builder ?
         'cwe',
-        'localizer',
-        'log',
+        'hub',
         'name',
         'req_counter',
         'routes',
         'views'
-    ];
+    ],
+    auto_can => '_dynamic_subs';
+
+sub _default_cwe { 'development' }
+
+sub _default_name { 'lair' }
+
+sub _default_req_counter { 0 }
+
+sub _default_hub
+{
+    my $class = 'Lair::Hub';
+    class($class)->load;
+    return $class->new
+}
 
 sub _inc_req_counter
 {
@@ -42,11 +55,9 @@ sub handle
     $self->_inc_req_counter;
     my $c = $self->_build_context($env);
 
-	# create the context object
-
-	# does the request path have an "unnecessary" trailing slash?
-	# if so, remove it and redirect to the resulting URI
-	if ($c->path ne '/' && $c->path =~ m!/$!) {
+    # does the request path have an "unnecessary" trailing slash?
+    # if so, remove it and redirect to the resulting URI
+    if ($c->path ne '/' && $c->path =~ m!/$!) {
 		my $newpath = $`;
 		my $uri = $c->uri;
 		$uri->path($newpath);
@@ -94,6 +105,20 @@ sub handle
 	}
 }
 
+sub _dynamic_subs
+{
+    my ($self,$name) = @_;
+    if(my $component = $self->hub->component($name)) {
+        my $comp = $self->hub->$name();
+        return sub { $comp }
+    }
+    if(my $delegate = $self->hub->delegate($name)) {
+        my $comp = $self->hub->$delegate();
+        my $method = $comp->can('name');
+        return sub { $comp->$method(@_) }
+    }
+}
+
 1;
 
 __END__
@@ -108,3 +133,8 @@ A try to port Layland from Moose to Badger
 framework. This will be a friendly fork, only
 with intention to see how far it goes.
 
+=head1 AUTHORS
+
+Ido Perlmuter - Author of the original Leyland.pm code
+
+Sebastian Knapp - writes this file
