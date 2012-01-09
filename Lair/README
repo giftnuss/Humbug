@@ -1,0 +1,12 @@
+
+Maybe this becomes another small perl web framework.
+It is inspired by various other small web frameworks found
+on CPAN.
+
+   * Leyland - http://github.com/ido50/Leyland
+   * Lamework - http://github.com/vti/lamework
+   * Pickles - http://github.com/ikebe/Pickles
+
+I take what I like and combine it new. The time will tell
+if Lair becomes a snugly place for web development.
+
