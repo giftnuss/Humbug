@@ -11,7 +11,7 @@ my $builder = Module::Build->new(
     dist_version => '0.01001',
     requires => {
         'perl' => '5.010001',
-        'Badger' => '0.07',
+        'Badger' => '0.08',
         'Package::Subroutine' => '0.20',
         'Plack' => 0
     },
