@@ -1,7 +1,10 @@
 
 use strict;
 
-use Test::More tests => 5;
+use Test::More tests => 8;
+
+use HTTP::Request;
+use HTTP::Message::PSGI;
 
 BEGIN {
   use_ok('Lair::Context');
@@ -12,8 +15,12 @@ my $error = Lair::Exception->new;
 
 isa_ok($error,'Lair::Exception');
 is($error->type,'http','type is http');
-is($error->line,'unknown','detect the line');
+is($error->line,'unknown','unknown line');
+is($error->code,500,'default code is 500');
+is($error->name,'Internal Server Error','default name');
 
-# my $context = Lair::Context->new();
-# $error = $context->make_exception();
-# is($error->type,'http','type is http');
+my $req = HTTP::Request->new( GET => 'http://localhost/' );
+
+my $context = Lair::Context->new($req->to_psgi);
+$error = $context->error(500);
+is($error->type,'http','type is http');

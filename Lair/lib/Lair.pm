@@ -1,25 +1,41 @@
   package Lair;
 # *************
-use Badger;
+use 5.010001;
+use Badger v0.08;
+
+use Cwd ();
+use Badger::Filesystem qw/Dir/;
+use Hash::MultiValue;
+use Package::Subroutine;
 
 use Badger::Class
     version => 0.01,
+    base => 'Lair::Base',
     mixin => [
         'Lair::Mixin::Build'
     ],
     accessors => [
         'config',
         'context_class', # context_builder ?
-        'cwe',
+        'controllers',   # a Hash::MultiValue
+        'cwe',           # development/production/...
+        'home',
         'hub',
         'name',
+        'negotiator',
         'req_counter',
         'routes',
         'views'
     ],
     auto_can => '_dynamic_subs';
 
+sub _default_context_class { 'Lair::Context' }
+
+sub _default_controllers { Hash::MultiValue->new() }
+
 sub _default_cwe { 'development' }
+
+sub _default_home { Dir( Cwd::getcwd ) }
 
 sub _default_name { 'lair' }
 
@@ -32,6 +48,30 @@ sub _default_hub
     return $class->new
 }
 
+sub _default_negotiator
+{
+    my ($self) = @_;
+    my $class = 'Lair::Negotiator';
+    class($class)->load;
+    return $class->new(app => $self);
+}
+
+sub _default_99_setup
+{
+    my ($self,$params) = @_;
+    $self->setup_context($params);
+    $self->setup($params);
+}
+
+sub setup_context
+{
+    my ($app,$params) = @_;
+    no warnings 'redefine';
+    Package::Subroutine->install($app->context_class, 'app', sub { $app });
+}
+
+sub setup { 'done' }
+
 sub _inc_req_counter
 {
     $_[0]->{'req_counter'} ++
@@ -40,14 +80,28 @@ sub _inc_req_counter
 sub _build_context
 {
     my ($self,$env) = @_;
-    return $self->context_class->new(
-        app => $self,
-        env => $env,
-        num => $self->req_counter
-    );
+    return $self->context_class->new($env);
+    #    app => $self,
+    #    env => $env,
+    #    num => $self->req_counter
+    #);
 }
 
-sub setup { 1 }
+sub add_controller
+{
+    my ($self,@controllers) = @_;
+    foreach my $controller (@controllers) {
+        $self->controllers->add($controller->prefix,$controller);
+    }
+}
+
+sub handler
+{
+    my $app = shift;
+    return sub {
+	$app->handle(shift);
+    };
+}
 
 sub handle
 {
@@ -60,53 +114,10 @@ sub handle
     if ($c->path ne '/' && $c->path =~ m!/$!) {
         my $newpath = $`;
         my $uri = $c->uri;
-        $uri->path($newpath);
-		
+         $uri->path($newpath);
         $c->res->redirect($uri, 301);
         return $c->_respond;
     }
-
-    # is this an OPTIONS request?
-    if ($c->method eq 'OPTIONS') {
-        # get all available methods by using Leyland::Negotiator
-        # and return a 204 No Content response
-        $c->log->debug('Finding supported methods for requested path.');
-        return $c->_respond(204,
-            {
-                'Allow' => join(', ', Leyland::Negotiator->find_options($c, $self->routes))
-             });
-    }
-    else {
-		# negotiate for routes and invoke the first matching route (if any).
-		# handle route passes and return the final output after UTF-8 encoding.
-		# if at any point an expception is raised, handle it.
-		return try {
-			# get routes
-			$c->log->debug('Searching matching routes.');
-			$c->_set_routes(Leyland::Negotiator->negotiate($c, $self->routes));
-
-			# invoke first route
-			$c->log->debug('Invoking first matching route.');
-			my $ret = $c->_invoke_route;
-
-			# are we passing to the next matching route?
-			# to prevent infinite loops, limit passing to no more than 100 times
-			while ($c->_pass_next && $c->current_route < 100) {
-				# we need to pass to the next matching route.
-				# first, let's erase the pass flag from the context
-				# so we don't try to do this infinitely
-				$c->_set_pass_next(0);
-				# no let's invoke the route
-				$ret = $c->_invoke_route;
-			}
-
-			$c->finalize(\$ret);
-			
-			$c->_respond(undef, undef, $ret);
-		} catch {
-			$self->_handle_exception($c, $_);
-		};
-	}
 }
 
 sub _dynamic_subs
@@ -118,9 +129,14 @@ sub _dynamic_subs
     }
     if(my $delegate = $self->hub->delegate($name)) {
         my $comp = $self->hub->$delegate();
-        my $method = $comp->can('name');
+        my $method = $comp->can($name);
         return sub { $comp->$method(@_) }
     }
+}
+
+sub error_msg
+{
+    die($_[1]);
 }
 
 1;
@@ -131,11 +147,32 @@ __END__
 
 Lair - wish it grows to be a useful web framework
 
-=head2 DESCRIPTION
+=head1 DESCRIPTION
 
 A try to port Layland from Moose to Badger
 framework. This will be a friendly fork, only
 with intention to see how far it goes.
+
+=head2 Accessors
+
+=over 4
+
+=item context_class
+
+The class used for creation of the context object.
+
+=item cwe
+
+A plain string with the current working environment.
+
+'development' is used as default value.
+
+=item home
+
+A Badger::Filesystem::Directory object. The default
+is the current working directory.
+
+=back
 
 =head1 AUTHORS
 

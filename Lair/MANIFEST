@@ -1,6 +1,24 @@
 Build.PL
+example/helloworld.psgi
 lib/Lair.pm
+lib/Lair/Action.pm
+lib/Lair/Base.pm
 lib/Lair/Context.pm
+lib/Lair/Controller.pm
+lib/Lair/Exception.pm
+lib/Lair/Hub.pm
+lib/Lair/Localizer.pm
 lib/Lair/Mixin/Build.pm
+lib/Lair/Resource.pm
+lib/Lair/Response/Codes.pm
 MANIFEST			This list of files
+MANIFEST.SKIP
+README
 t/00-load.t
+t/01_mixin_build.t
+t/02_unit_exception.t
+t/03_app.t
+t/04_context_api.t
+t/05_resource.t
+t/06_helloworld.t
+t/lib/MyApp.pm

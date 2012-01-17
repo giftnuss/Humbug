@@ -10,7 +10,7 @@ sub new
     my ($self) = shift;
     my $class = ref($self) || $self;
     $self = bless {},$class;
-    $self->init();
+    $self->init(@_);
     return $self;
 }
 

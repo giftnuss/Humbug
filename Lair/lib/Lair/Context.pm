@@ -8,6 +8,23 @@ use Badger::Class
     import => 'class';
 
 
+
+
+
+
+
+
+
+
+
+# --- ist nich so doll
+
+sub error
+{
+    my ($self,$code) = (@_,500);
+    $self->make_exception({code => $code});
+}
+
 sub exception
 {
     my ($self, $err) = @_;
