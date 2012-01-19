@@ -8,18 +8,19 @@ use Badger::Class
     base => 'Lair::Base',
     mixin => 'Lair::Mixin::Build',
     accessors => [
-        'context',  # the current context - set from outside
-	'regex',    # an egex matchin a path
+	'regex',    # a regex matching a path
         'vars',     # the named subpattern matched in the path
-        'matches',  # the list of matches
+        'matches'   # the list of matches
     ],
     mutators => [
+        'action',   # a code ref usual set by negotiator
         'get',
         'post',
         'delete',
         'put',
         'any',
-        'returns'   # mime type
+        'returns',   # mime type
+        'controller' # the controller - set after dispatch from outside
     ];
 
 use Memoize ();
@@ -47,6 +48,7 @@ sub _default_returns { 'text/html' }
 
 sub _reset {
     my ($self) = @_;
+    $self->{'action'} = undef;
     $self->{'vars'} = undef;
     $self->{'matches'} = undef;
 }

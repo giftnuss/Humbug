@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 13;
+use Test::More tests => 18;
 
 use Cwd ();
 
@@ -28,4 +28,10 @@ ok($app->can('loc'),'delegates "loc" to localizer');
 
 isa_ok($app->localizer,'Lair::Localizer','default localizer class');
 
-
+ok($app->can('negotiator'),'app has an negotiator accessor');
+my $negotiator = $app->negotiator;
+isa_ok($negotiator,'Lair::Negotiator','default negotiator class');
+is_deeply($negotiator->app,$app,'negotiator contains app object');
+my $dispatcher = $negotiator->dispatcher;
+isa_ok($dispatcher,'Lair::Dispatcher','default dispatcher class');
+is_deeply($dispatcher->app,$app,'dispatcher contains app object');

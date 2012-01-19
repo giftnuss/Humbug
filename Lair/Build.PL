@@ -13,6 +13,7 @@ my $builder = Module::Build->new(
         'perl' => '5.010001',
         'Badger' => '0.08',
         'Hash::MultiValue' => '0.10',
+	'MIME::Types' => '1.34',
         'Package::Subroutine' => '0.20',
         'Plack' => 0
     },

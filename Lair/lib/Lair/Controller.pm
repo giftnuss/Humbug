@@ -3,6 +3,8 @@
 
 use Badger;
 
+use Lair::Resource;
+
 use Badger::Class
     version => '0.01',
     base => 'Lair::Base',
@@ -13,13 +15,16 @@ use Badger::Class
         'prefix'
     ],
     accessors => [
-	'resources'
+	'resources',
+        'resource_class'
     ],
     utils => ['params'];
 
 sub _default_prefix { '/' }
 
 sub _default_resources { [] }
+
+sub _default_resource_class { 'Lair::Resource' }
 
 sub add_resource {
     my $self = shift;
@@ -30,7 +35,8 @@ sub create_resource {
     my $self = shift;
     my $regex = shift;
     my $params = params(@_);
-
+    $params->{'regex'} = $regex;
+    $self->add_resource( $self->resource_class->new($params) );
 }
 
 1;

@@ -44,3 +44,9 @@ ok(!$class->can('app'),'Plain class can not app');
 my $app = Lair->new();
 ok($class->can('app'),'after creation of app - context can app');
 
+my $env = {
+    'psgi.url_scheme' => 'http',
+    HTTP_HOST => 'example.com'
+};
+
+my $context = Lair::Context->new($env);

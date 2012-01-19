@@ -7,6 +7,7 @@ use Cwd ();
 use Badger::Filesystem qw/Dir/;
 use Hash::MultiValue;
 use Package::Subroutine;
+use Try::Tiny;
 
 use Badger::Class
     version => 0.01,
@@ -65,8 +66,9 @@ sub _default_99_setup
 
 sub setup_context
 {
-    my ($app,$params) = @_;
+    my ($app) = @_;
     no warnings 'redefine';
+    class($app->context_class)->load;
     Package::Subroutine->install($app->context_class, 'app', sub { $app });
 }
 
@@ -81,10 +83,6 @@ sub _build_context
 {
     my ($self,$env) = @_;
     return $self->context_class->new($env);
-    #    app => $self,
-    #    env => $env,
-    #    num => $self->req_counter
-    #);
 }
 
 sub add_controller
@@ -107,17 +105,21 @@ sub handle
 {
     my ($self, $env) = @_;
     $self->_inc_req_counter;
-    my $c = $self->_build_context($env);
+    my $context = $self->_build_context($env);
 
-    # does the request path have an "unnecessary" trailing slash?
-    # if so, remove it and redirect to the resulting URI
-    if ($c->path ne '/' && $c->path =~ m!/$!) {
-        my $newpath = $`;
-        my $uri = $c->uri;
-         $uri->path($newpath);
-        $c->res->redirect($uri, 301);
-        return $c->_respond;
+    my $response = try {
+        my $resource = $self->negotiator->negotiate($context);
+        return $context->respond_resource($resource);
     }
+    catch {
+        if(blessed($_) and $_->isa('Lair::Exception')) {
+            return $context->respond_error($_);
+        }
+        else {
+            return $context->respond_error($context->error(500));
+        }
+    };
+    $response->finalize;
 }
 
 sub _dynamic_subs
