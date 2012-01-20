@@ -24,6 +24,8 @@ sub dispatch {
         keys %{$self->app->controllers};
 
     for my $controller (@controllers) {
+        my $short = $controller->prefix eq '/' ? $path :
+            substr($path,length($controller->prefix));
         for my $resource (@{$controller->resources}) {
             if($resource->match($path)) {
                 $resource->controller($controller);

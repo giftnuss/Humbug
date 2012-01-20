@@ -151,11 +151,11 @@ Lair - wish it grows to be a useful web framework
 
 =head1 DESCRIPTION
 
-A try to port Layland from Moose to Badger
-framework. This will be a friendly fork, only
-with intention to see how far it goes.
+This project started with the idea to build a small web framework with
+the help of a Badger. Because I like the Leyland framework some ideas
+and small portions of code are borrowed from it.
 
-=head2 Accessors
+=head2 Read Only Accessors
 
 =over 4
 
@@ -166,13 +166,21 @@ The class used for creation of the context object.
 =item cwe
 
 A plain string with the current working environment.
-
 'development' is used as default value.
 
 =item home
 
 A Badger::Filesystem::Directory object. The default
 is the current working directory.
+
+=item controllers
+
+A Hash::MultiValue object. C<$controller->prefix> is used as
+key and the controller object is one of the values.
+
+=item hub
+
+This is a thing from Badger helping delegate to other objects.
 
 =back
 

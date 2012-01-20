@@ -24,4 +24,4 @@ my $resource = $controller->create_resource(
         returns => 'application/json'
 );
 
-isa_ok($resource,'Lair::Resource','default resorce class is Lair::Resource');
+isa_ok($resource,'Lair::Resource','default resource class is Lair::Resource');

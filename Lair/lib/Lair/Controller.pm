@@ -36,7 +36,9 @@ sub create_resource {
     my $regex = shift;
     my $params = params(@_);
     $params->{'regex'} = $regex;
-    $self->add_resource( $self->resource_class->new($params) );
+    my $resource =  $self->resource_class->new($params);
+    $self->add_resource($resource );
+    return $resource;
 }
 
 1;
