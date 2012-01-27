@@ -1,7 +1,6 @@
 Build.PL
 example/helloworld.psgi
 lib/Lair.pm
-lib/Lair/Action.pm
 lib/Lair/Base.pm
 lib/Lair/Context.pm
 lib/Lair/Controller.pm

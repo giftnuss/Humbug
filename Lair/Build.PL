@@ -14,7 +14,7 @@ my $builder = Module::Build->new(
         'Badger' => '0.08',
         'Hash::MultiValue' => '0.10',
 	'MIME::Types' => '1.34',
-        'Package::Subroutine' => '0.20',
+        'Package::Subroutine' => '0.21',
         'Plack' => 0
     },
     build_requires => {

@@ -25,7 +25,6 @@ use Badger::Class
         'name',
         'negotiator',
         'req_counter',
-        'routes',
         'views'
     ],
     auto_can => '_dynamic_subs';
@@ -140,6 +139,8 @@ sub error_msg
 {
     die($_[1]);
 }
+
+Package::Subroutine->remove('_' => ('Dir','catch','try','finally','class'));
 
 1;
 
