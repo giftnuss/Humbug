@@ -12,6 +12,7 @@ my $builder = Module::Build->new(
     requires => {
         'perl' => '5.010001',
         'Badger' => '0.08',
+        'Class::Trigger' => '0.14',
         'Hash::MultiValue' => '0.10',
 	'MIME::Types' => '1.34',
         'Package::Subroutine' => '0.21',

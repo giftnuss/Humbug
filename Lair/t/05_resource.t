@@ -1,4 +1,7 @@
 
+use strict;
+use warnings;
+
 use Test::More;
 
 use Lair::Resource;
@@ -8,8 +11,8 @@ my $resource = Lair::Resource->new();
 is(ref $resource,'Lair::Resource','object creation without arguments');
 
 my @regex = (
-  [Lair::Resource->_default_regex,[map {''}0..0]],
-  [qr|/id/(?<id>\d+)|,[1]]
+  [Lair::Resource->_default_regex,(map {''}0..0)],
+  [qr|/id/(?<id>\d+)|,[{id => 55},[55]]]
 );
 
 my @paths = (
@@ -21,8 +24,17 @@ foreach my $regex (@regex) {
     diag("checking " . $resource->regex);
     foreach my $idx (0..$#paths) {
         my $path = $paths[$idx];
-        is($resource->match($path),$regex->[1][$idx],
-            ($regex->[1][$idx] ? "" : "not ")."matching $path");
+        my $expect = $regex->[$idx+1];
+        if($expect) {
+            my $vars = $expect->[0];
+            my @matches = ($path,@{$expect->[1]});
+            ok($resource->match($path),"matching $path");
+            is_deeply($resource->vars,$vars,'expected vars');
+            is_deeply($resource->matches,\@matches,'expected matches');
+        }
+        else {
+            ok(!$resource->match($path),'regex not matching path');
+        }
     }
 }
 
