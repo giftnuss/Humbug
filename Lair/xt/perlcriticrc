@@ -1,0 +1,8 @@
+
+verbose = 5
+
+[TestingAndDebugging::RequireUseStrict]
+equivalent_modules = Lair::Ground
+
+[TestingAndDebugging::ProhibitNoStrict]
+allow=refs

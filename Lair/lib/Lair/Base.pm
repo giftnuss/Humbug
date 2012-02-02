@@ -1,6 +1,6 @@
   package Lair::Base;
 # *******************
-use Badger;
+use Lair::Ground;
 
 use Badger::Class
     version => '0.01';
@@ -11,10 +11,13 @@ sub new
     my $class = ref($self) || $self;
     $self = bless {},$class;
     $self->init(@_);
+    $self->check();
     return $self;
 }
 
 sub init {}
+
+sub check {}
 
 1;
 
@@ -31,7 +34,7 @@ Lair::Base - the base for most of the Lair classes
 
 =head1 DESCRIPTION
 
-A base class which does nothin more than blessing the object in the C<new>
+A base class which does nothing more than blessing the object in the C<new>
 constructor method.
 
 =head2 Methods
@@ -40,7 +43,9 @@ constructor method.
 
 =item new
 
-=item init
+=item init - called by new with arguments
+
+=item check - called by new without further arguments
 
 =back
 

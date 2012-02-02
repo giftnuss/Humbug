@@ -1,6 +1,6 @@
   package Lair::Mixin::Build;
 # ***************************
-use Badger;
+use Lair::Ground;
 use Package::Subroutine;
 
 use Badger::Class

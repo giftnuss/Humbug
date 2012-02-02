@@ -1,7 +1,6 @@
   package Lair::Exception; # HTTP
 # ************************
-
-use Badger;
+use Lair::Ground;
 use Lair::Response::Codes;
 
 use Badger::Class

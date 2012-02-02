@@ -1,7 +1,6 @@
   package Lair;
 # *************
-use 5.010001;
-use Badger v0.08;
+use Lair::Ground;
 
 use Cwd ();
 use Badger::Filesystem qw/Dir/;
@@ -12,6 +11,7 @@ use Try::Tiny;
 use Badger::Class
     version => 0.01,
     base => 'Lair::Base',
+    import => 'class',
     mixin => [
         'Lair::Mixin::Build'
     ],
@@ -123,7 +123,7 @@ sub handle
 
 sub _dynamic_subs
 {
-    my ($self,$name) = @_;
+    my ($self,$name) = @_;warn $name;
     if(my $component = $self->hub->component($name)) {
         my $comp = $self->hub->$name();
         return sub { $comp }
@@ -140,7 +140,7 @@ sub error_msg
     die($_[1]);
 }
 
-Package::Subroutine->remove('_' => ('Dir','catch','try','finally','class'));
+#Package::Subroutine->remove('_' => ('Dir','catch','try','finally','class'));
 
 1;
 

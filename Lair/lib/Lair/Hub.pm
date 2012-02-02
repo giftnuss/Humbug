@@ -1,6 +1,6 @@
   package Lair::Hub;
 # ******************
-use Badger;
+use Lair::Ground;
 
 use Badger::Class
     version => '0.01',

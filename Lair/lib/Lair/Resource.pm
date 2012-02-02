@@ -1,7 +1,6 @@
   package Lair::Resource;
 # ***********************
-
-use Badger;
+use Lair::Ground;
 use Class::Trigger;
 
 use Badger::Class

@@ -1,7 +1,7 @@
   package Lair::Negotiator;
 # *************************
 
-use Badger;
+use Lair::Ground;
 
 use Badger::Class
     version => '0.01',

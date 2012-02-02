@@ -1,8 +1,6 @@
   package Lair::Controller;
 # *************************
-
-use Badger;
-
+use Lair::Ground;
 use Lair::Resource;
 
 use Badger::Class
@@ -26,9 +24,17 @@ sub _default_resources { [] }
 
 sub _default_resource_class { 'Lair::Resource' }
 
+sub check {
+    my $self = shift;
+    if(substr($self->prefix,0,1) ne '/') {
+        $self->{'prefix'} = '/' . $self->{'prefix'};
+    }
+}
+
 sub add_resource {
     my $self = shift;
     push @{$self->resources}, @_;
+    return $self;
 }
 
 sub create_resource {
