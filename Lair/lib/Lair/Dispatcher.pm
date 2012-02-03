@@ -8,10 +8,7 @@ use Badger::Class
     base => 'Lair::Base',
     mixin => [
         'Lair::Mixin::Build',
-	'Lair::Mixin::Destroy',
-    ],
-    accessors => [
-        'app'
+	'Lair::Mixin::App',
     ];
 
 sub dispatch {

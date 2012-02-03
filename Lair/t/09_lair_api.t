@@ -21,10 +21,13 @@ my @methods = qw/
     _default_name
     _default_negotiator
     _default_req_counter
+    _default_respond
     _dynamic_subs
     _inc_req_counter
     add_controller
     can
+    check
+    class
     config
     context_class
     controllers
@@ -40,6 +43,7 @@ my @methods = qw/
     negotiator
     new
     req_counter
+    respond
     setup
     setup_context
     views/;

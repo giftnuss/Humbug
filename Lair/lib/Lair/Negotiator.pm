@@ -8,16 +8,11 @@ use Badger::Class
     base => 'Lair::Base',
     mixin => [
         'Lair::Mixin::Build',
-        'Lair::Mixin::Destroy'
+        'Lair::Mixin::App'
     ],
     accessors => [
-        'app',
         'dispatcher'
     ];
-
-sub _default_app {
-    die("app is a required argument constructing a Lair::Negotiator");
-}
 
 sub _default_dispatcher {
     my ($self,$params) = @_;

@@ -3,8 +3,11 @@
 use lib './lib';
 use strict;
 use warnings;
+
 use Lair;
 use Lair::Controller;
+use Lair::Response::Redirect;
+
 use Plack::Builder;
 
 my $app = Lair->new('name' => 'hello world example app');
@@ -16,9 +19,14 @@ my $redirectcontroller = Lair::Controller->new();
 my $greeting = Lair::Resource->new(
     regex => qr|^/hello/?(?<name>[\w\s]+)?$|,
     get => sub {
-    return 'hello w';
+      return 'hello w';
     },
     returns => 'text/plain'
+);
+
+my $redirect = Lair::Response::Redirect->new(
+    regex => qr|^/.*$|,
+    to => '/hello'
 );
 
 $app->add_controller(

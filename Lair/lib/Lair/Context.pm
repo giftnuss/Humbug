@@ -10,29 +10,6 @@ use Badger::Class
     base => 'Plack::Request',
     import => 'class';
 
-sub respond_resource {
-    my ($self,$resource) = @_;
-    my $response = $self->_build_res;
-    $response->content_type($resource->returns);
-    $response->body($resource->action->($self));
-    return $response;
-}
-
-sub respond_error {
-    my ($self,$error) = @_;
-    my $response = $self->_build_res($error->code);
-    $response->content_type('text/plain');
-    $response->body($error->name);
-    return $response;
-}
-
-sub _build_res {
-    my ($self,$code) = (@_,200);
-    my $response = Plack::Response->new($code); 
-    $response->header('X-Framework' => 'Lair v'.$Lair::VERSION);
-    return $response;
-}
-
 # --- ist nich so doll
 
 sub error
