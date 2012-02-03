@@ -3,10 +3,11 @@
 use Lair::Ground;
 
 use Cwd ();
-use Badger::Filesystem qw/Dir/;
+use Badger::Filesystem ();
+use Try::Tiny ();
+
 use Hash::MultiValue;
 use Package::Subroutine;
-use Try::Tiny;
 
 use Badger::Class
     version => 0.01,
@@ -25,6 +26,7 @@ use Badger::Class
         'name',
         'negotiator',
         'req_counter',
+        'respond',
         'views'
     ],
     auto_can => '_dynamic_subs';
@@ -35,7 +37,7 @@ sub _default_controllers { Hash::MultiValue->new() }
 
 sub _default_cwe { 'development' }
 
-sub _default_home { Dir( Cwd::getcwd ) }
+sub _default_home { Badger::Filesystem::Dir( Cwd::getcwd ) }
 
 sub _default_name { 'lair' }
 
@@ -52,6 +54,14 @@ sub _default_negotiator
 {
     my ($self) = @_;
     my $class = 'Lair::Negotiator';
+    class($class)->load;
+    return $class->new(app => $self);
+}
+
+sub _default_respond
+{
+    my ($self) = @_;
+    my $class = 'Lair::Responder';
     class($class)->load;
     return $class->new(app => $self);
 }
@@ -106,24 +116,27 @@ sub handle
     $self->_inc_req_counter;
     my $context = $self->_build_context($env);
 
-    my $response = try {
-        my $resource = $self->negotiator->negotiate($context);
-        return $context->respond_resource($resource);
-    }
-    catch {
-        if(blessed($_) and $_->isa('Lair::Exception')) {
-            return $context->respond_error($_);
-        }
-        else {
-            return $context->respond_error($context->error(500));
-        }
-    };
+    my $response = 
+         Try::Tiny::try
+         {
+             my $resource = $self->negotiator->negotiate($context);
+             return $self->respond->resource($resource);
+         }
+         Try::Tiny::catch 
+         {
+             if(blessed($_) and $_->isa('Lair::Exception')) {
+                 return $context->respond_error($_);
+             }
+             else {
+                 return $context->respond_error($context->error(500));
+             }
+         };
     $response->finalize;
 }
 
 sub _dynamic_subs
 {
-    my ($self,$name) = @_;warn $name;
+    my ($self,$name) = @_;
     if(my $component = $self->hub->component($name)) {
         my $comp = $self->hub->$name();
         return sub { $comp }
@@ -139,8 +152,6 @@ sub error_msg
 {
     die($_[1]);
 }
-
-#Package::Subroutine->remove('_' => ('Dir','catch','try','finally','class'));
 
 1;
 
@@ -182,6 +193,12 @@ key and the controller object is one of the values.
 =item hub
 
 This is a thing from Badger helping delegate to other objects.
+
+=item respond
+
+Usualy this accessor contains a C<Lair::Responder> object. The
+task for this object is to transform the resource or exception
+object into a plack response object.
 
 =back
 
