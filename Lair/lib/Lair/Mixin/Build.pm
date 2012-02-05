@@ -25,7 +25,7 @@ sub BUILD
         map {
               /^_default_?(\d*)_(\w+)$/;
               defined($2) ? [($1 || 50), $2, $_] : ()
-        } Package::Subroutine->findsubs($class);
+        } Package::Subroutine->findmethods($class);
 
     foreach my $key (@defaults) {
 	my $acc = $key->[1]; 

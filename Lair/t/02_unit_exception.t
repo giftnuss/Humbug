@@ -7,6 +7,7 @@ use Try::Tiny;
 use Data::Dumper;
 
 BEGIN {
+  use_ok('Lair');
   use_ok('Lair::Context');
 };
 
@@ -16,7 +17,30 @@ my $env = {
     HTTP_HOST => 'example.com'
 };
 
+my $app = Lair->new();
+my $responder = $app->respond;
 my $context = Lair::Context->new($env);
-my $error = try { $context->error(500) } catch { return $_ };
 
-print Dumper($error);
+{
+  my $error = try { $context->error(500) } catch { return $_ };
+  is_deeply
+      $responder->exception($error)->finalize,
+      [ 500, 
+          [
+               'Content-Type',
+               'text/plain',
+               'X-Framework',
+               'Lair v0.01'
+          ],['Internal Server Error'] ],'error response';
+}
+
+{
+  my $redirect = try { $context->redirect('http://perl.org') } catch { return $_ };
+  is_deeply
+      $responder->exception($redirect)->finalize,
+      [ 302,
+          [
+
+          ],[''] ];
+}
+

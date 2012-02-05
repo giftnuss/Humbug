@@ -14,7 +14,7 @@ use Badger::Class
 
 sub resource {
     my ($self,$resource) = @_;
-    my $response = $self->_build_response;
+    my $response = $self->_build_response($resource->code);
     $response->content_type($resource->returns);
     $response->body($resource->action->($response));
     return $response;
@@ -24,7 +24,7 @@ sub exception {
     my ($self,$error) = @_;
     my $response = $self->_build_response($error->code);
     $response->content_type('text/plain');
-    $response->body($error->action($response));
+    $response->body($error->action->($response));
     return $response;
 }
 

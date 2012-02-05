@@ -16,7 +16,8 @@ my $builder = Module::Build->new(
         'Hash::MultiValue' => '0.10',
 	'MIME::Types' => '1.34',
         'Package::Subroutine' => '0.21',
-        'Plack' => 0
+        'Plack' => 0,
+        'HTTP::Status' => 0
     },
     build_requires => {
         'Test::More' => 0

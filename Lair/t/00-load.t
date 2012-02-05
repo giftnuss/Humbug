@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 18;
+use Test::More tests => 20;
 
 use Cwd ();
 
@@ -32,6 +32,11 @@ ok($app->can('negotiator'),'app has an negotiator accessor');
 my $negotiator = $app->negotiator;
 isa_ok($negotiator,'Lair::Negotiator','default negotiator class');
 is_deeply($negotiator->app,$app,'negotiator contains app object');
+
 my $dispatcher = $negotiator->dispatcher;
 isa_ok($dispatcher,'Lair::Dispatcher','default dispatcher class');
 is_deeply($dispatcher->app,$app,'dispatcher contains app object');
+
+my $responder = $app->respond;
+isa_ok($responder,'Lair::Responder','default responder class');
+is_deeply($responder->app,$app,'responder contains app object');

@@ -13,7 +13,11 @@ use Badger::Class
     ];
 
 sub redirect {
-
+  my ($self,$to,$code) = (@_,302);
+  my $redirect = Lair::Response::Redirect->new(
+      code => $code,
+      location => $to
+  );
 }
 
 sub error {
