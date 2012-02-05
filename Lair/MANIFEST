@@ -4,12 +4,20 @@ lib/Lair.pm
 lib/Lair/Base.pm
 lib/Lair/Context.pm
 lib/Lair/Controller.pm
-lib/Lair/Exception.pm
+lib/Lair/Dispatcher.pm
+lib/Lair/Ground.pm
 lib/Lair/Hub.pm
 lib/Lair/Localizer.pm
+lib/Lair/Mixin/App.pm
+lib/Lair/Mixin/Breaks.pm
 lib/Lair/Mixin/Build.pm
+lib/Lair/Negotiator.pm
 lib/Lair/Resource.pm
+lib/Lair/Resource/Filesystem.pm
+lib/Lair/Responder.pm
 lib/Lair/Response/Codes.pm
+lib/Lair/Response/Error.pm
+lib/Lair/Response/Redirect.pm
 MANIFEST			This list of files
 MANIFEST.SKIP
 README
@@ -20,4 +28,12 @@ t/03_app.t
 t/04_context_api.t
 t/05_resource.t
 t/06_helloworld.t
+t/07_unit_controllers.t
+t/08_unit_base.t
+t/09_lair_api.t
+t/10_resource_filesystem.t
+t/11_response_redirect.t
+t/12_helloworld_example.t
 t/lib/MyApp.pm
+xt/perlcritic.t
+xt/perlcriticrc

@@ -19,7 +19,9 @@ use Badger::Class
         'delete',
         'put',
         'any',
+        'code',      # HTTP response code
         'returns',   # mime type
+        'context',   # mostly it is the current request
         'controller' # the controller - set after dispatch from outside
     ];
 
@@ -28,9 +30,15 @@ Memoize::memoize('_throw_405');
 
 sub _throw_405 {
     return sub {
-        shift->context->throw(405);
+        shift->context->error(405);
     }
 }
+
+sub _default_code { 200 }
+
+sub _default_context { undef }
+
+sub _default_controller { undef }
 
 sub _default_regex { qr|\Z\A| }
 
@@ -69,4 +77,10 @@ sub match {
 1;
 
 __END__
+
+=head1 NAME
+
+Lair::Resource
+
+=head1 DESCRIPTION
 

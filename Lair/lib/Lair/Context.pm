@@ -2,44 +2,12 @@
 # **********************
 use Lair::Ground;
 
-use MIME::Types;
-use Plack::Response;
-
 use Badger::Class
-    version => '0.01',
+    version => '0.02',
     base => 'Plack::Request',
-    import => 'class';
-
-# --- ist nich so doll
-
-sub error
-{
-    my ($self,$code) = (@_,500);
-    $self->make_exception({code => $code});
-}
-
-sub exception
-{
-    my ($self, $err) = @_;
-
-    $err->{location} = $err->{location}->as_string
-        if $err->{location} && ref $err->{location} =~ m/^URI/;
-
-    $self->make_exception($err)->throw;
-}
-
-sub _exception_class
-{
-    my $class = 'Lair::Exception';
-    class($class)->load;
-    return $class;
-}
-
-sub make_exception
-{
-    my ($self,$err) = @_;
-    $self->_exception_class->new($err);
-}
+    mixin => [
+        'Lair::Mixin::Breaks'
+    ];
 
 1;
 
@@ -49,9 +17,21 @@ __END__
 
 Lair::Context
 
-=head1 AUTHORS
+=head1 DESCRIPTION
 
-Ido Perlmuter - author of Leyland::Context
+This is a subclass of Plack::Request.
+
+=head2 Methods Breaking The Flow
+
+=over 4
+
+=item redirect
+
+=item error
+
+=back
+
+=head1 AUTHORS
 
 Sebastian Knapp - writes this file
 

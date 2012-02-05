@@ -25,12 +25,13 @@ sub dispatch {
             substr($path,length($controller->prefix));
         for my $resource (@{$controller->resources}) {
             if($resource->match($path)) {
+                $resource->context($context);
                 $resource->controller($controller);
                 return $resource;
             }
         }
     }
-    $context->error(404)->throw;
+    $context->error(404);
 }
 
 use Data::Dumper;

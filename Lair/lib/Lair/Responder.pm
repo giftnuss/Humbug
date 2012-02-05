@@ -1,7 +1,8 @@
   package Lair::Responder;
 # ************************
-
 use Lair::Ground;
+
+use Plack::Response;
 
 use Badger::Class
     base => 'Lair::Base',
@@ -15,15 +16,15 @@ sub resource {
     my ($self,$resource) = @_;
     my $response = $self->_build_response;
     $response->content_type($resource->returns);
-    $response->body($resource->action->($self));
+    $response->body($resource->action->($response));
     return $response;
 }
 
-sub error {
+sub exception {
     my ($self,$error) = @_;
     my $response = $self->_build_response($error->code);
     $response->content_type('text/plain');
-    $response->body($error->name);
+    $response->body($error->action($response));
     return $response;
 }
 

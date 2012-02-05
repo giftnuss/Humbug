@@ -124,11 +124,12 @@ sub handle
          }
          Try::Tiny::catch 
          {
-             if(blessed($_) and $_->isa('Lair::Exception')) {
-                 return $context->respond_error($_);
+             if(blessed($_) and $_->can('code')) {
+                 return $self->respond->exception($_);
              }
              else {
-                 return $context->respond_error($context->error(500));
+                 my $error = '';
+                 return $self->respond->error($context->error(500));
              }
          };
     $response->finalize;
