@@ -19,7 +19,9 @@ my $redirectcontroller = Lair::Controller->new();
 my $greeting = Lair::Resource->new(
     regex => qr|^/hello/?(?<name>[\w\s]+)?$|,
     get => sub {
-      return 'hello w';
+      my ($self,$response) = @_;
+      my $name = ($self->vars->{'name'} || 'world');
+      return "Hello $name!";
     },
     returns => 'text/plain'
 );
@@ -31,7 +33,7 @@ my $redirect = Lair::Response::Redirect->new(
 
 $app->add_controller(
     $hellocontroller->add_resource($greeting),
-    $redirectcontroller->add_resource(Lair::Resource->new)
+    $redirectcontroller->add_resource($redirect)
 );
 
 builder { $app->handler };

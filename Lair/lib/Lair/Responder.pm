@@ -2,6 +2,7 @@
 # ************************
 use Lair::Ground;
 
+use HTTP::Status;
 use Plack::Response;
 
 use Badger::Class
@@ -16,15 +17,17 @@ sub resource {
     my ($self,$resource) = @_;
     my $response = $self->_build_response($resource->code);
     $response->content_type($resource->returns);
-    $response->body($resource->action->($response));
+    $response->body($resource->action->($resource,$response));
     return $response;
 }
 
 sub exception {
     my ($self,$error) = @_;
     my $response = $self->_build_response($error->code);
-    $response->content_type('text/plain');
-    $response->body($error->action->($response));
+    unless(HTTP::Status::is_redirect($error->code)) {
+        $response->content_type($error->returns);
+    }
+    $response->body($error->action->($error,$response));
     return $response;
 }
 

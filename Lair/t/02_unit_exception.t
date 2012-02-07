@@ -2,9 +2,8 @@
 use strict;
 use warnings;
 
-use Test::More tests => 8;
+use Test::More tests => 4;
 use Try::Tiny;
-use Data::Dumper;
 
 BEGIN {
   use_ok('Lair');
@@ -40,7 +39,10 @@ my $context = Lair::Context->new($env);
       $responder->exception($redirect)->finalize,
       [ 302,
           [
+             'Location',
+             'http://perl.org',
+             'X-Framework',
+             'Lair v0.01'
+          ],[] ],'simple redirect';
 
-          ],[''] ];
 }
-

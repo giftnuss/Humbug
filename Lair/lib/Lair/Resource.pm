@@ -74,6 +74,12 @@ sub match {
     return $result;
 }
 
+sub error_msg
+{
+    shift;
+    die("@_");
+}
+
 1;
 
 __END__
@@ -82,5 +88,49 @@ __END__
 
 Lair::Resource
 
+=head1 SYNOPSIS
+
+    my $resource = Lair::Resource->new(
+        regex => qr|^/user/(<?name>\w+)$|,
+        get => sub { ... },
+        post => sub { ... });
+
 =head1 DESCRIPTION
+
+=head2 Accessors
+
+=over 4
+
+=item C<regex>
+
+=item C<vars>
+
+=item C<matches>
+
+=back
+
+=head2 Mutators
+
+...
+
+=head2 Methods
+
+=over 4
+
+=item match
+
+This method is called from a dispatcher with a chunk
+of a path. This method checks if the regex bound to the
+resource is matching the path string.
+
+=back
+
+=head2 Triggers
+
+=over 4
+
+=item "if_matched"
+
+=back
+
 

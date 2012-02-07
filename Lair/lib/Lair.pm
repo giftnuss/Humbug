@@ -8,6 +8,7 @@ use Try::Tiny ();
 
 use Hash::MultiValue;
 use Package::Subroutine;
+use Plack::Response;
 
 use Badger::Class
     version => 0.01,
@@ -122,14 +123,13 @@ sub handle
              my $resource = $self->negotiator->negotiate($context);
              return $self->respond->resource($resource);
          }
-         Try::Tiny::catch 
+         Try::Tiny::catch
          {
-             if(blessed($_) and $_->can('code')) {
+             if(Scalar::Util::blessed($_) and $_->can('code')) {
                  return $self->respond->exception($_);
              }
              else {
-                 my $error = '';
-                 return $self->respond->error($context->error(500));
+	         return Plack::Response->new(500);
              }
          };
     $response->finalize;
