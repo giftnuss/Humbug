@@ -1,6 +1,7 @@
   package Lair::Context;
 # **********************
 use Lair::Ground;
+use Class::Trigger;
 
 use Badger::Class
     version => '0.02',

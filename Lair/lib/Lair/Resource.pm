@@ -1,7 +1,6 @@
   package Lair::Resource;
 # ***********************
 use Lair::Ground;
-use Class::Trigger;
 
 use Badger::Class
     version => '0.01',
@@ -69,10 +68,11 @@ sub match {
         $self->{'vars'} = {%+};
         $self->{'matches'} =
             [map { substr($path, $-[$_], $+[$_] - $-[$_]) } (0..$#-)];
-        $self->call_trigger('if_matched',$path);
     }
     return $result;
 }
+
+sub if_matched { }
 
 sub error_msg
 {

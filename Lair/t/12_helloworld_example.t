@@ -4,9 +4,13 @@ use Plack::Test;
 use Plack::Util;
 use Test::More;
  
-my $app = Plack::Util::load_psgi 'example/helloworld.psgi';
+{
+  my $app = Plack::Util::load_psgi 'example/helloworld.psgi';
 
-test_psgi
+  my @controllers;
+  Lair::Context->add_trigger('use_controllers',sub {@controllers = @{$_[1]}});
+
+  test_psgi
     app => $app,
     client => sub {
         my $cb = shift;
@@ -15,9 +19,10 @@ test_psgi
                 'User-Agent' => 'Badger/0.8/Honey',
         ]);
         my $res = $cb->($req);
+        is_deeply([map{$_->prefix}@controllers],['/hello','/'],'controllers');
         is $res->code, 200,'response code';
         like $res->content, qr/Hello Badger!/,'response body';
     };
- 
+} 
 done_testing;
 

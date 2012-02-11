@@ -19,15 +19,21 @@ sub dispatch {
         sort { length($b) <=> length($a) }
         grep { substr($path,0,length($_)) eq $_ }
         keys %{$self->app->controllers};
+    $context->call_trigger('use_controllers',\@controllers);
 
     for my $controller (@controllers) {
         my $short = $controller->prefix eq '/' ? $path :
             substr($path,length($controller->prefix));
+
         for my $resource (@{$controller->resources}) {
-            if($resource->match($path)) {
-                $resource->context($context);
-                $resource->controller($controller);
-                return $resource;
+            if($resource->match($short)) {
+                eval {
+                    $resource->if_matched($short);
+                    $context->call_trigger('if_matched',$resource);
+                    $resource->context($context);
+                    $resource->controller($controller);
+                };
+                return $resource unless $@;
             }
         }
     }

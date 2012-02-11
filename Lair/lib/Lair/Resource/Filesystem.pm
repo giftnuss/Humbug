@@ -10,10 +10,10 @@ sub _default_regex {
     qr|^(?:/([^/]*))*$|
 }
 
-__PACKAGE__->add_trigger('if_matched',sub {
-    my ($self,$path) = @_;
-    $self->{'matches'} = [$path,grep { length } split('/',$path)];
-});
+sub if_matched {
+    my ($self,$chunk) = @_;
+    $self->{'matches'} = [$chunk,grep { length } split('/',$chunk)];
+}
 
 1;
 
