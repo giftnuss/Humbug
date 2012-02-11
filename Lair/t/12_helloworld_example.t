@@ -27,6 +27,14 @@ use Test::More;
         is_deeply([map{$_->prefix}@controllers],['/'],'controllers');
         is $res->code, 302,'response code';
         is $res->headers->header('Location'),'http://localhost/hello/','location header';
+
+        $req = HTTP::Request->new(
+            GET => 'http://localhost/favicon.ico', ['User-Agent' => 'Badger/0.8/Honey']);
+        $res = $cb->($req);
+        is_deeply([map{$_->prefix}@controllers],['/favicon.ico','/'],'controllers');
+        is $res->code, 200,'response code';
+        is $res->headers->header('Content-type'),'image/x-icon','content type';
+
     };
 } 
 done_testing;

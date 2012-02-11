@@ -59,7 +59,8 @@ my $redirect = Lair::Response::Redirect->new(
 
 $app->add_controller(
     $hellocontroller->add_resource($greeting),
-    $redirectcontroller->add_resource($redirect)
+    $redirectcontroller->add_resource($redirect),
+    $faviconcontroller
 );
 
 builder { $app->handler };
