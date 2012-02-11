@@ -14,20 +14,20 @@ use Badger::Class
 
 sub redirect {
   my ($self,$to,$code) = (@_,302);
-  my $redirect = Lair::Response::Redirect->new(
+  die Lair::Response::Redirect->new(
       code => $code,
-      location => $to
+      location => $to,
+      context => $self
   );
 }
 
 sub error {
   my ($self,$code,$description) = (@_,'');
-  my $error = Lair::Response::Error->new(
+  die Lair::Response::Error->new(
       code => $code,
       description => $description,
       context => $self
   );
-  die($error);
 }
 
 1;

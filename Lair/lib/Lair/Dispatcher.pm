@@ -28,10 +28,10 @@ sub dispatch {
         for my $resource (@{$controller->resources}) {
             if($resource->match($short)) {
                 eval {
-                    $resource->if_matched($short);
                     $context->call_trigger('if_matched',$resource);
                     $resource->context($context);
                     $resource->controller($controller);
+                    $resource->if_matched($short);
                 };
                 return $resource unless $@;
             }

@@ -54,8 +54,7 @@ my $greeting = Lair::Resource->new(
 );
 
 my $redirect = Lair::Response::Redirect->new(
-    regex => qr|^/.*$|,
-    to => '/hello'
+    location => '/hello/'
 );
 
 $app->add_controller(

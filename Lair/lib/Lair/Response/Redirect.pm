@@ -12,10 +12,21 @@ use Badger::Class
 
 sub _default_location { undef }
 
+sub _default_regex { qr|^/.*$| }
+
 {
   my $action = sub {
         my ($self,$response) = @_;
-        $response->redirect($self->location);
+        my $location = $self->location;
+        if(substr($location,0,1) eq '/') {
+            my $uri = $self->context->uri;
+            my $base = $uri->canonical;
+            if(my $pos = index($base,'/',length($uri->scheme)+3)) {
+                $base = substr($base,0,$pos);
+	    }
+            $location = $base . $location;
+        }
+        $response->redirect($location);
         return ();
   };
 
