@@ -66,4 +66,18 @@ Lair::Controller - bundles of one or more rsources
 
 =head1 DESCRIPTION
 
+=head2 Methods
+
+=over 4
+
+=item C<add_resource>
+
+This method is for adding resource objects. Returns the controller instance.
+
+=item C<create_resource>
+
+=back
+
+
+
 

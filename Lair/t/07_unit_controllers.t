@@ -1,5 +1,5 @@
 
-use Test::More tests => 8;
+use Test::More tests => 9;
 
 BEGIN {
     use_ok('Lair::Controller');
@@ -25,3 +25,6 @@ my $resource = $controller->create_resource(
 );
 
 isa_ok($resource,'Lair::Resource','default resource class is Lair::Resource');
+
+my $controller2 = Lair::Controller->new(prefix => 'hello');
+is($controller2->prefix,'/hello','/ is prepend when missing');

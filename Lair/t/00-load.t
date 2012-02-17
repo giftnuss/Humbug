@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 20;
+use Test::More tests => 21;
 
 use Cwd ();
 
@@ -40,3 +40,6 @@ is_deeply($dispatcher->app,$app,'dispatcher contains app object');
 my $responder = $app->respond;
 isa_ok($responder,'Lair::Responder','default responder class');
 is_deeply($responder->app,$app,'responder contains app object');
+
+my $redirect = Lair::Response::Redirect->new;
+ok(!defined($redirect->location),'default redirect location is undef');
