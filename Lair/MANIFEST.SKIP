@@ -72,4 +72,6 @@
 \bLair-[\d\.\_]+
 
 .*~$
+TODO
+media/.*
 

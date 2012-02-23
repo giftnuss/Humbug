@@ -58,6 +58,12 @@ window.onload=startwatch;
 <a href="/coding/php">
   <img src="http://macin.files.wordpress.com/2010/07/komodo-edit-6-0-0b2-icon.png">
 </a>
+<a href="/kommunikation">
+  <img src="http://www.outdoor4business.de/assets/images/kommunikation.jpg">
+</a>
+<a href="/groupware">
+  <img src="http://www.abclinuxu.cz/images/clanky/tuharsky/egroupware-schema_s.png">
+</a>
 </body>
 </html>
 __HTML__
@@ -72,6 +78,7 @@ sub _default_get {
 package main;
 use Lair;
 use Lair::Controller;
+use Lair::Controller::Favicon;
 
 use Plack::Builder;
 
@@ -81,7 +88,7 @@ my $page = Stechuhr->new(
     regex => qr|^/(?<name>[\w\s]*)/?(?<desc>.*)$|,
 );
 
-$app->add_controller($controller->add_resource($page));
+$app->add_controller($controller->add_resource($page),Lair::Controller::Favicon->new);
 
 builder { $app->handler };
 
