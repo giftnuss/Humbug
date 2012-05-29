@@ -162,11 +162,40 @@ __END__
 
 Lair - wish it grows to be a useful web framework
 
+=head1 SYNOPSIS
+
+    use Lair;
+    use Lair::Controller;
+    use Plack::Builder;
+    use Time::localtime;
+    
+    my $app = Lair->new('name' => 'web watch');
+    $app->add_controller(Lair::Controller->new(
+    	prefix => '/',
+        resources => [
+            Lair::Resource->new(
+            	regex => qr||, 
+            	get => sub { my $tm = localtime; return sprintf("%d-%02d-%02d %02d:%02d:%02d",
+            	    $tm->year+1900,$tm->month+1,$tm->mday,
+            	    $tm->hour,$tm->min,$tm->sec) },
+                returns => 'text/plain')
+    ]);
+    
+    builder { $app->handler };
+
 =head1 DESCRIPTION
 
 This project started with the idea to build a small web framework with
 the help of a Badger. Because I like the Leyland framework some ideas
 and small portions of code are borrowed from it.
+
+=head2 Class Description
+
+This class is the basic application object. It is not very flexible because
+a plack web application can hold different application. So the scope for this 
+class is not too broad.
+
+This class extends C<Lair::Base>.
 
 =head2 Read Only Accessors
 
