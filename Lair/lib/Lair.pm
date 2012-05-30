@@ -160,7 +160,7 @@ __END__
 
 =head1 NAME
 
-Lair - wish it grows to be a useful web framework
+Lair - wish it becomes a useful web framework
 
 =head1 SYNOPSIS
 
@@ -186,7 +186,7 @@ Lair - wish it grows to be a useful web framework
 =head1 DESCRIPTION
 
 This project started with the idea to build a small web framework with
-the help of a Badger. Because I like the Leyland framework some ideas
+the help of a Badger and Plack. Because I like the Leyland framework some ideas
 and small portions of code are borrowed from it.
 
 =head2 Class Description
@@ -217,23 +217,30 @@ is the current working directory.
 
 =item controllers
 
-A Hash::MultiValue object. C<$controller->prefix> is used as
-key and the controller object is one of the values.
+A Hash::MultiValue object. C<$controller-E<gt>prefix> is used as
+key and the controller objects are the values.
 
 =item hub
 
 This is a thing from Badger helping delegate to other objects.
 
+=item negotiator
+
 =item respond
 
-Usualy this accessor contains a C<Lair::Responder> object. The
-task for this object is to transform the resource or exception
-object into a plack response object.
+Usualy this accessor contains a C<Lair::Responder> object. This
+is not the response object itself, but an object responsible for
+building them from resource or exception.
 
 =back
 
-=head1 AUTHORS
+=head1 AUTHOR
+
+Sebastian Knapp writes this file
+
+=head1 ACKNOWLEDGEMENT
 
 Ido Perlmuter - Author of the original Leyland.pm code
+ 
 
-Sebastian Knapp - writes this file
+
