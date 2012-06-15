@@ -57,7 +57,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=')
 
 __END__
 
-=head NAME
+=head1 NAME
 
 Lair::Controller::Favicon - a default favicon controller
+
+=head1 SYNOPSIS
+
+   use Plack::Builder;
+   use Lair;
+   use Lair::Controller::Favicon;
+
+   my $app = Lair->new('name' => 'show lair favicon');
+   builder { $app->add_controller( Lair::Controller::Favicon->new )->handler }
+
+head1 DESCRIPTION
 

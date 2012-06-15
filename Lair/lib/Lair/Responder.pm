@@ -42,3 +42,9 @@ sub _build_response {
 
 __END__
 
+=head1 NAME
+
+Lair::Responder - Utility for turning a resource into a response
+
+=head1 SYNOPSIS
+

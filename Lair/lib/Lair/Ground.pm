@@ -18,3 +18,27 @@ sub import {
 
 1;
 
+=head1 NAME
+
+Lair::Ground - initializer for the lexical scope of a Lair file
+
+=head1 SYNOPSIS
+
+   use Lair::Ground;
+
+=head1 DESCRIPTION
+
+This modules imports the pragmas C<strict>, C<warnings>, C<utf8>
+and the features of perl 5.10.
+
+Also it requires Badger in the version 0.08.
+
+=head1 UNWRITTEN
+
+=over 4
+
+=item unimport
+
+=back
+
+

@@ -101,6 +101,7 @@ sub add_controller
     foreach my $controller (@controllers) {
         $self->controllers->add($controller->prefix,$controller);
     }
+    return $self;
 }
 
 sub handler

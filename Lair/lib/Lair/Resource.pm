@@ -109,9 +109,38 @@ Lair::Resource
 
 =back
 
+=head2 HTTP actions
+
+=over 4
+
+=item C<get>
+
+=item C<post>
+
+=item C<delete>
+
+=item C<put>
+
+=item C<any>
+
+=back
+
 =head2 Mutators
 
-...
+=over 4
+
+=item C<action> - a code ref usual set by negotiator. commonly one of
+http method subroutins is used.
+
+=item C<code> - the HTTP response code
+
+=item C<returns> - the MIME type
+
+=item C<context> - mostly the current request is used as value
+
+=item C<controller> - it is set from outside as a result of the dispatch process
+
+=back
 
 =head2 Methods
 
