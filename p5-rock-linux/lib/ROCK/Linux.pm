@@ -24,11 +24,12 @@ our ($DIR,$SCRIPTS);
 BEGIN {
    $DIR ||= $ENV{'ROCK_BASE'} || do {
      my $dn = \&File::Basename::dirname;
-     my $file = __FILE__;
-     for my $levelup (1..5) {
+     my $file = File::Spec->rel2abs(__FILE__);
+     for my $levelup (1..9) {
          $file = $dn->($file);
-         return $file if -d "$file/scripts"
+         last if -d "$file/scripts"
      }
+     $file
    };
    $SCRIPTS = "$DIR/scripts";
 
