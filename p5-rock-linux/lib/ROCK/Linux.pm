@@ -27,7 +27,7 @@ BEGIN {
      my $file = __FILE__;
      for my $levelup (1..5) {
          $file = $dn->($file);
-         return file if -d "$file/scripts"
+         return $file if -d "$file/scripts"
      }
    };
    $SCRIPTS = "$DIR/scripts";
