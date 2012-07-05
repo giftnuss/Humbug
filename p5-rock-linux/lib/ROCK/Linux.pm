@@ -19,6 +19,9 @@ our @EXPORT = qw/
     apply_cksumpatch
     download
 /;
+our @EXPORT_OK = qw/
+    newpackage_sh
+/;
 our ($DIR,$SCRIPTS);
 
 BEGIN {
@@ -37,12 +40,16 @@ BEGIN {
    my $patch = `which patch`;
    chomp $patch;
    sub PATCH { "$patch -p0" }
+   my $bash = `which bash`;
+   chomp $bash;
+   sub BASH { "$bash" }
 };
 
 sub CREATE_PKGUPDPATCH { "$SCRIPTS/Create-PkgUpdPatch" }
 sub CREATE_CKSUMPATCH { "$SCRIPTS/Create-CkSumPatch" }
 sub CREATE_COPYPATCH { "$SCRIPTS/Create-CopyPatch" }
 sub DOWNLOAD { "$SCRIPTS/Download" }
+sub NEW_PACKAGE { "$DIR/misc/archive/newpackage.sh" }
 
 sub pkg_refresh {
     my ($pkg,$version) = @_;
@@ -130,6 +137,11 @@ sub pkg_change_download {
     }
     my $write = IO::File->new($desc,"w") or die($!);
     $write->print($_) for @lines;
+}
+
+sub newpackage_sh {
+    # my ($dir,@downloads) = @_;
+    system(BASH, NEW_PACKAGE, @_)
 }
 
 1;
