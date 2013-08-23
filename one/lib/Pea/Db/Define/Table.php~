@@ -1,0 +1,31 @@
+<?php
+
+use Zend\Db\Metadata\Object\TableObject;
+
+class Table
+{
+    protected $_tableObject;
+
+    protected $_currentColumn;
+
+    public function __construct($name)
+    {
+
+    }
+
+    public function column($name,$type,$size,$options = array())
+    {
+
+        return $this;
+    }
+
+    public function seq()
+    {
+
+    }
+
+    public function pk()
+    {
+
+    }
+}

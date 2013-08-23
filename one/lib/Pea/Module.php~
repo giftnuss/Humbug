@@ -1,0 +1,13 @@
+<?php
+
+namespace Pea;
+
+class Module
+{
+    private static $_ns;
+
+    public static function register($namespace,$dir)
+    {
+
+    }
+}

@@ -1,0 +1,20 @@
+<?php
+
+namespace Zxd;
+
+class Module
+{
+    public function getAutoloaderConfig()
+    {
+        $path = explode('\\',get_class($this));
+        $ns = $path[0];
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    $ns => __DIR__ . '/src/' . $ns
+                ),
+            ),
+        );
+    }
+
+}

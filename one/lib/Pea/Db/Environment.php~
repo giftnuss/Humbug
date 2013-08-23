@@ -1,0 +1,14 @@
+<?php
+
+namespace Pea\Db;
+
+use Pea\Db\Starter;
+
+interface Environment
+{
+    public function getName();
+    
+    public function initialize( Starter $start = null );
+    
+    public function addDb( $name, $config );
+}

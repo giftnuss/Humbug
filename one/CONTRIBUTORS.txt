@@ -1,0 +1,4 @@
+copyleft from Sebastian B. Knapp except original ZF2-Starter-Module
+with copyright by Zend Technologies USA, Inc.
+
+
