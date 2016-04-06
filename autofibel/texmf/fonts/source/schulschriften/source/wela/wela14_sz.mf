@@ -1,0 +1,571 @@
+% Lateinische Ausgangsschrift (LA) wela
+% Walter Entenmann
+% 16.10.2011
+% 14.11.2014: Aenderungen
+%             1. 3/4 hohe Ziffern 0-9
+%             2. 3/4 hohe Zeichen ? und !
+%             3. Einheitliche Sonderzeichen 
+%                # % & § $ @ / * euro
+%                franz < > << >>
+%                Bindestrich/Trennstrich  -
+%                -- --- + < > =
+
+% #
+beginchar("#",35ut#,Ht#,0);
+  pickup wela_pen;
+  p:=(0,0)--(0,Ht);
+  draw p slanted 0.176 shifted (10ut,0);
+  draw p slanted 0.176 shifted (20ut,0);
+  q:=((0,0)--(26ut,0)) shifted (2ut,0);
+  draw q shifted(0,Ht/3) slanted 0.176;
+  draw q shifted(0,2Ht/3) slanted 0.176;
+endchar;
+
+% §
+  beginchar(oct"237",43.333ut#,Ht#,dt#);
+  pickup wela_pen;
+sep:=10ut; breit:=20ut;
+p := ((8ut,20ut){curl 10}..(0ut,30ut){left}..(-breit/2,22ut){down}..
+  (breit/2,-2.5ut){down}..{-1,2/3}(2ut,-11ut)) scaled ((Ht+dt)/60ut);
+  draw p shifted (sep+breit*0.583,ht/2);
+  draw p rotated 180 shifted (sep+breit*0.583,ht/2);
+  endchar;
+  
+% *
+beginchar("*",30ut#,Ht#,0);
+  pickup wela_pen;
+  p:= (-ht/2,0)--(ht/2,0);
+  draw p rotated 90 shifted (15ut,1.5ht);
+  draw p rotated 30 shifted (15ut,1.5ht);
+  draw p rotated -30 shifted (15ut,1.5ht);
+endchar;
+
+% Prozentzeichen (%)
+beginchar("%",40ut#,Ht#,0);
+  pickup wela_pen;
+  q := (-23.6ut,0)--(23.6ut,0);
+  breit:=12.5ut;hoch:=17.5ut;
+  p := (breit/2,0){up}..(0,hoch/2){left}..(-breit/2,0){down}..(0,-hoch/2){right}..{up}(breit/2,0);
+  x0:=whatever;y0:=whatever;
+  z0=(directionpoint (-1,2) of (subpath (0,1) of p)) shifted (7.5ut+breit/2,Ht-hoch/2);
+  draw p shifted (7.5ut+breit/2,Ht-hoch/2);
+  draw p shifted (7.5ut+25ut-breit/2,hoch/2);
+  draw q rotated 58 shifted (w/2,h/2);
+  draw z0{1,-2}..{dir 58}(7.5ut+25ut,Ht);
+endchar;
+
+% &
+  beginchar("&",40ut#,Ht#,0);
+  pickup wela_pen;
+  p := (22.5ut,12.5ut)..tension 1.2..(7.5ut,0){left}..(0,8ut){up}..
+  %(8.167ut,21ut){3,2}..
+  tension 1.2..(17ut,34.5ut){up}..(11.5ut,Ht){left}..(4ut,30ut){down}..{2,-3}(8.167ut,21ut)--(22.5ut,0);
+  draw p shifted (10ut,0);
+  endchar;
+
+% $
+beginchar("$",30ut#,Ht#,0);
+  pickup wela_pen;
+  draw halfcircle xscaled 20ut yscaled 20ut shifted (15ut,30ut);
+   draw (halfcircle rotated 180 xscaled 20ut yscaled 20ut) shifted (15ut,10ut);
+   draw ((-10ut,10ut){down}..{down}(10ut,-10ut)) shifted (15ut,ht);
+   draw ((0,ht+2.5ut)--(0,-ht-2.5ut)) shifted (15ut,ht);
+endchar;
+
+% "+"
+beginchar("+",30ut#,22.5ut#,0);
+  path p;
+  pickup wela_pen;
+  z0=(15ut,hmath);
+  z1=(0ut,10ut);
+  z2=(0ut,-10ut);
+  p := z1--z2;
+  draw p   shifted z0 ;
+  draw p   rotated 90 shifted z0 ;
+  labels(range 0 thru 2); 
+endchar;
+
+% ASCII Bindestrich oct"055" (OT1: auch Trennstrich)
+beginchar("-",27.5ut#,ht#,0);
+  pickup wela_pen;
+  draw ((0,0)--(12.5ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% T1: Trennstrich
+beginchar(oct"177",27.5ut#,ht#,0);
+  pickup wela_pen;
+  draw ((0,0)--(12.5ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% "/" 
+beginchar("/",25ut#,Ht#,0);
+  pickup wela_pen;
+draw ((5ut,0)--(20ut,Ht));
+endchar;
+
+% ">" 
+beginchar(">",30ut#,Ht#,0);
+  path p;
+  pickup wela_pen;
+p:=(0,0)--(20ut,0);
+draw p rotated 30 shifted (6.33ut,hmath);
+  draw p rotated -30 shifted (6.33ut,hmath);
+endchar;
+
+% "=" 
+beginchar("=",30ut#,ht#,0);
+    pickup wela_pen;
+  draw((0,0)--(20ut,0)) shifted (5ut,hmath-2.5ut);
+  draw((0,0)--(20ut,0)) shifted (5ut,hmath+2.5ut);
+endchar;
+
+% "<" 
+beginchar("<",30ut#,Ht#,0);
+  path p;
+  pickup wela_pen;
+p:=(0,0)--(-20ut,0);
+draw p rotated 30 shifted (23.66ut,hmath);
+  draw p rotated -30 shifted (23.66ut,hmath);
+endchar;
+
+% oct"025" Bis-Strich --, Gedankenstrich 
+beginchar(oct"025",30ut#,ht#,0);
+  pickup wela_pen;
+draw ((0,0)--(20ut,0)) shifted (5ut,hdash);
+endchar;
+
+% engl. Gedankenstrich ---
+beginchar(oct"026",45ut#,ht#,0);
+  pickup wela_pen;
+draw ((0,0)--(30ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% oct"023" franz. Anfz. <<
+beginchar(oct"023",32.5ut#,ht#,0);
+  path p, q;
+  pickup wela_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+  z4=(6,1);
+  z5=(7.5ut,ht/2);
+z6=(15ut,ht/2);
+  p := (z1{z3}..z2) rotated 45;
+    q := (z1{z4}..z2) rotated -45;
+  draw p shifted z5  ;
+  draw p shifted z6 ;
+    draw q shifted z5 ;
+  draw q shifted z6 ;
+  labels(range 1 thru 6);
+endchar;  
+
+% oct"024" franz. Anfz. >>
+beginchar(oct"024",32.5ut#,ht#,0);
+  path p, q;
+  pickup wela_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+    z4=(6,1);
+  z5=(17.5ut,ht/2);
+  z6=(25ut,ht/2);
+
+  p := (z1{z4}..z2) rotated 135;
+    q := (z1{z3}..z2) rotated -135;
+  draw p shifted z5 ;
+  draw p shifted z6 ;
+    draw q shifted z5 ;
+  draw q shifted z6 ;
+  labels(range 1 thru 6);
+endchar;  
+
+% oct"016" franz. Anfz. <
+beginchar(oct"016",25ut#,ht#,0);
+  path p, q;
+  pickup wela_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+  z4=(6,1);
+  z5=(7.5ut,ht/2);
+  p := (z1{z3}..z2) rotated 45;
+    q := (z1{z4}..z2) rotated -45;
+  draw p shifted z5  ;
+    draw q shifted z5 ;
+  labels(range 1 thru 5);
+endchar;  
+
+% oct"017" franz. Anfz. >
+beginchar(oct"017",25ut#,ht#,0);
+  path p, q;
+  pickup wela_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+    z4=(6,1);
+  z5=(17.5ut,ht/2);
+  p := (z1{z4}..z2) rotated 135;
+    q := (z1{z3}..z2) rotated -135;
+  draw p shifted z5 ;
+    draw q shifted z5 ;
+  labels(range 1 thru 5);
+endchar;  
+
+% "@":
+beginchar("@",50ut#,Ht#,0);
+  pickup wela_pen;
+sep:=10ut;gap:=8ut;
+draw (superellipse((a,0),(0,b),(-a,0),(0,-b),sigma)) shifted (gap+a+sep,ht);
+draw ((0,ht)--(0,5ut){down}..(2ut,0){right}..tension 1.5..(gap,ht/2){up}..
+  (-a,3ht/2){left}..(-2*a-gap,ht/2){down}..
+  (-a,-ht/2){right}..(7.5ut,-5ut)) shifted (2*a+gap+sep,ht/2);
+endchar;
+
+% Euro (\symbol{160})
+beginchar(oct"240",47.5ut#,Ht#,0);
+  pickup wela_pen;
+  sep:=7.5ut; gap:=7.5ut;
+    draw (halfcircle rotated 90) xscaled 30ut yscaled Ht shifted (15ut+gap+sep,Ht/2);
+  draw ((0,0){right}..(7.5ut,-3ut)) shifted (15ut+gap+sep,Ht);
+  draw ((0,0){right}..(7.5ut,3ut)) shifted (15ut+gap+sep,0);
+  draw (((-25ut,2.5ut)--(0,2.5ut))  shifted (15ut+gap+sep,ht)) slanted 0.25;
+  draw (((-25ut,-2.5ut)--(0,-2.5ut)) shifted (15ut+gap+sep,ht)) slanted 0.25;
+endchar;
+
+% Aufstrich am Wortanfang 
+beginchar(oct"200",11.446ut#,ht#,0);
+  pickup wela_pen;
+  draw ((0,0)--((ht-Delta)/m,ht-Delta));
+  xpos:=(ht-Delta)/m;
+  zeigen;
+endchar;
+
+% Verbindungsstrich normal
+beginchar(oct"005",13.446ut#,ht#,0);
+  pickup wela_pen;
+  draw ((0,0){right}..tension2 and 3.5..{1,m}(rho+(ht-Delta)/m,ht-Delta));
+  xpos:=rho+(ht-Delta)/m;
+  zeigen;
+endchar;
+
+ % "e" mit Aufstrich am Wortanfang 
+beginchar(oct"030",12.267ut#,ht#,0);
+  pickup wela_pen;
+%      xpos:=0;
+%     draw ((0,0)--(0.5ht/m,ht/2)) shifted (xpos,0);
+%     xpos:=xpos+0.5ht/m;
+%     latin_e_form(xpos);
+  xpos:=0;
+  draw ((0,0)..(ebreite+0.5ht/m,ht-ebreite*ef){up})  shifted (xpos,0);
+  xpos:=xpos+0.5ht/m;
+   latin_e_form(xpos);
+%  xpos:=ebreite*(1-ef)+0.5ht/m;
+     zeigen;
+endchar;
+
+% Endstueck gerade
+beginchar(oct"007",3.5ut#,ht#,0);
+    pickup wela_pen;
+draw ((0,0)--(3.5ut,m'*3.5ut));
+  endchar;
+
+% Endstueck  rund
+  beginchar(oct"006",3.5ut#,ht#,0);
+      pickup wela_pen;
+draw ((0,0){right}..{1,m}(3.5ut,2.5ut));
+  endchar;
+
+% Verlaengerungsstriche mit e,
+% 8ut
+  beginchar(oct"000",22.267ut#,ht#,0);
+     pickup wela_pen;
+     xpos:=0;
+     draw ((0,0){right}..{up}(8ut+rho+0.5ht/m+ebreite,ht-ebreite*ef)) shifted (xpos,0);
+     xpos:=xpos+8ut+rho+0.5ht/m;
+     latin_e_form(xpos);
+     zeigen;
+endchar;
+
+% 10ut
+  beginchar(oct"001",24.267ut#,ht#,0);
+     pickup wela_pen;
+     xpos:=0;
+     draw ((0,0){right}..{up}(10ut+rho+0.5ht/m+ebreite,ht-ebreite*ef)) shifted (xpos,0);
+     xpos:=xpos+10ut+rho+0.5ht/m;
+     latin_e_form(xpos);
+     zeigen;
+endchar;
+
+% 12ut
+  beginchar(oct"002",26.267ut#,ht#,0);
+     pickup wela_pen;
+     xpos:=0;
+     draw ((0,0){right}..{up}(12ut+rho+0.5ht/m+ebreite,ht-ebreite*ef)) shifted (xpos,0);
+     xpos:=xpos+12ut+rho+0.5ht/m;
+     latin_e_form(xpos);
+     zeigen;
+endchar;
+
+% 14ut
+  beginchar(oct"003",28.267ut#,ht#,0);
+     pickup wela_pen;
+     xpos:=0;
+     draw ((0,0){right}..{up}(14ut+rho+0.5ht/m+ebreite,ht-ebreite*ef)) shifted (xpos,0);
+      xpos:=xpos+14ut+rho+0.5ht/m;
+      latin_e_form(xpos);
+      zeigen;
+endchar;
+
+% 16ut
+  beginchar(oct"004",30.267ut#,ht#,0);
+     pickup wela_pen;
+     xpos:=0;
+     draw ((0,0){right}..{up}(16ut+rho+0.5ht/m+ebreite,ht-ebreite*ef)) shifted (xpos,0);
+      xpos:=xpos+16ut+rho+0.5ht/m;
+      latin_e_form(xpos);
+      zeigen;
+   endchar;
+
+% Aufstriche zu spitzen Buchstaben:
+% normal
+   beginchar(oct"035",12.5ut#,ht#,0);
+  pickup wela_pen;
+  draw ((0,0){right}..tension 1.2..{up}(12.5ut,ht));
+endchar;
+
+% nach Unterlaengen
+   beginchar(oct"036",12.5ut#,ht#,0);
+  pickup wela_pen;
+draw ((0,0){1,m'}..tension 1..{up}(12.5ut,ht));
+endchar;
+
+% Lange Aufstriche vor spitzen BSt.
+% 18ut
+  beginchar(oct"021",18ut#,ht#,0);
+     pickup wela_pen;
+axe:=18ut; sigm:=0.71;
+draw ((0,0){right}..{axe,ht}(sigm*axe,(1-sigm)*ht)..{up}(axe,ht));
+endchar;
+
+% 21ut
+  beginchar(oct"031",21ut#,ht#,0);
+     pickup wela_pen;
+ axe:=21ut; sigm:=0.72;
+      draw ((0,0){right}..{axe,ht}(sigm*axe,(1-sigm)*ht)..{up}(axe,ht));
+endchar;
+
+% 25ut
+  beginchar(oct"032",25ut#,ht#,0);
+     pickup wela_pen;
+ axe:=25ut; sigm:=0.73;
+       draw ((0,0){right}..{axe,ht}(sigm*axe,(1-sigm)*ht)..{up}(axe,ht));
+endchar;
+
+% 29ut
+  beginchar(oct"033",29ut#,ht#,0);
+     pickup wela_pen;
+ axe:=29ut; sigm:=0.74;
+	draw ((0,0){right}..{axe,ht}(sigm*axe,(1-sigm)*ht)..{up}(axe,ht));
+endchar;
+
+% 33ut
+  beginchar(oct"034",33ut#,ht#,0);
+     pickup wela_pen;
+ axe:=33ut; sigm:=0.75;
+     draw ((0,0){right}..{axe,ht}(sigm*axe,(1-sigm)*ht)..{up}(axe,ht));
+      endchar;
+      
+% fuer oben verbundene Buchstaben
+% von b,o,v,w
+      beginchar(oct"027",14.222ut#,ht#,0);
+	     pickup wela_pen;
+	     draw ((0,ht){1,-mfahne}..tension 1.2..{up}(bfahne,ht));
+	     xpos:=bfahne;
+	     zeigen;
+  endchar;
+  
+% von r
+    beginchar(oct"037",12ut#,ht#,0);
+           pickup wela_pen;
+	   draw ((0,ht){down}..tension 1.2..{up}(rfahne,ht));
+	   xpos:=rfahne;
+	   zeigen;
+  endchar;
+  
+
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ziffern und Satzzeichen
+%
+% Ziffern
+beginchar("0",Wz#,Hz#,0);
+  pickup wela_pen;
+  draw (fullcircle xscaled w' yscaled h) shifted (w/2,h/2);
+  draw ((w/2,h){down}..(s'+w',h));
+endchar;
+
+beginchar("1",Wz#,Hz#,0);
+  pickup wela_pen;
+draw ((-w'/2,0.6*h)--(0,h)--(0,0))  shifted (w/2+s'/2,0);
+endchar;
+
+beginchar("2",Wz#,Hz#,0);
+  pickup wela_pen;
+draw ((0,h-r)..(r,h){right}..(2r,h-r){down}..tension2 and 3..{-1,-1}(0,0))  shifted (s',0);
+draw ((0,0){1,1.5}..(0.75w',0){right}..(w',D)) shifted (s',0);
+endchar;
+
+beginchar("3",Wz#,Hz#,0);
+    pickup wela_pen;
+    draw ((w'/8,7h/8)..(w'/2,h){right}..(7w'/8,0.75h){down}..top(w'/2,0.5h){left})
+ shifted (s',0);
+    draw (top(w'/2,0.5h){right}..tension1..(w',w'/2){down}..(w'/2,0){left}..(0,w'/4)) shifted (s',0);
+endchar;
+
+beginchar("4",Wz#,Hz#,0);
+  pickup wela_pen;
+draw ((w'/2,h)--(0,h/4)--(w',h/4)) shifted (s',0);
+draw ((0.75w',h/2)--(0.75w',0)) shifted (s',0);
+endchar;
+
+beginchar("5",Wz#,Hz#,0);
+  pickup wela_pen;
+draw ((0.8w',h){dir190}..{dir170}(0,h)--(0,5h/8-dd){1,1}..(w'/2,5h/8){right}..(w',2.5h/8){down}..(w'/2,0){left}..(0,h/8)) shifted (s',0);
+endchar;
+
+beginchar("6",Wz#,Hz#,0);
+    pickup wela_pen;
+draw ((0.8w',h){left}..tension0.8..(0,3h/8){down}..(w'/2,0){right}..(w',3h/8){up}..(w'/2,5h/8){left}..(0,3h/8){down}) shifted (s',0);
+endchar;
+
+beginchar("7",Wz#,Hz#,0);
+  pickup wela_pen;
+  xpos:=0;
+bogen(h-D,h,h,w',0.3,75,angle(1,2.67),1,1,xpos+s');
+draw ((w',h)--(0.4w',0)) shifted (s',0);
+quer(bot(h/2),xpos-7.5ut)
+endchar;
+
+beginchar("8",Wz#,Hz#,0);
+  pickup wela_pen;
+draw ((0,0.5625h){1,0.15}..(3w'/8,h-3w'/8){up}..(0,h){left}..(-3w'/8,h-3w'/8){down}..(0,0.5625h){1,-0.15}..
+  (w'/2,h/4){down}..(0,0){left}..(-w'/2,h/4){up}..{1,0.15}(0,0.5625h)) shifted (s'+w'/2,0);
+draw ((w/2,h){down}..(s'+w'-dd/2,h));
+endchar;
+
+beginchar("9",Wz#,Hz#,0);
+  pickup wela_pen;
+draw (fullcircle xscaled w' yscaled (5h/8)) shifted (w/2,0.6875h);
+draw ((w',h)--(w',h/2){down}..(w'/2,0){left}..(w'/8,h/16)) shifted (s',0);
+endchar;
+
+
+% Satzzeichen
+% ASCII-Zeichen
+% !
+beginchar("!",20ut#,Hz#,0);
+  pickup wela_pen;
+  stamm(Hz,10ut,10ut);
+  pickup wela_pen_thick;
+  drawdot (0,0) shifted (10ut,0);
+endchar;
+
+% ", oct"042", ASCII-Doppelapostroph, hier identisch mit oct"020", dt. Anfz. o.
+beginchar(oct"042",20ut#,Ht#,0);
+  pickup wela_pen;
+  komma(Ht,7.5ut);
+  komma(Ht,12.5ut);
+endchar;
+
+% ' (Apostroph)
+beginchar("'",15ut#,Ht#,0);
+  pickup wela_pen;
+komma(Ht,7.5ut);
+endchar;
+
+% "("
+beginchar("(",20ut#,Ht#,0);
+  pickup wela_pen;
+draw ((5ut,Ht)..(0,ht){down}..(5ut,0)) shifted (10ut,0);
+endchar;
+
+% ")"
+beginchar(")",20ut#,Ht#,0);
+  pickup wela_pen;
+draw ((5ut,Ht)..(10ut,ht){down}..(5ut,0));
+endchar;
+
+% "," Komma
+beginchar(",",20ut#,ht#,dt#);
+  pickup wela_pen;
+komma(2.5ut,10ut);
+endchar;
+
+% "." Punkt
+beginchar(".",20ut#,ht#,0);
+  pickup wela_pen_thick;
+  drawdot top(0,0) shifted (10ut,0);
+endchar;
+
+% ":" Doppelpunkt
+beginchar(":",20ut#,ht#,0);
+  pickup wela_pen_thick;
+  drawdot top(0,0) shifted (10ut,0);
+  drawdot (0,0) shifted (10ut,15ut);
+endchar;
+
+% ";" Strichpunkt
+beginchar(";",20ut#,ht#,dt#);
+  pickup wela_pen;
+komma(2.5ut,10ut);
+  pickup wela_pen_thick;
+  drawdot (0,0) shifted (10ut,15ut);
+endchar;
+
+% ?
+beginchar("?",30ut#,Hz#,0);
+  radi:=5ut;
+  pickup wela_pen;
+  z1=(-1.5radi,h-0.5radi);
+  z2=(0,h);
+  z3=(1.5radi,h-radi);
+  z5=(-1.5radi,2.5radi);
+  z6=(0,1.5radi);
+  z7=(1.5radi,2radi);
+  p := z1..z2{right}..z3{down}..{down}z5..z6{right}..z7;
+  draw p shifted (15ut,0);
+  pickup wela_pen_thick;
+  drawdot top(0,0) shifted (15ut,0);
+endchar;
+
+% spezielle Sonderzeichen (ec-Kodierung(
+% oct"020", wie ASCII " (oct"042"), dt. Anfuehrungszeichen oben
+beginchar(oct"020",20ut#,Ht#,0);
+  pickup wela_pen;
+  komma(Ht,7.5ut);
+  komma(Ht,12.5ut);
+endchar;
+
+% oct"022", dt. Anfuehrungszeichen unten
+beginchar(oct"022",25ut#,ht#,dt#);
+  pickup wela_pen;
+  komma(2.5ut,10ut);
+  komma(2.5ut,15ut);
+endchar;
+
+% oct"133" [
+beginchar("[",25ut#,Ht#,0);
+  pickup wela_pen;
+draw ((5ut,Ht)--(0,Ht)--(0,0)--(5ut,0)) shifted (10ut,0);
+endchar;
+
+% oct"135" ]
+beginchar("]",25ut#,Ht#,0);
+  pickup wela_pen;
+draw ((5ut,Ht)--(10ut,Ht)--(10ut,0)--(5ut,0)) shifted (5ut,0);
+endchar;
+
+
+
+%%%%%%%%%%%%%%%%%%%% End of File %%%%%%%%%%%%%%%%%

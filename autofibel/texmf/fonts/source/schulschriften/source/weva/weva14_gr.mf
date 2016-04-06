@@ -1,0 +1,260 @@
+% Vereinfachte Ausgangsschrift weva
+% Walter Entenmann
+% 11.09.2011
+% 13.09.2012
+% Grossbuchstaben
+%
+
+beginchar("A",44.031ut#,Ht#,0);
+  pickup weva_pen;
+ A_char;
+zeigen; endchar;
+
+beginchar("B",25ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(Ht,Ht,sporn,xpos);
+    gerade(0,0,sporn,xpos-sporn);
+  stamm(Ht,0,xpos);
+  gerade(Ht,Ht,flach,xpos);
+   Bauch(Ht,ht,16ut-flach,xpos);
+  gerade(ht,ht,Flach,xpos-flach);
+   Bauch(ht,0,19ut-Flach,xpos);
+   gerade(0,0,Flach,xpos-Flach);
+   xpos:=sporn+19ut;
+zeigen; endchar;
+
+beginchar("C",30.625ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    C_form(xpos);
+    schweif(0,ht-Delta,20ut-Delta/m,0,angle(1,m),1.5,xpos);
+zeigen; endchar;
+
+beginchar("D",31ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(Ht,Ht,sporn,xpos);
+    stamm(Ht,0,xpos);
+    gerade(0,0,sporn,xpos-sporn);
+    gerade(Ht,Ht,flach,xpos);
+    Bauch(Ht,0,25ut-flach,xpos);
+    gerade(0,0,flach,xpos-flach);
+    xpos:=sporn+25ut;
+zeigen; endchar;
+
+beginchar("E",30.625ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    E_form(xpos);
+schweif(0,ht-Delta,20ut-Delta/m,0,angle(1,m),1.2,xpos);
+zeigen; endchar;
+
+beginchar("F",27.5ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(Ht,Ht,2*A,xpos);
+    stamm(Ht,0,xpos-2*A+7.5ut);
+    schweif(ht-2ut,ht-Delta,25ut-Delta/m,-20,angle(1,m),2,xpos-5ut);
+    xpos:=2*A;
+zeigen; endchar;
+
+beginchar("G",38.125ut#,Ht#,dt#);
+  pickup weva_pen;
+  xpos:=0;
+    G_form(xpos);
+    stamm(ht,0,xpos);
+    uschl(xpos);
+    strich(xpos);
+zeigen; endchar;
+
+beginchar("H",42.5ut#,Ht#,0);
+  pickup weva_pen;
+   xpos:=0;  
+    stamm(Ht,0,xpos+5ut);
+    stamm(Ht,0,xpos+H_breit);
+    schweif(ht-5ut,ht-Delta,H_breit+5ut+15ut,-45,angle(1,m),2,xpos-H_breit-5ut);
+zeigen; endchar;
+
+beginchar("I",17.5ut#,Ht#,0);
+  pickup weva_pen;
+   xpos:=0;  
+   gerade(Ht,Ht,15ut,xpos+2.5ut);
+   stamm(Ht,10ut,xpos);
+   bogen(10ut,0,3ut,-17.5ut,0.57,-90,140,1,1,xpos);
+   xpos:=17.5ut;
+zeigen; endchar;
+
+beginchar("J",28.125ut#,Ht#,dt#); 
+  pickup weva_pen;
+    xpos:=0;
+     gerade(Ht,Ht,15ut,xpos);
+   stamm(Ht,0,xpos);
+   uschl(xpos);
+   strich(xpos);
+zeigen; endchar;
+
+beginchar("K",34.125ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    stamm(Ht,0,xpos);
+    gerade(ht,Ht,ht,xpos);
+bogen(ht,0,ht-Delta,35ut-Delta/m,0.57,-45,angle(1,m),3,3,xpos-ht+1ut);
+zeigen; endchar;
+
+beginchar("L",34.125ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    stamm(Ht-10ut,10ut,xpos+2.5ut);
+    schweif(Ht-10ut,Ht,flach,90,angle(1,0.4),1,xpos);
+    schweif(0,10ut,2.5ut,angle(H_breit,Ht),90,1,xpos-flach-2.5ut);
+    welle(ht,xpos-2.5ut);
+    schweif(0,ht-Delta,16ut-Delta/m,0,angle(1,m),2.5,xpos);
+zeigen; endchar;
+
+beginchar("M",62.375ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+      schweif(0,yauf,mxauf,0,angle(Ht/2,Ht),1,xpos);
+  gerade(yauf,Ht,Ht/2-yauf/2,xpos);
+  stamm(Ht,0,xpos);
+  gerade(0,Ht,Ht/2,xpos);
+  stamm(Ht,r,xpos);
+  stock(xpos);
+zeigen; endchar;
+
+beginchar("N",30ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    schweif(0,5ut,2.5ut,45,90,1,xpos);
+    stamm(Ht,5ut,xpos);
+    gerade(Ht,0,2*C,xpos);
+    stamm(Ht-5ut,0,xpos);
+    schweif(Ht-5ut,Ht,2.5ut,90,45,1,xpos);
+zeigen; endchar;
+
+beginchar("O",27.5ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    Oval(xpos);
+zeigen; endchar;
+
+beginchar("P",25ut#,Ht#,0);
+  pickup weva_pen;
+   xpos:=0;
+   gerade(Ht,Ht,sporn,xpos);
+   stamm(Ht,0,xpos);
+     gerade(Ht,Ht,Flach,xpos);
+   Bauch(Ht,ht,19ut-Flach,xpos);
+   gerade(ht,ht,Flach,xpos-Flach);
+   xpos:=sporn+19ut;
+zeigen; endchar;
+
+beginchar("Q",41.875ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    Oval(xpos);
+    bogen(12.5ut,0,ht-Delta,30ut-Delta/m,0.42,-45,angle(1,m),1.5,2.5,xpos-A);
+zeigen; endchar;
+
+beginchar("R",42.625ut#,Ht#,0);
+  pickup weva_pen;
+   xpos:=0;
+     gerade(Ht,Ht,sporn,xpos);
+     stamm(Ht,0,xpos);
+          gerade(Ht,Ht,flach,xpos);
+   Bauch(Ht,ht,16ut-flach,xpos);
+   gerade(ht,ht,flach,xpos-flach);
+   bogen(ht,0,ht-Delta,37.5ut-Delta/m,0.57,-45,angle(1,m),3,3,xpos-flach+1ut);
+zeigen; endchar;
+
+beginchar("S",21ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    S_char(xpos);
+zeigen; endchar;
+
+beginchar("T",27.5ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(Ht,Ht,2*A,xpos);
+    stamm(Ht,0,xpos-A);
+    xpos:=2*A;
+zeigen; endchar;
+
+beginchar("U",43.125ut#,Ht#,0);
+  pickup weva_pen;
+ U_char;
+zeigen; endchar;
+
+beginchar("V",32.25ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    stamm(Ht,0,xpos);
+    gerade(0,Ht-5ut,V_breit-5ut/m,xpos);
+    schweif(Ht-5ut,Ht,flach,angle(1,m),15,1,xpos);
+zeigen; endchar;
+
+beginchar("W",48.2ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    stamm(Ht,0,xpos);
+    gerade(0,Ht,H_breit,xpos);
+    stamm(Ht,0,xpos);
+    gerade(0,Ht-5ut,19.7ut,xpos);
+    schweif(Ht-5ut,Ht,flach,angle(H_breit,Ht),angle(1,0.5),1,xpos);
+zeigen; endchar;
+
+beginchar("X",42.125ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(0,Ht,2*A,xpos);
+    gerade(Ht,ht,11.25ut,xpos-2*A+2.5ut);
+    bogen(ht,0,ht-Delta,30.25ut-Delta/m,0.465,angle(11.25ut,-ht),angle(1,m),3.5,3,xpos);
+zeigen; endchar;
+
+beginchar("Y",38.125ut#,Ht#,dt#);
+  pickup weva_pen;
+    xpos:=0;
+    stamm(Ht,ht/2,xpos);
+    bogen(ht/2,0,1.5*ht,2*C,0.375,-90,90,1,1.2,xpos);
+    stamm(Ht,0,xpos);
+    uschl(xpos);
+    strich(xpos);
+zeigen; endchar;
+
+beginchar("Z",36.625ut#,Ht#,0);
+  pickup weva_pen;
+    xpos:=0;
+    gerade(0,Ht,H_breit,xpos);
+    gerade(Ht,Ht,-H_breit,xpos);
+    welle(H_breit,xpos);
+    schweif(0,ht-Delta,16ut-Delta/m,0,angle(1,m),2.5,xpos);
+
+zeigen; endchar;
+
+% Umlaute
+%\"A
+beginchar(oct"304",44.031ut#,45ut#,0);
+  pickup weva_pen;
+  xpos:=0;
+    Umlaut(25ut,xpos);
+A_char;
+zeigen; endchar;
+  
+%\"O
+beginchar(oct"326",27.5ut#,45ut#,0);
+  pickup weva_pen;
+xpos:=0;
+Umlaut(10ut,xpos);
+Oval(xpos);
+zeigen; endchar;
+ 
+%\"U
+beginchar(oct"334",43.125ut#,45ut#,0);
+  pickup weva_pen;
+  xpos:=0;
+Umlaut(10ut,xpos);
+U_char;
+zeigen; endchar;
+%%%%%%%%%%%%%%%%%% End of File %%%%%%%%%%%%%%%%%%

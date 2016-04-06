@@ -1,0 +1,9 @@
+% Schulausgangsschrift (SAS)  wesa
+% Parameter-File Buchstabenformen am Wortende
+% Walter Entenmann
+% 23.10.2011
+
+wortende:=true;
+input wesa14_gr;
+input wesa14_kl;
+%%%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%

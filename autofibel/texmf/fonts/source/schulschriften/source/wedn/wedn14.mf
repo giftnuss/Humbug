@@ -1,0 +1,73 @@
+% Deutsche  Normalschrift (DN) wedn
+% Walter Entenmann
+% 12.09.2012
+%
+
+%%%%%%%%%%%%%%% wedn Metafont-Hauptfile %%%%%%%%%%%%%%%%%%
+font_identifier:= "WEDN";
+font_size := 14pt#;
+font_coding_scheme:="WEDN text";
+
+mode_setup;
+
+% Vereinbarungen:
+boolean wortende;
+path p, q;
+
+% sharp Variables:
+% unit_width
+ut#:=0.2pt#;
+
+% Linienabstand 2:3:2
+ht#:=30ut#; % x-Hoehe
+dt#:=2*ht#/3; % Unterlaenge, Oberlaenge
+Ht#:=ht#+dt#;% Versalhoehe
+Hz#:=ht#+dt#/2; % Ziffernhoehe
+Wz#:=(35/40)*Hz#; % Ziffernbreite
+
+% Umrechnung in Pixel-Groessen
+define_pixels(ut,Ht,ht,dt,Hz,Wz);
+
+% Federn:
+if unknown fetter: fetter:=0; fi
+fetter:=sqrt(2)**fetter;
+% runde Feder (Redisfeder)
+  pickup pencircle scaled (fetter*1.4*ut);
+wedn_pen:=savepen;
+% fuer Punkte etc.
+if fetter>3:  pickup pencircle scaled 7.8ut;
+elseif fetter>2.5:  pickup pencircle scaled 5.5ut;
+  else:
+    pickup pencircle scaled 4ut;
+    fi
+wedn_pen_thick := savepen;
+%
+% Current Transformation, slanted
+if unknown slant: slant:=0; else: currenttransform:=identity slanted slant; fi
+
+% Eingabe der Program-Files:
+wortende:=false;
+% Parameter- und Makrodefinitionen
+input wedn14_def;
+% Grossbuchstaben
+input wedn14_gr;
+% Kleinbuchstaben
+ input wedn14_kl;
+% Sonderzeichen
+ input wedn14_sz;
+% Wortende
+input wedn14_end;
+
+ % Abstandsmasse:
+ font_quad  14pt#;% 1em
+ font_x_height := 6pt#; % 1ex
+font_normal_space  6pt#;% Wortzwischenraum
+font_normal_stretch  3pt#;
+font_normal_shrink  2pt#;
+
+boundarychar:=oct"040"; % space
+
+% Ligaturtabellen
+input wedn14_lig;
+end
+%%%%%%%%%%%%%% Ende wedn Metafont-Hauptfile  (Driver-File) %%%%%%

@@ -1,0 +1,73 @@
+% Schulausgangsschrift (SAS) wesa
+% Walter Entenmann
+% 23.10.2011
+%
+
+%%%%%%%%%%%%%%% wesa Metafont-Hauptfile %%%%%%%%%%%%%%%%%%
+font_identifier:= "WESA";
+font_size := 14pt#;
+font_coding_scheme:="WESA text";
+
+mode_setup;
+
+% Vereinbarungen:
+boolean wortende;
+path p, q;
+
+% sharp Variables:
+% unit_width
+ut#:=0.233pt#;
+
+% Linienabstand 1:1:1
+ht#:=20ut#; % x-Hoehe
+dt#:=ht#; % Unterlaenge, Oberlaenge
+Ht#:=ht#+dt#;% Versalhoehe
+Hz#:=ht#+0.5dt#; % Ziffernhoehe
+Wz#:=30ut#; % Ziffernbreite
+
+% Umrechnung in Pixel-Groessen
+define_pixels(ut,Ht,ht,dt,Hz,Wz);
+
+% Federn:
+if unknown fetter: fetter:=0; fi
+fetter:=sqrt(2)**fetter;
+% runde Feder (Redisfeder)
+  pickup pencircle scaled (fetter*1.25*ut);
+wesa_pen:=savepen;
+% fuer Punkte etc.
+if fetter>3: pickup pencircle scaled 7ut;
+elseif fetter>2.5: pickup pencircle scaled 5ut;
+  else:
+    pickup pencircle scaled 3.5ut;
+    fi
+wesa_pen_thick := savepen;
+%
+% Current Transformation, slanted
+if unknown slant: slant:=0; else: currenttransform:=identity slanted slant; fi
+
+% Eingabe der Program-Files:
+wortende:=false;
+% Parameter- und Makrodefinitionen
+input wesa14_def;
+% Grossbuchstaben
+input wesa14_gr;
+% Kleinbuchstaben
+ input wesa14_kl;
+% Sonderzeichen
+ input wesa14_sz;
+% Wortende
+input wesa14_end;
+
+ % Abstandsmasse:
+ font_quad  14pt#;% 1em
+ font_x_height := 4.66pt#; % 1ex
+font_normal_space  5pt#;% Wortzwischenraum
+font_normal_stretch  2pt#;
+font_normal_shrink  1pt#;
+
+boundarychar:=oct"040"; % space
+
+% Ligaturtabellen
+input wesa14_lig;
+end
+%%%%%%%%%%%%%% Ende wesa Metafont-Hauptfile  (Driver-File) %%%%%%

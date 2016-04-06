@@ -1,0 +1,459 @@
+% Suetterlinschrift  wesu
+% Program-File Kleinbuchstaben
+% Walter Entenmann
+% 09.06.2011
+%
+if not wortende:
+  beginchar("a",40ut#,ht#,0);
+else:
+  beginchar(oct"241",31ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  a_teil;
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("b",28ut#,Ht#,0);
+else:
+  beginchar(oct"242",21ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  oschl(xpos);
+  stamm(ht,ht/2,xpos);
+  bogen(ht/2,0,ht/2,ht/2,0.5,-90,90,1,1,xpos);
+  fsalt:=fs; fs:=0.5;  
+  lschleife(s,ht/2,1,xpos);
+  fs:=fsalt;  
+  fahne(ht/2,ht-dy,18ut-dy,0,45,1,1,xpos); 
+endchar;
+
+if not wortende:
+  beginchar("c",20ut#,ht#,0);
+else:
+  beginchar(oct"243",11ut#,ht#,0);
+fi    
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("d",32.521ut#,Ht#,0);
+else:
+  beginchar(oct"244",24.5ut#,Ht#,0);
+fi  
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,ht/2,xpos);
+  bogen(ht/2,0,ht+ds,ht/k,0.467,-90,90,1,1,xpos);
+  lschleife(ht/k,ht+ds,k*(1-ds/ht),xpos);
+  schweif(ht+ds,ht+2*ds,3*ds,0,45,1,1,xpos);
+  tangente(2.5ut);
+endchar;
+
+if not wortende:
+  beginchar("e",27.5ut#,ht#,0);
+else:
+  beginchar(oct"245",18.5ut#,ht#,0);
+fi    
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  schweif(ht-3*ds,ht,3*ds,45,45,1,1,xpos);
+  stamm(ht,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("f",20ut#,Ht#,dt#);
+else:
+  beginchar(oct"246",12ut#,Ht#,dt#);
+fi    
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  oschl(xpos);
+  stamm(ht,-dt,xpos);
+  fsalt:=fs;fs:=0.5;
+  lschleife(s,ht/4,1,xpos);
+  fs:=fsalt;
+  fahne(ht/4,ht-dy,ht-dy,0,45,1.5,1,xpos);
+endchar;
+
+if not wortende:
+  beginchar("g",40ut#,ht#,dt#);
+else:
+  beginchar(oct"247",31ut#,ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  a_teil;
+  uschl(1,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("h",20ut#,Ht#,dt#);
+else:
+  beginchar(oct"250",12ut#,Ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  oschl(xpos);
+  stamm(ht,0,xpos);
+  uschl(1,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("i",20ut#,Ht#,0);
+else:
+  beginchar(oct"251",11ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  ipunkt(xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("j",20ut#,Ht#,dt#);
+else:
+  beginchar(oct"252",11ut#,Ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  uschl(1,0,xpos);
+  ipunkt(xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("k",33ut#,Ht#,0);
+else:
+  beginchar(oct"253",22ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+spitz(xpos);
+  stamm(Ht,0,xpos);
+  k_teil(xpos);
+  tangente(0);
+endchar;
+
+if not wortende:
+  beginchar("l",24.5ut#,Ht#,0);
+else:
+  beginchar(oct"254",12ut#,Ht#,0);
+fi
+  pickup wesu_pen;  
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  oschl(xpos);
+  stamm(ht,ht/2,xpos);
+  l_fuss(xpos);
+  tangente(0);
+endchar;
+
+if not wortende:
+  beginchar("m",60ut#,ht#,0);
+else:
+  beginchar(oct"255",51ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);    
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);
+  stamm(ht,0,xpos);
+  strich(xpos); 
+endchar;
+
+if not wortende:
+  beginchar("n",40ut#,ht#,0);
+else:
+  beginchar(oct"256",31ut#,ht#,0);
+  fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);
+  stamm(ht,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("o",30ut#,ht#,0);
+else:
+  beginchar(oct"257",26ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  o_char;
+endchar;
+
+if not wortende:
+  beginchar("p",20.5ut#,ht#,dt#);
+else:
+  beginchar(oct"260",13ut#,ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  breit:=10.5ut; hoch:=12.5ut;
+  bogen(ht-dy,ht,ht-hoch/2,breit,0.5,45,-90,1,1,xpos);
+  bogen(ht-hoch/2,ht-hoch,ht,-breit,0.5,-90,90,1,1,xpos);
+  stamm(ht,-ds,xpos);
+  uschl((ht-ds)/ht,-ds,xpos);
+  gerade(-ds,ds+breit,1,xpos);
+  x0:=whatever; y0:=whatever;
+  z0=(xpos,breit);
+  tangente(0);
+endchar;
+
+if not wortende:
+  beginchar("q",40ut#,ht#,dt#);
+else:
+  beginchar(oct"261",31ut#,ht#,dt#);
+  fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  a_teil;
+  stamm(0,-dt,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("r",27.5ut#,ht#,0);
+else:
+  beginchar(oct"262",24.5ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  schweif(0,s,gap,90,0,1,1,xpos);
+  rschleife(s,s,0,1,xpos);
+  schweif(s,ht,3*ds+1ut,90,angle(1,0.25),1,1,xpos);
+  fahne(ht,ht-dy,12ut,-90,45,1,1,xpos);
+endchar;
+
+% langes s
+if not wortende:
+  beginchar("s",25ut#,Ht#,dt#);
+else:
+  beginchar(oct"263",16ut#,Ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+spitz(xpos);
+  stamm(Ht,-dt,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("t",25ut#,Ht#,0);
+else:
+  beginchar(oct"264",16ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+spitz(xpos);
+  stamm(Ht,0,xpos);
+  fsalt:=fs;fs:=0.5;
+  lschleife(s,ht/4,1,xpos);
+  fs:=fsalt;
+  fahne(ht/4,ht-dy,ht-dy,0,45,1.5,1,xpos);
+endchar;
+
+if not wortende:
+  beginchar("u",40ut#,Ht#,0);
+else:
+  beginchar(oct"265",31ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  schweif(1.5*ht+ds,1.5*ht+ds,ht,-45,45,1,1,xpos);
+  xpos:=xpos-ht;  
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);
+  stamm(ht,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("v",32.782ut#,ht#,0);
+else:
+  beginchar(oct"266",22ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  salt:=s;
+  schweif(0,s,gap,90,0,1,1,xpos);
+  faktor:=1.33;
+  s:=faktor*s;
+  rschleife(s,s/faktor,s,1/faktor,xpos); 
+  vbauch(2*s/faktor,xpos);
+  tangente(1ut);
+  s:=salt;
+endchar;
+
+if not wortende:
+  beginchar("w",52.782ut#,ht#,0);
+else:
+  beginchar(oct"267",42ut#,ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);
+  stamm(ht,0,xpos);
+  salt:=s;
+  schweif(0,s,gap,90,0,1,1,xpos);
+  faktor:=1.33;
+  s:=faktor*s;
+  rschleife(s,s/faktor,s,1/faktor,xpos); 
+  vbauch(2*s/faktor,xpos);
+  tangente(1ut);
+  s:=salt;
+endchar;
+
+if not wortende:
+  beginchar("x",30.163ut#,ht#,dt#);
+else:
+  beginchar(oct"270",19.5ut#,ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  breit:=17.5ut; hoch:=17.5ut;
+  bogen(ht,ht-hoch,ht-hoch/2,breit,0.55,angle(1,-3),90,1,1,xpos);
+  bogen(ht-hoch/2,ht,0,-breit,0.45,90,-90,1,1,xpos);
+  a:=x0; b:=y0;
+  bogen(0,-dt,-dt/2,17.5ut,0.514,-90,90,1,1,xpos);
+  x0:=whatever;y0:=whatever;
+  z0=(a,b);
+  tangente(0);
+endchar;
+
+if not wortende:
+  beginchar("y",37.5ut#,ht#,dt#);
+else:
+  beginchar(oct"271",28.5ut#,ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  schweif(0,s,gap,90,0,1,1,xpos);
+  rschleife(s,s,0,1,xpos);
+  bogen(s,ht,0,12.5ut,0.45,90,-90,1,1,xpos);
+  uschl(1,0,xpos);
+  strich(xpos);
+endchar;
+
+if not wortende:
+  beginchar("z",30ut#,ht#,dt#);
+else:
+  beginchar(oct"272",17.5ut#,ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  z_teil(xpos);
+  tangente(1ut);
+endchar;
+
+% Schluss s, im Wortinneren (s:)
+if not wortende:
+  beginchar(oct"030",28.515ut#,Ht#,0);
+else:
+  beginchar(oct"031",17.5ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  hoch:=ht;breit:=15ut;
+  bogen(ht-dy,ht,ht-hoch/2,breit,0.45,45,-90,1,1,xpos);
+  bogen(ht-hoch/2,0,ht,-breit,0.45,-90,90,1,1,xpos);
+  a:=x0; b:=y0;
+  bogen(ht,Ht,1.5*ht,17.5ut,0.57,90,-90,1,1,xpos);
+  x0:=whatever;y0:=whatever;
+  z0=(a,b);
+  tangente(0);
+endchar;
+
+% Scharfes s (\ss)
+if not wortende:
+  beginchar(oct"377",39.548ut#,Ht#,dt#);
+else:
+  beginchar(oct"035",21.5ut#,Ht#,dt#);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+spitz(xpos);
+  stamm(Ht,-dt,xpos);
+  ss_teil(xpos);
+  tangente(2.5ut);
+endchar;
+
+% Umlaute
+% ä (\"a)
+if not wortende:
+  beginchar(oct"344",40ut#,Ht#,0);
+else:
+  beginchar(oct"273",31ut#,Ht#,0);
+fi
+pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+umlaut(6.25ut,xpos);
+  a_teil;
+  strich(xpos);
+endchar;
+
+
+% ö (\"o)
+if not wortende:
+  beginchar(oct"366",30ut#,Ht#,0);
+else:
+  beginchar(oct"274",26ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  umlaut(5ut,xpos);
+  o_char;
+endchar;
+
+% ü (\"u)
+if not wortende:
+  beginchar(oct"374",40ut#,Ht#,0);
+else:
+  beginchar(oct"275",31ut#,Ht#,0);
+fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  umlaut(7.5ut,xpos);
+  kurzstrich(xpos);
+  stamm(ht,0,xpos);
+  gerade(0,ht,1,xpos);
+  stamm(ht,0,xpos);
+  strich(xpos);
+endchar;
+%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%

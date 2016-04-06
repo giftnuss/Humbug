@@ -1,0 +1,426 @@
+% Suetterlinschrift  wesu
+% Parameter- und Makrodefinitionen
+% Walter Entenmann
+% 09.06.2011
+%
+% Parameterdefinitionen:
+% fuer math. Sonderzeichen wie < > ...
+hmath:=ht/2;
+hdash:=ht/2;
+% Superellipse fuer @-Zeichen
+atb:=ht/2;
+ata:=7ut;
+sigma:=0.73345;
+r := 3.5ut;
+% Absenkung des Verbindungsniveaus
+dy  := 2ut;
+% Endstrich, Breite und Hoehe bei fahne
+endx:=9ut;
+endy:=5ut;
+% Stretch (Hoehe zu Breite beim o)
+k := 4/3;
+% ht/8 (haeufig benoetigtes Mass)
+ds := ht/8;
+% Fundamentaler Abstand z.B. zwischen a-Bogen und -Stamm
+gap := 5ut;
+% Schlingengroesse 
+s := 4ut;   % Kleinbuchstaben
+so := 10ut; % fuer "o"
+S := 5ut;   % Grossbuchstaben
+% Ober-, Unterschleifenbreite und Faktor
+sb := ht/2;
+fs := 0.4;
+% Breite und Hoehenkoordinate des v-Bauches
+vb := 15ut;
+vh := 12ut;
+
+% Parameter fuer Grossbuchstaben:
+% Oberschleifenbreite (Oschl)
+Sb:=15ut;
+% Breite und Hoehenkoordinate des V-Bauchs
+Vb:=21ut;
+Vh:=27.5ut;
+% Breite und Hoehenkoordinate des gr. S
+BS:=17.5ut;
+Hs:=15ut;
+Bs:=15ut; % reduzierte Breite fuer M, N, W, ...
+% Weitere Parameter fuer die S-Schlaufe
+Sm := 2;      % Steigung S-Ansatz
+Sf := 1/3;    % Faktor wie fs
+Stens := 1.2; % Spannung im S-Bogen rechts
+Sab := 5ut;   % Abhang beim S-Ansatz
+% Breite der Schlingen bei der Doppelschleife Dschl fuer X
+BX:=15ut;
+
+% Makrodefinitionen:
+% Fuer Sonderzeichen
+def komma(expr deltax, deltay) =
+  draw ((0,0){1,-2}..tension1.2..{-1,-1}(-2ut,-10ut)) shifted (deltax,deltay);
+  enddef;
+
+% Fuer Kleinbuchstaben (und teilweise auch fuer Grossbuchstaben)
+def gerade (expr hy, br, mr, sx) =
+  draw ((0,hy)--(br,hy+mr*br)) shifted (sx,0);
+  xpos := sx+br;
+  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def kurzstrich(expr sx) =
+  draw ((0,ht-dy)--(dy,ht)) shifted (sx,0);
+  xpos:=sx+dy;
+    if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def tangente (expr dx) =
+  if not wortende:
+  draw z0..tension2..{1,1}(x0+ht-dy-y0+dx,ht-dy);
+  xpos:=x0+ht-dy-y0+dx;
+  if wmax<xpos: wmax:=xpos; fi
+else:
+  if wmax<x0: wmax:=x0; fi
+  fi
+  zeigen;
+  enddef;
+
+def lschleife(expr sl, hy, fy, sx) =
+  draw ((0,0){up}..(-(1-fs)*sl,sl){left}..(-sl,(1-fs)*sl){down}..{right}(0,0)) yscaled fy shifted (sx,hy);
+    if wmax<sx: wmax:=sx; fi
+  enddef;
+  
+
+def stamm(expr ha, hb, sx) =
+  draw ((0,ha)--(0,hb)) shifted(sx,0);
+    if wmax<sx: wmax:=sx; fi
+enddef;
+
+def strich(expr sx) =
+  if not wortende :
+%    gerade(0,ht-dy,1,sx);
+    draw ((0,0)--(ht-dy,ht-dy)) shifted (sx,0);
+    xpos:=sx+ht-dy;
+    if wmax<xpos: wmax:=xpos; fi
+  else:
+     draw ((0,0)--(endx,endx)) shifted (sx,0);
+     xpos:=sx+endx;
+    if wmax<xpos: wmax:=xpos; fi
+   fi
+   zeigen;
+ enddef;
+
+ def spitz (expr sx) =
+   draw ((0,ht-dy){1,1}..tension 1.2..{up}(dy+gap,Ht)) shifted (sx,0);
+   xpos:=sx+dy+gap;
+    if wmax<xpos: wmax:=xpos; fi
+   enddef;
+
+def oschl(expr sx) =
+  draw ((0,ht){1,1}..(sb,Ht-fs*sb){up}..((1-fs)*sb,Ht){left}..tension1.2..{down}(0,ht)) shifted (sx,0);
+    if wmax<(sx+sb): wmax:=sx+sb; fi 
+enddef;
+
+def uschl(expr fscale, delta, sx) =
+  draw ((0,0){down}..tension1.2..(-sb*(1-fs),-dt){left}..(-sb,-dt+fs*sb){up}..{1,1}(0,0)) scaled fscale shifted (sx,delta);
+    if wmax<sx: wmax:=sx; fi
+enddef;
+
+% Hermite-Interpolation, 1 Intervall
+def schweif(expr hl, hr, b, phil, phir, tens, mt, sx) =
+  p := (0,hl){dir phil}..tension tens..{dir phir}(b,hr);
+    draw p shifted (sx,0);
+    if ((b>0) and (phil<angle(1,mt)) and (phir>angle(1,mt))) or
+       ((b<0) and (angle(-dir(phir))<angle(1,mt)) and (angle(-dir(phil))>angle(1,mt))):
+    x0:=whatever; y0:=whatever;
+    z0=(directionpoint (1,mt) of if b<0: reverse fi p) shifted (sx,0); fi
+  xpos:=sx+b;
+  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def fahne (expr hl, hr, b, phil, phir, tens, mt, sx) =
+  if not wortende:
+    schweif(hl, hr, b, phil, phir, tens, mt, sx);
+  else:
+  draw ((0,hl){dir phil}..
+    (endx,hl if phil<0: - else: + fi if phil=45: endx else: endy fi)) shifted (sx,0);
+  xpos:=sx+endx;
+  if wmax<xpos: wmax:=xpos; fi
+  fi
+  zeigen;
+  enddef;
+
+def ipunkt(expr sx) =
+  draw ((-sqrt(2)*ds,0)--(sqrt(2)*ds,0)) rotated 45 shifted (sx,ht+(Ht-ht)/2);
+      if wmax<(sx+ds): wmax:=sx+ds; fi
+enddef;
+
+def umlaut(expr dx, sx) =
+  ipunkt(sx+dx);
+  ipunkt(sx+dx+7.5ut);
+enddef;                             
+
+def k_teil(expr sx) =
+  draw ((0,ht){up}..(3*ds,1.5*ht){right}..(3*ht/4,ht){down}..tension 1.5..(0,6ut){left}..(-4ut,8ut){up}..(-1ut,ht/2){right}..tension 1.5..{right}(12ut,ht/4)..{1,1}(15ut,7ut)) shifted (sx,0);
+  x0:=whatever; y0:=whatever;
+  z0 = (15ut,7ut) shifted (sx,0);
+  xpos:=sx+15ut;
+  if wmax<xpos: wmax:=xpos; fi        
+  if wmax<(sx+3*ht/4): wmax:=sx+3*ht/4; fi
+enddef;
+
+def l_fuss (expr sx) =
+  draw ((0,ht/2){down}..tension1.2..(3.5ut,0){right}..tension1.2..{1,1}(7.5ut,3ut))
+  shifted (sx,0);
+    x0:=whatever; y0:=whatever;
+  z0 = (7.5ut,3ut) shifted (sx,0);
+  xpos:=sx+7.5ut;
+  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def rschleife (expr sl, hy, deltay, fy, sx) =
+  draw ((0,0){right}..(sl,-(1-fs)*sl){down}..((1-fs)*sl,-sl){left}..if deltay<>0:tension1.5 ..fi(0,deltay){up}) yscaled fy shifted (sx,hy);
+  if wmax<(sx+sl): wmax:=sx+sl; fi
+enddef;
+
+def vbauch (expr hl, sx) =
+  bogen(hl,ht,vh,vb,0.5,90,-90,1,1,sx);
+   schweif(vh,fs*s/faktor,-(vb-s-1ut),-90,angle(-1,-0.25),1,1,xpos);
+enddef;
+
+def z_teil (expr sx) =
+  draw ((0,ht-dy){1,1}..(6ut,ht){right}..(12.5ut,ht-7ut){down}..tension 1.3..(5ut,5ut){left}..(2ut,6.5ut){up}..(5ut,8ut){right}..tension 1..(15ut,-7.5ut){down}..tension 1.2..(7ut,-dt){left}..(0,-dt+7ut){up}..tension 1.4..{1,1}(17.5ut,6.5ut)) shifted (sx,0);
+    x0:=whatever; y0:=whatever;
+  z0 = (17.5ut,6.5ut) shifted (sx,0);
+  xpos:=sx+17.5ut;
+  if wmax<xpos: wmax:=xpos; fi
+  if wmax<(sx+15ut): wmax:=sx+15ut; fi
+enddef;
+
+% Hermite-Interpolation, 2 Intervalle
+% Scheitelpunkt bei (fx*b,hm)
+def bogen (expr hl, hm, hr, b, fx, phil, phir, tensl, tensr, sx) =
+  p := (0,hl){dir phil}..tension tensl..(fx*b,hm){b/abs(b),0}..tension tensr..{dir phir}(b,hr);
+  draw p shifted (sx,0);
+  if (hm<hl) and (hm<hr) and
+    (((b>0) and (phir>45)) or ((b<0) and (phil>-135))):
+    x0:=whatever; y0:=whatever;
+    z0=(directionpoint (1,1) of if b<0: reverse fi p) shifted (sx,0); fi
+  xpos:=sx+b;
+  if wmax<xpos: wmax:=xpos; fi
+  enddef;
+
+def ss_teil (expr sx) =
+  p := (0,ht){up}..tension 1.2..(8ut,35ut){right}..(15ut,27.5ut){down}..tension 1.2..(7.5ut,18.5ut){left}..(5.5ut,ht){up}..(7.5ut,21.5ut){right}..tension 1.1..(17.5ut,ht/2){down}..tension 1.2..(10ut,0){left}..(3ut,5ut);
+  draw p shifted (sx,0);
+  z0=(directionpoint (-1,-1) of (subpath (6,7) of p)) shifted (sx,0);
+  xpos:=sx+ht/2;
+  if wmax<xpos: wmax:=xpos; fi
+  if wmax<(s+17.5ut): wmax:=s+17.5ut; fi
+enddef;
+
+% Nur fuer Wartungszwecke
+% Makro aktivieren, um die 'width' der Zeichen auszugeben
+def zeigen=
+%  weite:=20*wmax/ht;
+%  showvariable weite;
+enddef;
+
+def a_teil =
+  kurzstrich(xpos);
+  stamm(ht,ht/2,xpos);  
+  bogen(ht/2,0,ht/2,ht/k,0.5,-90,90,1,1,xpos);
+  stamm(ht/2,ht-s,xpos);  
+  lschleife(s,ht-s,1,xpos);
+  schweif(ht-s,ht,gap,0,90,1,1,xpos);
+  stamm(ht,0,xpos);
+enddef;
+
+def o_char =
+  kurzstrich(xpos);
+ stamm(ht,ht/2,xpos);
+  bogen(ht/2,0,ht/2,ht/k,0.5,-90,90,1,1,xpos);
+ stamm(ht/2,ht-so,xpos);
+ fsalt:=fs; fs:=0.5; 
+  lschleife(so,ht-so,1,xpos);
+  fs:=fsalt;
+  fahne(ht-so,ht-dy,3*ht/4-dy,0,45,1,1,xpos); 
+enddef;
+
+%
+% Makros fuer Grossbuchstaben
+def Oval (expr Br, sx) =
+  p := (Br/2+0.5ut,Ht){left}..(0,Ht/2){down}..(Br/2,0){right}..(Br,Ht/2){up}..tension1.2..(Br/2+3.5ut,Ht){left}..(Br/2+1.5ut,Ht-1.5ut){down}..{right}(Br/2+8.5ut,Ht-5ut);
+  draw p shifted (sx,0);
+  x0:=whatever; y0:=whatever;
+  z0=(directionpoint (1,1) of (subpath (2,3) of p)) shifted (sx,0);
+  % Abstand vom Endpunkt bis zum rechten Rand des Ovals:
+  lastx:=Br/2-8.5ut;
+  xpos:=sx+Br/2+8.5ut;
+  if wmax<xpos: wmax:=xpos; fi
+  if wmax<(sx+Br): wmax:=sx+Br; fi
+enddef;
+
+def Stock (expr sx) =
+  breit:=12.5ut;
+  draw ((0,Ht-5ut){1,2}..(0.6*breit,Ht){right}..{down}(breit,Ht-10ut)) shifted (sx,0);
+  xpos:=sx+breit;
+    if wmax<xpos: wmax:=xpos; fi
+  enddef;
+
+  def Ihaken=
+bogen(Ht-7.5ut,Ht,Ht-10ut,12.5ut,0.6,90,-90,1.5,1,xpos);
+enddef;
+
+def Ibogen=
+bogen(10ut,0,10ut,-22.5ut,0.5,-90,90,1,1,xpos);
+  enddef;
+
+def Oschl(expr sx) =
+  draw ((-10ut,ht+5ut){1,-2}..(0,ht){right}..(Sb,Ht-fs*ht){up}..((1-fs)*Sb,Ht){left}..{down}(0,ht)) shifted (sx+10ut,0);
+  xpos:=sx+10ut;
+  if wmax<xpos: wmax:=xpos; fi
+  if wmax<(sx+10ut+Sb): wmax:=sx+10ut+Sb;fi
+enddef;
+
+def L_fuss(expr B, sx) =
+  draw ((0,ht/4){down}..(-3.5ut,0){left}..(-7.5ut,3ut){up}..(-4ut,6ut){right}..tension 1.5..(B,0){right}) shifted (sx,0);
+  xpos:=sx+B;
+  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def B_bauch(expr sx) =
+    lasty:=8.25ut;
+  draw ((0,0){right}..(5ut,5ut){up}..tension1..(0ut,12ut){left}..(-1.2ut,11ut){down}..tension1.2..(2.5ut,lasty){right}) shifted (sx,0);
+  xpos:=sx+2.5ut;
+  if wmax<xpos: wmax:=xpos; fi
+  if wmax<(sx+5ut): wmax:=sx+5ut; fi
+enddef;
+
+def D_kopf (expr sx) =
+  draw ((0,ht){up}..(-12ut,Ht){left}..(-20ut,32ut){down}..(0,ht){right}..(7.5ut,ht+2.5ut)) shifted (sx,0);
+  xpos:=sx+7.5ut;
+  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def schwalbe(expr sx) =
+  draw ((0,Ht-7.5ut){up}..tension 1.5..(4ut,Ht){right}..tension 1.5..(11ut,Ht-7.5ut){right}..{up}(15ut,Ht)) shifted (sx,0);
+  xpos:=sx+15ut;
+    if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def Ipunkt (expr sx) =
+  draw ((-sqrt(2)*3ut,0)--(sqrt(2)*3ut,0)) rotated 45 shifted (sx,Ht+7ut);
+        if wmax<(sx+3ut): wmax:=sx+3ut; fi
+  enddef;
+
+def Umlaut(expr dx, sx) =
+  Ipunkt(sx+dx);
+  Ipunkt(sx+dx+8.5ut);
+enddef;
+
+def A_teil =
+ Oval(25ut,xpos);
+ schweif(Ht-5ut,Ht,lastx+gap,0,90,1,1,xpos);
+  enddef;
+
+def A_char =
+ xpos:=0;wmax:=xpos;
+A_teil;
+ stamm(Ht,ht/2,xpos);
+ l_fuss(xpos);
+ tangente(0);
+enddef;
+
+def O_char =
+xpos:=0;wmax:=xpos;
+Oval(30ut,xpos);
+a:=x0;b:=y0;
+schweif(Ht-5ut,Ht,lastx,0,angle(1,2),1,1,xpos);
+x0:=whatever;y0:=whatever;
+z0=(a,b);
+tangente(2.5ut);
+  enddef;
+
+def U_char =
+xpos:=0;wmax:=xpos;
+Stock(xpos);
+stamm(Ht-10ut,15ut,xpos);
+bogen(15ut,0,15ut,20ut,0.5,-90,90,1,1,xpos);
+stamm(Ht-S,15ut,xpos);
+lschleife(S,Ht-S,1,xpos);
+schweif(Ht-S,Ht,gap,0,90,1,1,xpos);
+stamm(Ht,ht/2,xpos);
+l_fuss(xpos);
+tangente(0);
+enddef;
+
+def Vbauch (expr hl, sx) =
+  bogen(hl,Ht,Vh,Vb,0.5,90,-90,1,1,sx);
+   schweif(Vh,fs*S/faktor,-(Vb-S-1ut),-90,angle(-1,-0.25),1.2,0.5,xpos);
+ enddef;
+
+ def N_fuss (expr hl, br, tensl, tensr, sx) =
+  draw ((0,hl){down}..tension tensl..(br,0){right}..tension tensr..{1,1}(br+4ut,3ut))
+  shifted (sx,0);
+    x0:=whatever; y0:=whatever;
+  z0 = (br+4ut,3ut) shifted (sx,0);
+  xpos:=sx+br+4ut;
+      if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def Dschl (expr sx) =
+draw ((-gap/2,0){down}..(-(BX+gap/2)*(1-fs),-ht){left}..(-(BX+gap/2),-ht*(1-fs)){up}..tension1.3..(0,0)..tension1.3..(BX+gap/2,ht*(1-fs)){up}..((BX+gap/2)*(1-fs),ht){left}..{down}(gap/2,0)) shifted (sx+gap/2,ht);
+xpos:=sx+gap;
+if wmax<xpos: wmax:=xpos; fi
+if wmax<(sx+BX+gap/2): wmax:=sx+BX+gap/2; fi
+enddef;
+
+def P_teil(expr sx) =
+  draw ((0,25ut){up}..(10ut,Ht){right}..(20ut,30ut){down}..tension 1.5..(0,5ut){left}..(-4ut,8ut){up}..(-2ut,10ut){right}..tension 1.5..(10ut,5ut){right}..{1,1}(14ut,7ut)) shifted (sx,0);
+    x0:=whatever; y0:=whatever;
+    z0 = (14ut,7ut) shifted (sx,0);
+    xpos:=x0;
+    if wmax<xpos: wmax:=xpos; fi
+    if wmax<(sx+20ut): wmax:=sx+20ut; fi
+enddef;
+
+def K_teil (expr sx) =
+  breit:=13ut;   
+  draw ((0,ht){down}..(-12.5ut,0){left}..(-20ut,7.5ut){up}..(0,ht){right}..(breit,ht-7.5ut){down}..tension 1.2..(1.5ut,5ut){left}..(-2ut,7.5ut){up}..(1.5ut,9ut){right}..tension 1.2..(13ut,0){right}) shifted (sx,0);
+  xpos:=sx+13ut;
+      if wmax<xpos: wmax:=xpos; fi
+    if wmax<(sx+breit): wmax:=sx+breit; fi
+enddef;
+
+def R_teil (expr sx) =
+  breit:=13ut;
+  draw ((0,Ht){right}..(breit,Ht-9ut){down}..(-2.5ut,ht-1ut){left}..(-5ut,ht+1.5ut){up}..(-2ut,ht+3ut){right}..tension1.5..(12ut,0){right}) shifted (sx,0);
+  xpos:=sx+12ut;
+  if wmax<xpos: wmax:=xpos; fi
+      if wmax<(sx+breit): wmax:=sx+breit; fi
+enddef;
+
+def Z_teil (expr sx) =
+  breit:=20ut;
+  p := (0,32.5ut){1,4}..(10ut,Ht){right}..(breit,29ut){down}..tension1.2..(6.25ut,13ut){left}..(4ut,15ut){up}..(6.25ut,17ut){right}..tension1..(breit,-2ut){down}..tension1.2..(12ut,-dt){left}..(4ut,-11ut){up}..tension 1.2..{1,1}(24ut,10ut);
+  draw p shifted (sx,0);
+      x0:=whatever; y0:=whatever;
+      z0=(24ut,10ut) shifted (sx,0);
+      xpos:=sx+24ut;
+        if wmax<xpos: wmax:=xpos; fi
+      if wmax<(sx+breit): wmax:=sx+breit; fi
+    enddef;
+
+    def Shalbe(expr B) =
+      bogen(Ht-Sab,Ht,Hs,B+gap,Sf,angle(1,Sm),-90,1,Stens,xpos);
+      bogen(Hs,0,Hs,-B,0.5,-90,90,1,1,xpos);
+    enddef;
+
+    def Szwbogen(expr B, ab, phir) =
+bogen(Hs,Ht,Ht-ab,B,1-Sf,90,phir,Stens,1,xpos);
+enddef;
+
+def Nrechts =
+  schweif(Hs,Ht,Bs,90,angle(1,0.25),1,1,xpos);
+  schweif(Ht,Ht,Bs,-90,45,1,1,xpos);
+  schweif(Ht,Hs,-(Bs-gap),-135,-90,1,1,xpos);
+  enddef;
+%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%%%%

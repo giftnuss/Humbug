@@ -1,0 +1,3 @@
+% weva bold
+fetter:=2;
+input weva14;

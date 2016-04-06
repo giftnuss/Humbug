@@ -1,0 +1,1782 @@
+% Suetterlinschrift  wesu
+% Program-File Ligaturtabellen
+% Walter Entenmann
+% 09.06.2011
+%
+
+% St als Ligatur oct"033", S am Wortende wird oct"223"
+ligtable "S": "t" =: oct"033",
+oct"040" =:| oct"223", % Leerz. 
+"." =:| oct"223",
+"," =:| oct"223",
+";" =:| oct"223",
+":" =:| oct"223",
+oct"020" =:| oct"223", % dt. Anfz. o.
+oct"023" =:| oct"223", % fr. Anfz. <<
+"!" =:| oct"223",
+"?" =:| oct"223",
+")" =:| oct"223",
+"'" =:| oct"223",
+"<" =:| oct"223",
+">" =:| oct"223",
+"=" =:| oct"223",
+oct"026" =:| oct"223", % ---
+"*" =:| oct"223",
+"]" =:| oct"223",
+"&" =:| oct"223",
+"+" =:| oct"223",
+"@" =:| oct"223",
+"-" =:| oct"223",
+oct"177" =:| oct"223"
+;
+
+% St am Wortende wird oct"236"
+ligtable oct"033": 
+oct"040" =:| oct"236", % Leerz. 
+"." =:| oct"236",
+"," =:| oct"236",
+";" =:| oct"236",
+":" =:| oct"236",
+oct"020" =:| oct"236", % dt. Anfz. o.
+oct"023" =:| oct"236", % fr. Anfz. <<
+"!" =:| oct"236",
+"?" =:| oct"236",
+")" =:| oct"236",
+"'" =:| oct"236",
+"<" =:| oct"236",
+">" =:| oct"236",
+"=" =:| oct"236",
+oct"026" =:| oct"236", % ---
+"*" =:| oct"236",
+"]" =:| oct"236",
+"&" =:| oct"236",
+"+" =:| oct"236",
+"@" =:| oct"236",
+"-" =:| oct"236",
+oct"177" =:| oct"236"
+;
+
+% A am Wortende
+ligtable "A": 
+oct"040" =:| oct"201", % Leerz. 
+"." =:| oct"201",
+"," =:| oct"201",
+";" =:| oct"201",
+":" =:| oct"201",
+oct"020" =:| oct"201", % dt. Anfz. o.
+oct"023" =:| oct"201", % fr. Anfz. <<
+"!" =:| oct"201",
+"?" =:| oct"201",
+")" =:| oct"201",
+"'" =:| oct"201",
+"<" =:| oct"201",
+">" =:| oct"201",
+"=" =:| oct"201",
+oct"026" =:| oct"201", % ---
+"*" =:| oct"201",
+"]" =:| oct"201",
+"&" =:| oct"201",
+"+" =:| oct"201",
+"@" =:| oct"201",
+"-" =:| oct"201",
+oct"177" =:| oct"201"
+;
+
+% Ä am Wortende
+ligtable oct"304": 
+oct"040" =:| oct"233", % Leerz. 
+"." =:| oct"233",
+"," =:| oct"233",
+";" =:| oct"233",
+":" =:| oct"233",
+oct"020" =:| oct"233", % dt. Anfz. o.
+oct"023" =:| oct"233", % fr. Anfz. <<
+"!" =:| oct"233",
+"?" =:| oct"233",
+")" =:| oct"233",
+"'" =:| oct"233",
+"<" =:| oct"233",
+">" =:| oct"233",
+"=" =:| oct"233",
+oct"026" =:| oct"233", % ---
+"*" =:| oct"233",
+"]" =:| oct"233",
+"&" =:| oct"233",
+"+" =:| oct"233",
+"@" =:| oct"233",
+"-" =:| oct"233",
+oct"177" =:| oct"233"
+;
+
+% B am Wortende 
+ligtable "B": 
+oct"040" =:| oct"202", % Leerz. 
+"." =:| oct"202",
+"," =:| oct"202",
+";" =:| oct"202",
+":" =:| oct"202",
+oct"020" =:| oct"202", % dt. Anfz. o.
+oct"023" =:| oct"202", % fr. Anfz. <<
+"!" =:| oct"202",
+"?" =:| oct"202",
+")" =:| oct"202",
+"'" =:| oct"202",
+"<" =:| oct"202",
+">" =:| oct"202",
+"=" =:| oct"202",
+oct"026" =:| oct"202", % ---
+"*" =:| oct"202",
+"]" =:| oct"202",
+"&" =:| oct"202",
+"+" =:| oct"202",
+"@" =:| oct"202",
+"-" =:| oct"202",
+oct"177" =:| oct"202"
+;
+
+
+% C am Wortende 
+ligtable "C": 
+oct"040" =:| oct"203", % Leerz. 
+"." =:| oct"203",
+"," =:| oct"203",
+";" =:| oct"203",
+":" =:| oct"203",
+oct"020" =:| oct"203", % dt. Anfz. o.
+oct"023" =:| oct"203", % fr. Anfz. <<
+"!" =:| oct"203",
+"?" =:| oct"203",
+")" =:| oct"203",
+"'" =:| oct"203",
+"<" =:| oct"203",
+">" =:| oct"203",
+"=" =:| oct"203",
+oct"026" =:| oct"203", % ---
+"*" =:| oct"203",
+"]" =:| oct"203",
+"&" =:| oct"203",
+"+" =:| oct"203",
+"@" =:| oct"203",
+"-" =:| oct"203",
+oct"177" =:| oct"203"
+;
+
+% D am Wortende wird oct"204"
+ligtable "D": 
+oct"040" =:| oct"204", % Leerz. 
+"." =:| oct"204",
+"," =:| oct"204",
+";" =:| oct"204",
+":" =:| oct"204",
+oct"020" =:| oct"204", % dt. Anfz. o.
+oct"023" =:| oct"204", % fr. Anfz. <<
+"!" =:| oct"204",
+"?" =:| oct"204",
+")" =:| oct"204",
+"'" =:| oct"204",
+"<" =:| oct"204",
+">" =:| oct"204",
+"=" =:| oct"204",
+oct"026" =:| oct"204", % ---
+"*" =:| oct"204",
+"]" =:| oct"204",
+"&" =:| oct"204",
+"+" =:| oct"204",
+"@" =:| oct"204",
+"-" =:| oct"204",
+oct"177" =:| oct"204"
+;
+
+% E am Wortende
+ligtable "E": 
+oct"040" =:| oct"205", % Leerz. 
+"." =:| oct"205",
+"," =:| oct"205",
+";" =:| oct"205",
+":" =:| oct"205",
+oct"020" =:| oct"205", % dt. Anfz. o.
+oct"023" =:| oct"205", % fr. Anfz. <<
+"!" =:| oct"205",
+"?" =:| oct"205",
+")" =:| oct"205",
+"'" =:| oct"205",
+"<" =:| oct"205",
+">" =:| oct"205",
+"=" =:| oct"205",
+oct"026" =:| oct"205", % ---
+"*" =:| oct"205",
+"]" =:| oct"205",
+"&" =:| oct"205",
+"+" =:| oct"205",
+"@" =:| oct"205",
+"-" =:| oct"205",
+oct"177" =:| oct"205"
+;
+
+
+% F am Wortende
+ligtable "F": 
+oct"040" =:| oct"206", % Leerz. 
+"." =:| oct"206",
+"," =:| oct"206",
+";" =:| oct"206",
+":" =:| oct"206",
+oct"020" =:| oct"206", % dt. Anfz. o.
+oct"023" =:| oct"206", % fr. Anfz. <<
+"!" =:| oct"206",
+"?" =:| oct"206",
+")" =:| oct"206",
+"'" =:| oct"206",
+"<" =:| oct"206",
+">" =:| oct"206",
+"=" =:| oct"206",
+oct"026" =:| oct"206", % ---
+"*" =:| oct"206",
+"]" =:| oct"206",
+"&" =:| oct"206",
+"+" =:| oct"206",
+"@" =:| oct"206",
+"-" =:| oct"206",
+oct"177" =:| oct"206"
+;
+
+% G am Wortende
+ligtable "G": 
+oct"040" =:| oct"207", % Leerz. 
+"." =:| oct"207",
+"," =:| oct"207",
+";" =:| oct"207",
+":" =:| oct"207",
+oct"020" =:| oct"207", % dt. Anfz. o.
+oct"023" =:| oct"207", % fr. Anfz. <<
+"!" =:| oct"207",
+"?" =:| oct"207",
+")" =:| oct"207",
+"'" =:| oct"207",
+"<" =:| oct"207",
+">" =:| oct"207",
+"=" =:| oct"207",
+oct"026" =:| oct"207", % ---
+"*" =:| oct"207",
+"]" =:| oct"207",
+"&" =:| oct"207",
+"+" =:| oct"207",
+"@" =:| oct"207",
+"-" =:| oct"207",
+oct"177" =:| oct"207"
+;
+
+
+% H am Wortende
+ligtable "H": 
+oct"040" =:| oct"210", % Leerz. 
+"." =:| oct"210",
+"," =:| oct"210",
+";" =:| oct"210",
+":" =:| oct"210",
+oct"020" =:| oct"210", % dt. Anfz. o.
+oct"023" =:| oct"210", % fr. Anfz. <<
+"!" =:| oct"210",
+"?" =:| oct"210",
+")" =:| oct"210",
+"'" =:| oct"210",
+"<" =:| oct"210",
+">" =:| oct"210",
+"=" =:| oct"210",
+oct"026" =:| oct"210", % ---
+"*" =:| oct"210",
+"]" =:| oct"210",
+"&" =:| oct"210",
+"+" =:| oct"210",
+"@" =:| oct"210",
+"-" =:| oct"210",
+oct"177" =:| oct"210"
+;
+
+% I am Wortende wird oct"211"
+ligtable "I": 
+oct"040" =:| oct"211", % Leerz. 
+"." =:| oct"211",
+"," =:| oct"211",
+";" =:| oct"211",
+":" =:| oct"211",
+oct"020" =:| oct"211", % dt. Anfz. o.
+oct"023" =:| oct"211", % fr. Anfz. <<
+"!" =:| oct"211",
+"?" =:| oct"211",
+")" =:| oct"211",
+"'" =:| oct"211",
+"<" =:| oct"201",
+">" =:| oct"211",
+"=" =:| oct"211",
+oct"026" =:| oct"211", % ---
+"*" =:| oct"211",
+"]" =:| oct"211",
+"&" =:| oct"211",
+"+" =:| oct"211",
+"@" =:| oct"211",
+"-" =:| oct"211",
+oct"177" =:| oct"211"
+;
+
+% I variant (mit Faehnchen)  (\'I) am Wortende
+ligtable oct"315": 
+oct"040" =:| oct"002", % Leerz. 
+"." =:| oct"002",
+"," =:| oct"002",
+";" =:| oct"002",
+":" =:| oct"002",
+oct"020" =:| oct"002", % dt. Anfz. o.
+oct"023" =:| oct"002", % fr. Anfz. <<
+"!" =:| oct"002",
+"?" =:| oct"002",
+")" =:| oct"002",
+"'" =:| oct"002",
+"<" =:| oct"002",
+">" =:| oct"002",
+"=" =:| oct"002",
+oct"026" =:| oct"002", % ---
+"*" =:| oct"002",
+"]" =:| oct"002",
+"&" =:| oct"002",
+"+" =:| oct"002",
+"@" =:| oct"002",
+"-" =:| oct"002",
+oct"177" =:| oct"002"
+;
+
+% J  am Wortende
+ligtable "J": 
+oct"040" =:| oct"212", % Leerz. 
+"." =:| oct"212",
+"," =:| oct"212",
+";" =:| oct"212",
+":" =:| oct"212",
+oct"020" =:| oct"212", % dt. Anfz. o.
+oct"023" =:| oct"212", % fr. Anfz. <<
+"!" =:| oct"212",
+"?" =:| oct"212",
+")" =:| oct"212",
+"'" =:| oct"212",
+"<" =:| oct"212",
+">" =:| oct"212",
+"=" =:| oct"212",
+oct"026" =:| oct"212", % ---
+"*" =:| oct"212",
+"]" =:| oct"212",
+"&" =:| oct"212",
+"+" =:| oct"212",
+"@" =:| oct"212",
+"-" =:| oct"212",
+oct"177" =:| oct"212"
+;
+
+% J variant (mit Faehnchen) (\^I)  am Wortende
+ligtable oct"316": 
+oct"040" =:| oct"003", % Leerz. 
+"." =:| oct"003",
+"," =:| oct"003",
+";" =:| oct"003",
+":" =:| oct"003",
+oct"020" =:| oct"003", % dt. Anfz. o.
+oct"023" =:| oct"003", % fr. Anfz. <<
+"!" =:| oct"003",
+"?" =:| oct"003",
+")" =:| oct"003",
+"'" =:| oct"003",
+"<" =:| oct"003",
+">" =:| oct"003",
+"=" =:| oct"003",
+oct"026" =:| oct"003", % ---
+"*" =:| oct"003",
+"]" =:| oct"003",
+"&" =:| oct"003",
+"+" =:| oct"003",
+"@" =:| oct"003",
+"-" =:| oct"003",
+oct"177" =:| oct"003"
+;
+
+% T  am Wortende
+ligtable "T": 
+oct"040" =:| oct"224", % Leerz. 
+"." =:| oct"224",
+"," =:| oct"224",
+";" =:| oct"224",
+":" =:| oct"224",
+oct"020" =:| oct"224", % dt. Anfz. o.
+oct"023" =:| oct"224", % fr. Anfz. <<
+"!" =:| oct"224",
+"?" =:| oct"224",
+")" =:| oct"224",
+"'" =:| oct"224",
+"<" =:| oct"224",
+">" =:| oct"224",
+"=" =:| oct"224",
+oct"026" =:| oct"224", % ---
+"*" =:| oct"224",
+"]" =:| oct"224",
+"&" =:| oct"224",
+"+" =:| oct"224",
+"@" =:| oct"224",
+"-" =:| oct"224",
+oct"177" =:| oct"224"
+;
+
+% T variant (mit Faehnchen) (\"I)  am Wortende
+ligtable oct"317": 
+oct"040" =:| oct"004", % Leerz. 
+"." =:| oct"004",
+"," =:| oct"004",
+";" =:| oct"004",
+":" =:| oct"004",
+oct"020" =:| oct"004", % dt. Anfz. o.
+oct"023" =:| oct"004", % fr. Anfz. <<
+"!" =:| oct"004",
+"?" =:| oct"004",
+")" =:| oct"004",
+"'" =:| oct"004",
+"<" =:| oct"004",
+">" =:| oct"004",
+"=" =:| oct"004",
+oct"026" =:| oct"004", % ---
+"*" =:| oct"004",
+"]" =:| oct"004",
+"&" =:| oct"004",
+"+" =:| oct"004",
+"@" =:| oct"004",
+"-" =:| oct"004",
+oct"177" =:| oct"004"
+;
+
+% O am Wortende wird oct"217"
+ligtable "O": 
+oct"040" =:| oct"217", % Leerz. 
+"." =:| oct"217",
+"," =:| oct"217",
+";" =:| oct"217",
+":" =:| oct"217",
+oct"020" =:| oct"217", % dt. Anfz. o.
+oct"023" =:| oct"217", % fr. Anfz. <<
+"!" =:| oct"217",
+"?" =:| oct"217",
+")" =:| oct"217",
+"'" =:| oct"217",
+"<" =:| oct"217",
+">" =:| oct"217",
+"=" =:| oct"217",
+oct"026" =:| oct"217", % ---
+"*" =:| oct"217",
+"]" =:| oct"217",
+"&" =:| oct"217",
+"+" =:| oct"217",
+"@" =:| oct"217",
+"-" =:| oct"217",
+oct"177" =:| oct"217"
+;
+
+% oct"326" (Ö) am Wortende wird oct"234"
+ligtable oct"326": 
+oct"040" =:| oct"234", % Leerz. 
+"." =:| oct"234",
+"," =:| oct"234",
+";" =:| oct"234",
+":" =:| oct"234",
+oct"020" =:| oct"234", % dt. Anfz. o.
+oct"023" =:| oct"234", % fr. Anfz. <<
+"!" =:| oct"234",
+"?" =:| oct"234",
+")" =:| oct"234",
+"'" =:| oct"234",
+"<" =:| oct"234",
+">" =:| oct"234",
+"=" =:| oct"234",
+oct"026" =:| oct"234", % ---
+"*" =:| oct"234",
+"]" =:| oct"234",
+"&" =:| oct"234",
+"+" =:| oct"234",
+"@" =:| oct"234",
+"-" =:| oct"234",
+oct"177" =:| oct"234"
+;
+
+% K am Wortende
+ligtable "K": 
+oct"040" =:| oct"213", % Leerz. 
+"." =:| oct"213",
+"," =:| oct"213",
+";" =:| oct"213",
+":" =:| oct"213",
+oct"020" =:| oct"213", % dt. Anfz. o.
+oct"023" =:| oct"213", % fr. Anfz. <<
+"!" =:| oct"213",
+"?" =:| oct"213",
+")" =:| oct"213",
+"'" =:| oct"213",
+"<" =:| oct"213",
+">" =:| oct"213",
+"=" =:| oct"213",
+oct"026" =:| oct"213", % ---
+"*" =:| oct"213",
+"]" =:| oct"213",
+"&" =:| oct"213",
+"+" =:| oct"213",
+"@" =:| oct"213",
+"-" =:| oct"213",
+oct"177" =:| oct"213"
+;
+
+
+% L am Wortende
+ligtable "L": 
+oct"040" =:| oct"214", % Leerz. 
+"." =:| oct"214",
+"," =:| oct"214",
+";" =:| oct"214",
+":" =:| oct"214",
+oct"020" =:| oct"214", % dt. Anfz. o.
+oct"023" =:| oct"214", % fr. Anfz. <<
+"!" =:| oct"214",
+"?" =:| oct"214",
+")" =:| oct"214",
+"'" =:| oct"214",
+"<" =:| oct"214",
+">" =:| oct"214",
+"=" =:| oct"214",
+oct"026" =:| oct"214", % ---
+"*" =:| oct"214",
+"]" =:| oct"214",
+"&" =:| oct"214",
+"+" =:| oct"214",
+"@" =:| oct"214",
+"-" =:| oct"214",
+oct"177" =:| oct"214"
+;
+
+
+% M am Wortende
+ligtable "M": 
+oct"040" =:| oct"215", % Leerz. 
+"." =:| oct"215",
+"," =:| oct"215",
+";" =:| oct"215",
+":" =:| oct"215",
+oct"020" =:| oct"215", % dt. Anfz. o.
+oct"023" =:| oct"215", % fr. Anfz. <<
+"!" =:| oct"215",
+"?" =:| oct"215",
+")" =:| oct"215",
+"'" =:| oct"215",
+"<" =:| oct"215",
+">" =:| oct"215",
+"=" =:| oct"215",
+oct"026" =:| oct"215", % ---
+"*" =:| oct"215",
+"]" =:| oct"215",
+"&" =:| oct"215",
+"+" =:| oct"215",
+"@" =:| oct"215",
+"-" =:| oct"215",
+oct"177" =:| oct"215"
+;
+
+
+% N am Wortende
+ligtable "N": 
+oct"040" =:| oct"216", % Leerz. 
+"." =:| oct"216",
+"," =:| oct"216",
+";" =:| oct"216",
+":" =:| oct"216",
+oct"020" =:| oct"216", % dt. Anfz. o.
+oct"023" =:| oct"216", % fr. Anfz. <<
+"!" =:| oct"216",
+"?" =:| oct"216",
+")" =:| oct"216",
+"'" =:| oct"216",
+"<" =:| oct"216",
+">" =:| oct"216",
+"=" =:| oct"216",
+oct"026" =:| oct"216", % ---
+"*" =:| oct"216",
+"]" =:| oct"216",
+"&" =:| oct"216",
+"+" =:| oct"216",
+"@" =:| oct"216",
+"-" =:| oct"216",
+oct"177" =:| oct"216"
+;
+
+
+% P am Wortende
+ligtable "P": 
+oct"040" =:| oct"220", % Leerz. 
+"." =:| oct"220",
+"," =:| oct"220",
+";" =:| oct"220",
+":" =:| oct"220",
+oct"020" =:| oct"220", % dt. Anfz. o.
+oct"023" =:| oct"220", % fr. Anfz. <<
+"!" =:| oct"220",
+"?" =:| oct"220",
+")" =:| oct"220",
+"'" =:| oct"220",
+"<" =:| oct"220",
+">" =:| oct"220",
+"=" =:| oct"220",
+oct"026" =:| oct"220", % ---
+"*" =:| oct"220",
+"]" =:| oct"220",
+"&" =:| oct"220",
+"+" =:| oct"220",
+"@" =:| oct"220",
+"-" =:| oct"220",
+oct"177" =:| oct"220"
+;
+
+
+% Q am Wortende
+ligtable "Q": 
+oct"040" =:| oct"221", % Leerz. 
+"." =:| oct"221",
+"," =:| oct"221",
+";" =:| oct"221",
+":" =:| oct"221",
+oct"020" =:| oct"221", % dt. Anfz. o.
+oct"023" =:| oct"221", % fr. Anfz. <<
+"!" =:| oct"221",
+"?" =:| oct"221",
+")" =:| oct"221",
+"'" =:| oct"221",
+"<" =:| oct"221",
+">" =:| oct"221",
+"=" =:| oct"221",
+oct"026" =:| oct"221", % ---
+"*" =:| oct"221",
+"]" =:| oct"221",
+"&" =:| oct"221",
+"+" =:| oct"221",
+"@" =:| oct"221",
+"-" =:| oct"221",
+oct"177" =:| oct"221"
+;
+
+
+% R am Wortende
+ligtable "R": 
+oct"040" =:| oct"222", % Leerz. 
+"." =:| oct"222",
+"," =:| oct"222",
+";" =:| oct"222",
+":" =:| oct"222",
+oct"020" =:| oct"222", % dt. Anfz. o.
+oct"023" =:| oct"222", % fr. Anfz. <<
+"!" =:| oct"222",
+"?" =:| oct"222",
+")" =:| oct"222",
+"'" =:| oct"222",
+"<" =:| oct"222",
+">" =:| oct"222",
+"=" =:| oct"222",
+oct"026" =:| oct"222", % ---
+"*" =:| oct"222",
+"]" =:| oct"222",
+"&" =:| oct"222",
+"+" =:| oct"222",
+"@" =:| oct"222",
+"-" =:| oct"222",
+oct"177" =:| oct"222"
+;
+
+
+% U am Wortende
+ligtable "U": 
+oct"040" =:| oct"225", % Leerz. 
+"." =:| oct"225",
+"," =:| oct"225",
+";" =:| oct"225",
+":" =:| oct"225",
+oct"020" =:| oct"225", % dt. Anfz. o.
+oct"023" =:| oct"225", % fr. Anfz. <<
+"!" =:| oct"225",
+"?" =:| oct"225",
+")" =:| oct"225",
+"'" =:| oct"225",
+"<" =:| oct"225",
+">" =:| oct"225",
+"=" =:| oct"225",
+oct"026" =:| oct"225", % ---
+"*" =:| oct"225",
+"]" =:| oct"225",
+"&" =:| oct"225",
+"+" =:| oct"225",
+"@" =:| oct"225",
+"-" =:| oct"225",
+oct"177" =:| oct"225"
+;
+
+
+% Ü am Wortende
+ligtable oct"334": 
+oct"040" =:| oct"235", % Leerz. 
+"." =:| oct"235",
+"," =:| oct"235",
+";" =:| oct"235",
+":" =:| oct"235",
+oct"020" =:| oct"235", % dt. Anfz. o.
+oct"023" =:| oct"235", % fr. Anfz. <<
+"!" =:| oct"235",
+"?" =:| oct"235",
+")" =:| oct"235",
+"'" =:| oct"235",
+"<" =:| oct"235",
+">" =:| oct"235",
+"=" =:| oct"235",
+oct"026" =:| oct"235", % ---
+"*" =:| oct"235",
+"]" =:| oct"235",
+"&" =:| oct"235",
+"+" =:| oct"235",
+"@" =:| oct"235",
+"-" =:| oct"235",
+oct"177" =:| oct"235"
+;
+
+% V am Wortende wird oct"226"
+ligtable "V": 
+oct"040" =:| oct"226", % Leerz. 
+"." =:| oct"226",
+"," =:| oct"226",
+";" =:| oct"226",
+":" =:| oct"226",
+oct"020" =:| oct"226", % dt. Anfz. o.
+oct"023" =:| oct"226", % fr. Anfz. <<
+"!" =:| oct"226",
+"?" =:| oct"226",
+")" =:| oct"226",
+"'" =:| oct"226",
+"<" =:| oct"226",
+">" =:| oct"226",
+"=" =:| oct"226",
+oct"026" =:| oct"226", % ---
+"*" =:| oct"226",
+"]" =:| oct"226",
+"&" =:| oct"226",
+"+" =:| oct"226",
+"@" =:| oct"226",
+"-" =:| oct"226",
+oct"177" =:| oct"226"
+;
+
+% W am Wortende wird oct"227"
+ligtable "W": 
+oct"040" =:| oct"227", % Leerz. 
+"." =:| oct"227",
+"," =:| oct"227",
+";" =:| oct"227",
+":" =:| oct"227",
+oct"020" =:| oct"227", % dt. Anfz. o.
+oct"023" =:| oct"227", % fr. Anfz. <<
+"!" =:| oct"227",
+"?" =:| oct"227",
+")" =:| oct"227",
+"'" =:| oct"227",
+"<" =:| oct"227",
+">" =:| oct"227",
+"=" =:| oct"227",
+oct"026" =:| oct"227", % ---
+"*" =:| oct"227",
+"]" =:| oct"227",
+"&" =:| oct"227",
+"+" =:| oct"227",
+"@" =:| oct"227",
+"-" =:| oct"227",
+oct"177" =:| oct"227"
+;
+
+% X am Wortende
+ligtable "X": 
+oct"040" =:| oct"230", % Leerz. 
+"." =:| oct"230",
+"," =:| oct"230",
+";" =:| oct"230",
+":" =:| oct"230",
+oct"020" =:| oct"230", % dt. Anfz. o.
+oct"023" =:| oct"230", % fr. Anfz. <<
+"!" =:| oct"230",
+"?" =:| oct"230",
+")" =:| oct"230",
+"'" =:| oct"230",
+"<" =:| oct"230",
+">" =:| oct"230",
+"=" =:| oct"230",
+oct"026" =:| oct"230", % ---
+"*" =:| oct"230",
+"]" =:| oct"230",
+"&" =:| oct"230",
+"+" =:| oct"230",
+"@" =:| oct"230",
+"-" =:| oct"230",
+oct"177" =:| oct"230"
+;
+
+
+% Y am Wortende
+ligtable "Y": 
+oct"040" =:| oct"231", % Leerz. 
+"." =:| oct"231",
+"," =:| oct"231",
+";" =:| oct"231",
+":" =:| oct"231",
+oct"020" =:| oct"231", % dt. Anfz. o.
+oct"023" =:| oct"231", % fr. Anfz. <<
+"!" =:| oct"231",
+"?" =:| oct"231",
+")" =:| oct"231",
+"'" =:| oct"231",
+"<" =:| oct"231",
+">" =:| oct"231",
+"=" =:| oct"231",
+oct"026" =:| oct"231", % ---
+"*" =:| oct"231",
+"]" =:| oct"231",
+"&" =:| oct"231",
+"+" =:| oct"231",
+"@" =:| oct"231",
+"-" =:| oct"231",
+oct"177" =:| oct"231"
+;
+
+% Z am Wortende
+ligtable "Z": 
+oct"040" =:| oct"232", % Leerz. 
+"." =:| oct"232",
+"," =:| oct"232",
+";" =:| oct"232",
+":" =:| oct"232",
+oct"020" =:| oct"232", % dt. Anfz. o.
+oct"023" =:| oct"232", % fr. Anfz. <<
+"!" =:| oct"232",
+"?" =:| oct"232",
+")" =:| oct"232",
+"'" =:| oct"232",
+"<" =:| oct"232",
+">" =:| oct"232",
+"=" =:| oct"232",
+oct"026" =:| oct"232", % ---
+"*" =:| oct"232",
+"]" =:| oct"232",
+"&" =:| oct"232",
+"+" =:| oct"232",
+"@" =:| oct"232",
+"-" =:| oct"232",
+oct"177" =:| oct"232"
+;
+
+% s am Wortende durch rundes s ersetzen
+ligtable "s": oct"040" =:| oct"031",
+"." =:| oct"031",
+"," =:| oct"031",
+";" =:| oct"031",
+":" =: oct"030",% : im Wortinnern nach s bedeutet rundes s mit Verb.str.
+oct"020" =:| oct"031",%Anfz.o.
+oct"023" =:| oct"031",%fr.Anf.<<
+"!" =:| oct"031",
+"?" =:| oct"031",
+")" =:| oct"031",
+"<" =:| oct"031",
+">" =:| oct"031",
+"=" =:| oct"031",
+oct"026" =:| oct"031", % ---
+"*" =:| oct"031",
+"]" =:| oct"031",
+"&" =:| oct"031",
+"+" =:| oct"031",
+"@" =:| oct"031",
+"'" =:| oct"032", % s als langes s ohne Verbindungsstrich vor "'"
+"-" =:| oct"031",
+oct"177" =:| oct"031" % Trennstrich
+;
+
+ligtable oct"030": ":" =:| oct"031";% s::
+
+% scharfes s (\ss) mit Verbindungsstrich am Wortende ersetzen durch eines ohne 
+ligtable oct"377": oct"040" =:| oct"035", % Leerz.
+"." =:| oct"035",
+"," =:| oct"035",
+";" =:| oct"035",
+":" =:| oct"035",
+oct"020" =:| oct"035", % dt. Anfz. o.
+oct"023" =:| oct"035", % fr. Anfz. <<
+"!" =:| oct"035",
+"?" =:| oct"035",
+")" =:| oct"035",
+"<" =:| oct"035",
+">" =:| oct"035",
+"=" =:| oct"035",
+oct"026" =:| oct"035", % ---
+"*" =:| oct"035",
+"]" =:| oct"035",
+"&" =:| oct"035",
+"+" =:| oct"035",
+"@" =:| oct"035",
+"-" =:| oct"035",
+oct"177" =:| oct"035"
+;
+
+% a am Wortende
+ligtable "a": oct"040" =:| oct"241", % Leerz.
+"." =:| oct"241",
+"," =:| oct"241",
+";" =:| oct"241",
+":" =:| oct"241",
+oct"020" =:| oct"241", % dt. Anfz. o.
+oct"023" =:| oct"241", % fr. Anfz. <<
+"!" =:| oct"241",
+"?" =:| oct"241",
+")" =:| oct"241",
+"'" =:| oct"241",
+"<" =:| oct"241",
+">" =:| oct"241",
+"=" =:| oct"241",
+oct"026" =:| oct"241", % ---
+"*" =:| oct"241",
+"]" =:| oct"241",
+"&" =:| oct"241",
+"+" =:| oct"241",
+"@" =:| oct"241",
+"-" =:| oct"241",
+oct"177" =:| oct"241"
+;
+
+% b am Wortende
+ligtable "b": oct"040" =:| oct"242", % Leerz.
+"." =:| oct"242",
+"," =:| oct"242",
+";" =:| oct"242",
+":" =:| oct"242",
+oct"020" =:| oct"242", % dt. Anfz. o.
+oct"023" =:| oct"242", % fr. Anfz. <<
+"!" =:| oct"242",
+"?" =:| oct"242",
+")" =:| oct"242",
+"'" =:| oct"242",
+"<" =:| oct"242",
+">" =:| oct"242",
+"=" =:| oct"242",
+oct"026" =:| oct"242", % ---
+"*" =:| oct"242",
+"]" =:| oct"242",
+"&" =:| oct"242",
+"+" =:| oct"242",
+"@" =:| oct"242",
+"-" =:| oct"242",
+oct"177" =:| oct"242"
+;
+
+
+% c am Wortende
+ligtable "c": oct"040" =:| oct"243", % Leerz.
+"." =:| oct"243",
+"," =:| oct"243",
+";" =:| oct"243",
+":" =:| oct"243",
+oct"020" =:| oct"243", % dt. Anfz. o.
+oct"023" =:| oct"243", % fr. Anfz. <<
+"!" =:| oct"243",
+"?" =:| oct"243",
+")" =:| oct"243",
+"'" =:| oct"243",
+"<" =:| oct"243",
+">" =:| oct"243",
+"=" =:| oct"243",
+oct"026" =:| oct"243", % ---
+"*" =:| oct"243",
+"]" =:| oct"243",
+"&" =:| oct"243",
+"+" =:| oct"243",
+"@" =:| oct"243",
+"-" =:| oct"243",
+oct"177" =:| oct"243"
+;
+
+% d am Wortende
+ligtable "d": oct"040" =:| oct"244", % Leerz.
+"." =:| oct"244",
+"," =:| oct"244",
+";" =:| oct"244",
+":" =:| oct"244",
+oct"020" =:| oct"244", % dt. Anfz. o.
+oct"023" =:| oct"244", % fr. Anfz. <<
+"!" =:| oct"244",
+"?" =:| oct"244",
+")" =:| oct"244",
+"'" =:| oct"244",
+"<" =:| oct"244",
+">" =:| oct"244",
+"=" =:| oct"244",
+oct"026" =:| oct"244", % ---
+"*" =:| oct"244",
+"]" =:| oct"244",
+"&" =:| oct"244",
+"+" =:| oct"244",
+"@" =:| oct"244",
+"-" =:| oct"244",
+oct"177" =:| oct"244"
+;
+
+% e am Wortende
+ligtable "e": oct"040" =:| oct"245", % Leerz.
+"." =:| oct"245",
+"," =:| oct"245",
+";" =:| oct"245",
+":" =:| oct"245",
+oct"020" =:| oct"245", % dt. Anfz. o.
+oct"023" =:| oct"245", % fr. Anfz. <<
+"!" =:| oct"245",
+"?" =:| oct"245",
+")" =:| oct"245",
+"'" =:| oct"245",
+"<" =:| oct"245",
+">" =:| oct"245",
+"=" =:| oct"245",
+oct"026" =:| oct"245", % ---
+"*" =:| oct"245",
+"]" =:| oct"245",
+"&" =:| oct"245",
+"+" =:| oct"245",
+"@" =:| oct"245",
+"-" =:| oct"245",
+oct"177" =:| oct"245"
+;
+
+% f am Wortende
+ligtable "f": oct"040" =:| oct"246", % Leerz.
+"." =:| oct"246",
+"," =:| oct"246",
+";" =:| oct"246",
+":" =:| oct"246",
+oct"020" =:| oct"246", % dt. Anfz. o.
+oct"023" =:| oct"246", % fr. Anfz. <<
+"!" =:| oct"246",
+"?" =:| oct"246",
+")" =:| oct"246",
+"'" =:| oct"246",
+"<" =:| oct"246",
+">" =:| oct"246",
+"=" =:| oct"246",
+oct"026" =:| oct"246", % ---
+"*" =:| oct"246",
+"]" =:| oct"246",
+"&" =:| oct"246",
+"+" =:| oct"246",
+"@" =:| oct"246",
+"-" =:| oct"246",
+oct"177" =:| oct"246"
+;
+
+
+% g am Wortende
+ligtable "g": oct"040" =:| oct"247", % Leerz.
+"." =:| oct"247",
+"," =:| oct"247",
+";" =:| oct"247",
+":" =:| oct"247",
+oct"020" =:| oct"247", % dt. Anfz. o.
+oct"023" =:| oct"247", % fr. Anfz. <<
+"!" =:| oct"247",
+"?" =:| oct"247",
+")" =:| oct"247",
+"'" =:| oct"247",
+"<" =:| oct"247",
+">" =:| oct"247",
+"=" =:| oct"247",
+oct"026" =:| oct"247", % ---
+"*" =:| oct"247",
+"]" =:| oct"247",
+"&" =:| oct"247",
+"+" =:| oct"247",
+"@" =:| oct"247",
+"-" =:| oct"247",
+oct"177" =:| oct"247"
+;
+
+% h am Wortende
+ligtable "h": oct"040" =:| oct"250", % Leerz.
+"." =:| oct"250",
+"," =:| oct"250",
+";" =:| oct"250",
+":" =:| oct"250",
+oct"020" =:| oct"250", % dt. Anfz. o.
+oct"023" =:| oct"250", % fr. Anfz. <<
+"!" =:| oct"250",
+"?" =:| oct"250",
+")" =:| oct"250",
+"'" =:| oct"250",
+"<" =:| oct"250",
+">" =:| oct"250",
+"=" =:| oct"250",
+oct"026" =:| oct"250", % ---
+"*" =:| oct"250",
+"]" =:| oct"250",
+"&" =:| oct"250",
+"+" =:| oct"250",
+"@" =:| oct"250",
+"-" =:| oct"250",
+oct"177" =:| oct"250"
+;
+
+
+% i am Wortende
+ligtable "i": oct"040" =:| oct"251", % Leerz.
+"." =:| oct"251",
+"," =:| oct"251",
+";" =:| oct"251",
+":" =:| oct"251",
+oct"020" =:| oct"251", % dt. Anfz. o.
+oct"023" =:| oct"251", % fr. Anfz. <<
+"!" =:| oct"251",
+"?" =:| oct"251",
+")" =:| oct"251",
+"'" =:| oct"251",
+"<" =:| oct"251",
+">" =:| oct"251",
+"=" =:| oct"251",
+oct"026" =:| oct"251", % ---
+"*" =:| oct"251",
+"]" =:| oct"251",
+"&" =:| oct"251",
+"+" =:| oct"251",
+"@" =:| oct"251",
+"-" =:| oct"251",
+oct"177" =:| oct"251"
+;
+
+
+% j am Wortende
+ligtable "j": oct"040" =:| oct"252", % Leerz.
+"." =:| oct"252",
+"," =:| oct"252",
+";" =:| oct"252",
+":" =:| oct"252",
+oct"020" =:| oct"252", % dt. Anfz. o.
+oct"023" =:| oct"252", % fr. Anfz. <<
+"!" =:| oct"252",
+"?" =:| oct"252",
+")" =:| oct"252",
+"'" =:| oct"252",
+"<" =:| oct"252",
+">" =:| oct"252",
+"=" =:| oct"252",
+oct"026" =:| oct"252", % ---
+"*" =:| oct"252",
+"]" =:| oct"252",
+"&" =:| oct"252",
+"+" =:| oct"252",
+"@" =:| oct"252",
+"-" =:| oct"252",
+oct"177" =:| oct"252"
+;
+
+
+% k am Wortende
+ligtable "k": oct"040" =:| oct"253", % Leerz.
+"." =:| oct"253",
+"," =:| oct"253",
+";" =:| oct"253",
+":" =:| oct"253",
+oct"020" =:| oct"253", % dt. Anfz. o.
+oct"023" =:| oct"253", % fr. Anfz. <<
+"!" =:| oct"253",
+"?" =:| oct"253",
+")" =:| oct"253",
+"'" =:| oct"253",
+"<" =:| oct"253",
+">" =:| oct"253",
+"=" =:| oct"253",
+oct"026" =:| oct"253", % ---
+"*" =:| oct"253",
+"]" =:| oct"253",
+"&" =:| oct"253",
+"+" =:| oct"253",
+"@" =:| oct"253",
+"-" =:| oct"253",
+oct"177" =:| oct"253"
+;
+
+% l am Wortende
+ligtable "l": oct"040" =:| oct"254", % Leerz.
+"." =:| oct"254",
+"," =:| oct"254",
+";" =:| oct"254",
+":" =:| oct"254",
+oct"020" =:| oct"254", % dt. Anfz. o.
+oct"023" =:| oct"254", % fr. Anfz. <<
+"!" =:| oct"254",
+"?" =:| oct"254",
+")" =:| oct"254",
+"'" =:| oct"254",
+"<" =:| oct"254",
+">" =:| oct"254",
+"=" =:| oct"254",
+oct"026" =:| oct"254", % ---
+"*" =:| oct"254",
+"]" =:| oct"254",
+"&" =:| oct"254",
+"+" =:| oct"254",
+"@" =:| oct"254",
+"-" =:| oct"254",
+oct"177" =:| oct"254"
+;
+
+
+% m am Wortende
+ligtable "m": oct"040" =:| oct"255", % Leerz.
+"." =:| oct"255",
+"," =:| oct"255",
+";" =:| oct"255",
+":" =:| oct"255",
+oct"020" =:| oct"255", % dt. Anfz. o.
+oct"023" =:| oct"255", % fr. Anfz. <<
+"!" =:| oct"255",
+"?" =:| oct"255",
+")" =:| oct"255",
+"'" =:| oct"255",
+"<" =:| oct"255",
+">" =:| oct"255",
+"=" =:| oct"255",
+oct"026" =:| oct"255", % ---
+"*" =:| oct"255",
+"]" =:| oct"255",
+"&" =:| oct"255",
+"+" =:| oct"255",
+"@" =:| oct"255",
+"-" =:| oct"255",
+oct"177" =:| oct"255"
+;
+
+% n am Wortende
+ligtable "n": oct"040" =:| oct"256", % Leerz.
+"." =:| oct"256",
+"," =:| oct"256",
+";" =:| oct"256",
+":" =:| oct"256",
+oct"020" =:| oct"256", % dt. Anfz. o.
+oct"023" =:| oct"256", % fr. Anfz. <<
+"!" =:| oct"256",
+"?" =:| oct"256",
+")" =:| oct"256",
+"'" =:| oct"256",
+"<" =:| oct"256",
+">" =:| oct"256",
+"=" =:| oct"256",
+oct"026" =:| oct"256", % ---
+"*" =:| oct"256",
+"]" =:| oct"256",
+"&" =:| oct"256",
+"+" =:| oct"256",
+"@" =:| oct"256",
+"-" =:| oct"256",
+oct"177" =:| oct"256"
+;
+
+
+% o am Wortende
+ligtable "o": oct"040" =:| oct"257", % Leerz.
+"." =:| oct"257",
+"," =:| oct"257",
+";" =:| oct"257",
+":" =:| oct"257",
+oct"020" =:| oct"257", % dt. Anfz. o.
+oct"023" =:| oct"257", % fr. Anfz. <<
+"!" =:| oct"257",
+"?" =:| oct"257",
+")" =:| oct"257",
+"'" =:| oct"257",
+"<" =:| oct"257",
+">" =:| oct"257",
+"=" =:| oct"257",
+oct"026" =:| oct"257", % ---
+"*" =:| oct"257",
+"]" =:| oct"257",
+"&" =:| oct"257",
+"+" =:| oct"257",
+"@" =:| oct"257",
+"-" =:| oct"257",
+oct"177" =:| oct"257"
+;
+
+
+% p am Wortende
+ligtable "p": oct"040" =:| oct"260", % Leerz.
+"." =:| oct"260",
+"," =:| oct"260",
+";" =:| oct"260",
+":" =:| oct"260",
+oct"020" =:| oct"260", % dt. Anfz. o.
+oct"023" =:| oct"260", % fr. Anfz. <<
+"!" =:| oct"260",
+"?" =:| oct"260",
+")" =:| oct"260",
+"'" =:| oct"260",
+"<" =:| oct"260",
+">" =:| oct"260",
+"=" =:| oct"260",
+oct"026" =:| oct"260", % ---
+"*" =:| oct"260",
+"]" =:| oct"260",
+"&" =:| oct"260",
+"+" =:| oct"260",
+"@" =:| oct"260",
+"-" =:| oct"260",
+oct"177" =:| oct"260"
+;
+
+
+% q am Wortende
+ligtable "q": oct"040" =:| oct"261", % Leerz.
+"." =:| oct"261",
+"," =:| oct"261",
+";" =:| oct"261",
+":" =:| oct"261",
+oct"020" =:| oct"261", % dt. Anfz. o.
+oct"023" =:| oct"261", % fr. Anfz. <<
+"!" =:| oct"261",
+"?" =:| oct"261",
+")" =:| oct"261",
+"'" =:| oct"261",
+"<" =:| oct"261",
+">" =:| oct"261",
+"=" =:| oct"261",
+oct"026" =:| oct"261", % ---
+"*" =:| oct"261",
+"]" =:| oct"261",
+"&" =:| oct"261",
+"+" =:| oct"261",
+"@" =:| oct"261",
+"-" =:| oct"261",
+oct"177" =:| oct"261"
+;
+
+% r am Wortende
+ligtable "r": oct"040" =:| oct"262", % Leerz.
+"." =:| oct"262",
+"," =:| oct"262",
+";" =:| oct"262",
+":" =:| oct"262",
+oct"020" =:| oct"262", % dt. Anfz. o.
+oct"023" =:| oct"262", % fr. Anfz. <<
+"!" =:| oct"262",
+"?" =:| oct"262",
+")" =:| oct"262",
+"'" =:| oct"262",
+"<" =:| oct"262",
+">" =:| oct"262",
+"=" =:| oct"262",
+oct"026" =:| oct"262", % ---
+"*" =:| oct"262",
+"]" =:| oct"262",
+"&" =:| oct"262",
+"+" =:| oct"262",
+"@" =:| oct"262",
+"-" =:| oct"262",
+oct"177" =:| oct"262"
+;
+
+% t am Wortende
+ligtable "t": oct"040" =:| oct"264", % Leerz.
+"." =:| oct"264",
+"," =:| oct"264",
+";" =:| oct"264",
+":" =:| oct"264",
+oct"020" =:| oct"264", % dt. Anfz. o.
+oct"023" =:| oct"264", % fr. Anfz. <<
+"!" =:| oct"264",
+"?" =:| oct"264",
+")" =:| oct"264",
+"'" =:| oct"264",
+"<" =:| oct"264",
+">" =:| oct"264",
+"=" =:| oct"264",
+oct"026" =:| oct"264", % ---
+"*" =:| oct"264",
+"]" =:| oct"264",
+"&" =:| oct"264",
+"+" =:| oct"264",
+"@" =:| oct"264",
+"-" =:| oct"264",
+oct"177" =:| oct"264"
+;
+
+
+% u am Wortende
+ligtable "u": oct"040" =:| oct"265", % Leerz.
+"." =:| oct"265",
+"," =:| oct"265",
+";" =:| oct"265",
+":" =:| oct"265",
+oct"020" =:| oct"265", % dt. Anfz. o.
+oct"023" =:| oct"265", % fr. Anfz. <<
+"!" =:| oct"265",
+"?" =:| oct"265",
+")" =:| oct"265",
+"'" =:| oct"265",
+"<" =:| oct"265",
+">" =:| oct"265",
+"=" =:| oct"265",
+oct"026" =:| oct"265", % ---
+"*" =:| oct"265",
+"]" =:| oct"265",
+"&" =:| oct"265",
+"+" =:| oct"265",
+"@" =:| oct"265",
+"-" =:| oct"265",
+oct"177" =:| oct"265"
+;
+
+
+% v am Wortende
+ligtable "v": oct"040" =:| oct"266", % Leerz.
+"." =:| oct"266",
+"," =:| oct"266",
+";" =:| oct"266",
+":" =:| oct"266",
+oct"020" =:| oct"266", % dt. Anfz. o.
+oct"023" =:| oct"266", % fr. Anfz. <<
+"!" =:| oct"266",
+"?" =:| oct"266",
+")" =:| oct"266",
+"'" =:| oct"266",
+"<" =:| oct"266",
+">" =:| oct"266",
+"=" =:| oct"266",
+oct"026" =:| oct"266", % ---
+"*" =:| oct"266",
+"]" =:| oct"266",
+"&" =:| oct"266",
+"+" =:| oct"266",
+"@" =:| oct"266",
+"-" =:| oct"266",
+oct"177" =:| oct"266"
+;
+
+% w am Wortende
+ligtable "w": oct"040" =:| oct"267", % Leerz.
+"." =:| oct"267",
+"," =:| oct"267",
+";" =:| oct"267",
+":" =:| oct"267",
+oct"020" =:| oct"267", % dt. Anfz. o.
+oct"023" =:| oct"267", % fr. Anfz. <<
+"!" =:| oct"267",
+"?" =:| oct"267",
+")" =:| oct"267",
+"'" =:| oct"267",
+"<" =:| oct"267",
+">" =:| oct"267",
+"=" =:| oct"267",
+oct"026" =:| oct"267", % ---
+"*" =:| oct"267",
+"]" =:| oct"267",
+"&" =:| oct"267",
+"+" =:| oct"267",
+"@" =:| oct"267",
+"-" =:| oct"267",
+oct"177" =:| oct"267"
+;
+
+% x am Wortende
+ligtable "x": oct"040" =:| oct"270", % Leerz.
+"." =:| oct"270",
+"," =:| oct"270",
+";" =:| oct"270",
+":" =:| oct"270",
+oct"020" =:| oct"270", % dt. Anfz. o.
+oct"023" =:| oct"270", % fr. Anfz. <<
+"!" =:| oct"270",
+"?" =:| oct"270",
+")" =:| oct"270",
+"'" =:| oct"270",
+"<" =:| oct"270",
+">" =:| oct"270",
+"=" =:| oct"270",
+oct"026" =:| oct"270", % ---
+"*" =:| oct"270",
+"]" =:| oct"270",
+"&" =:| oct"270",
+"+" =:| oct"270",
+"@" =:| oct"270",
+"-" =:| oct"270",
+oct"177" =:| oct"270"
+;
+
+% y am Wortende
+ligtable "y": oct"040" =:| oct"271", % Leerz.
+"." =:| oct"271",
+"," =:| oct"271",
+";" =:| oct"271",
+":" =:| oct"271",
+oct"020" =:| oct"271", % dt. Anfz. o.
+oct"023" =:| oct"271", % fr. Anfz. <<
+"!" =:| oct"271",
+"?" =:| oct"271",
+")" =:| oct"271",
+"'" =:| oct"271",
+"<" =:| oct"271",
+">" =:| oct"271",
+"=" =:| oct"271",
+oct"026" =:| oct"271", % ---
+"*" =:| oct"271",
+"]" =:| oct"271",
+"&" =:| oct"271",
+"+" =:| oct"271",
+"@" =:| oct"271",
+"-" =:| oct"271",
+oct"177" =:| oct"271"
+;
+
+
+% z am Wortende
+ligtable "z": oct"040" =:| oct"272", % Leerz.
+"." =:| oct"272",
+"," =:| oct"272",
+";" =:| oct"272",
+":" =:| oct"272",
+oct"020" =:| oct"272", % dt. Anfz. o.
+oct"023" =:| oct"272", % fr. Anfz. <<
+"!" =:| oct"272",
+"?" =:| oct"272",
+")" =:| oct"272",
+"'" =:| oct"272",
+"<" =:| oct"272",
+">" =:| oct"272",
+"=" =:| oct"272",
+oct"026" =:| oct"272", % ---
+"*" =:| oct"272",
+"]" =:| oct"272",
+"&" =:| oct"272",
+"+" =:| oct"272",
+"@" =:| oct"272",
+"-" =:| oct"272",
+oct"177" =:| oct"272"
+;
+
+% ä am Wortende
+ligtable oct"344": oct"040" =:| oct"273", % Leerz.
+"." =:| oct"273",
+"," =:| oct"273",
+";" =:| oct"273",
+":" =:| oct"273",
+oct"020" =:| oct"273", % dt. Anfz. o.
+oct"023" =:| oct"273", % fr. Anfz. <<
+"!" =:| oct"273",
+"?" =:| oct"273",
+")" =:| oct"273",
+"'" =:| oct"273",
+"<" =:| oct"273",
+">" =:| oct"273",
+"=" =:| oct"273",
+oct"026" =:| oct"273", % ---
+"*" =:| oct"273",
+"]" =:| oct"273",
+"&" =:| oct"273",
+"+" =:| oct"273",
+"@" =:| oct"273",
+"-" =:| oct"273",
+oct"177" =:| oct"273"
+;
+
+
+% ö am Wortende
+ligtable oct"366": oct"040" =:| oct"274", % Leerz.
+"." =:| oct"274",
+"," =:| oct"274",
+";" =:| oct"274",
+":" =:| oct"274",
+oct"020" =:| oct"274", % dt. Anfz. o.
+oct"023" =:| oct"274", % fr. Anfz. <<
+"!" =:| oct"274",
+"?" =:| oct"274",
+")" =:| oct"274",
+"'" =:| oct"274",
+"<" =:| oct"274",
+">" =:| oct"274",
+"=" =:| oct"274",
+oct"026" =:| oct"274", % ---
+"*" =:| oct"274",
+"]" =:| oct"274",
+"&" =:| oct"274",
+"+" =:| oct"274",
+"@" =:| oct"274",
+"-" =:| oct"274",
+oct"177" =:| oct"274"
+;
+
+% ü am Wortende
+ligtable oct"374": oct"040" =:| oct"275", % Leerz.
+"." =:| oct"275",
+"," =:| oct"275",
+";" =:| oct"275",
+":" =:| oct"275",
+oct"020" =:| oct"275", % dt. Anfz. o.
+oct"023" =:| oct"275", % fr. Anfz. <<
+"!" =:| oct"275",
+"?" =:| oct"275",
+")" =:| oct"275",
+"'" =:| oct"275",
+"<" =:| oct"275",
+">" =:| oct"275",
+"=" =:| oct"275",
+oct"026" =:| oct"275", % ---
+"*" =:| oct"275",
+"]" =:| oct"275",
+"&" =:| oct"275",
+"+" =:| oct"275",
+"@" =:| oct"275",
+"-" =:| oct"275",
+oct"177" =:| oct"275"
+;
+
+% Kerning bei grossen Einzelbuchstaben
+ligtable
+oct"201": oct"202": oct"203": oct"204": oct"205": oct"206": oct"207":
+oct"210": oct"211": oct"212": oct"213": oct"214": oct"215": oct"216": oct"217":
+oct"220": oct"221": oct"222": oct"223":oct"224": oct"225": oct"226": oct"227":
+oct"230": oct"231": oct"232": oct"233": oct"234": oct"235":
+oct"002": oct"003": oct"004":
+oct"040" kern -20ut#;
+
+% Aufstrich am Wortanfang bei allen Kleinbuchstaben anfuegen, ausser  z
+ligtable ||:"(": "[":"+":"<":">":"=":"'":".":",":oct"022":oct"024":"0":"1":"2":"3":"4":"5":"6":"7":"8":"9": "@":
+  "a" |=:| oct"200",
+oct"241" |=:| oct"200", % a ohne Verbindungsstrich
+"b" |=:| oct"200",
+oct"242" |=:| oct"200",% b ohne Verbindungsstrich
+"c" |=:| oct"200",
+oct"243" |=:| oct"200", % c ohne Verbindungsstrich
+"d" |=:| oct"200",
+oct"244" |=:| oct"200", % d ohne Verbindungsstrich 
+"e" |=:| oct"200",
+oct"245" |=:| oct"200", % e ohne Verbindungsstrich
+"f" |=:| oct"200",
+oct"246" |=:| oct"200", % f ohne Verbindungsstrich
+"g" |=:| oct"200",
+oct"247"  |=:| oct"200",% g ohne Verbindungsstrich
+"h" |=:| oct"200",
+oct"250" |=:| oct"200",% h ohne Verbindungsstrich
+"i" |=:| oct"200",
+oct"251" |=:| oct"200", % i ohne Verbindungsstrich
+"j" |=:| oct"200",
+oct"252"  |=:| oct"200", % j ohne Verbindungsstrich
+"k" |=:| oct"200",
+oct"253"  |=:| oct"200", % k ohne Verbindungsstrich
+"l" |=:| oct"200",
+oct"254" |=:| oct"200", % l ohne Verbindungsstrich
+"m" |=:| oct"200",
+oct"255" |=:| oct"200", % m ohne Verbindungsstrich
+"n" |=:| oct"200",
+oct"256" |=:| oct"200", % n ohne Verbindungsstrich
+"o" |=:| oct"200",
+oct"257"  |=:| oct"200", % o ohne Verbindungsstrich
+"p" |=:| oct"200",
+oct"260" |=:| oct"200",% p ohne Verbindungsstrich
+"q" |=:| oct"200",
+oct"261" |=:| oct"200",% q ohne Verbindungsstrich
+"r" |=:| oct"200",
+oct"262" |=:| oct"200",% r ohne Verbindungsstrich
+"s"  |=:| oct"200",
+oct"032"  |=:| oct"200",% s ohne Verbindungsstrich
+oct"263" |=:| oct"200",% s ohne Verbindungsstrich
+oct"377" |=:| oct"200",% scharfes s 
+oct"035"  |=:| oct"200",% scharfes s ohne Verbindungsstrich
+"t" |=:| oct"200",
+oct"264" |=:| oct"200",% t ohne Verbindungsstrich
+"u" |=:| oct"200",
+oct"265" |=:| oct"200", % u ohne Verbindungsstrich
+"v" |=:| oct"200",
+oct"266" |=:| oct"200", % v ohne Verbindungsstrich
+"w" |=:| oct"200",
+oct"267" |=:| oct"200", % w ohne Verbindungsstrich
+"x" |=:| oct"200",
+oct"270" |=:| oct"200", % x ohne Verbindungsstrich
+"y" |=:| oct"200",
+oct"271" |=:| oct"200",% y ohne Verbindungsstrich
+oct"344" |=:| oct"200", % ä
+oct"273" |=:| oct"200", % ä ohne Verbindungsstrich
+oct"366" |=:| oct"200", % ö
+oct"274" |=:| oct"200", % ö ohne Verbindungsstrich
+oct"374" |=:| oct"200", % ü
+oct"275" |=:| oct"200"  % ü  ohne Verbindungsstrich
+;
+
+
+% Nach "-" Aufstrich am Wortanfang bei allen Kleinbuchstaben anfuegen,
+% ausser  bei z.
+% Ausserdem "--" --> oct"025" (Gedankenstrich)
+ligtable "-": "-" =: oct"025",
+"a" |=:| oct"200",
+oct"241" |=:| oct"200", % a ohne Verbindungsstrich
+"b" |=:| oct"200",
+oct"242" |=:| oct"200",% b ohne Verbindungsstrich
+"c" |=:| oct"200",
+oct"243" |=:| oct"200", % c ohne Verbindungsstrich
+"d" |=:| oct"200",
+oct"244" |=:| oct"200", % d ohne Verbindungsstrich 
+"e" |=:| oct"200",
+oct"245" |=:| oct"200", % e ohne Verbindungsstrich
+"f" |=:| oct"200",
+oct"246" |=:| oct"200", % f ohne Verbindungsstrich
+"g" |=:| oct"200",
+oct"247"  |=:| oct"200",% g ohne Verbindungsstrich
+"h" |=:| oct"200",
+oct"250" |=:| oct"200",% h ohne Verbindungsstrich
+"i" |=:| oct"200",
+oct"251" |=:| oct"200", % i ohne Verbindungsstrich
+"j" |=:| oct"200",
+oct"252"  |=:| oct"200", % j ohne Verbindungsstrich
+"k" |=:| oct"200",
+oct"253"  |=:| oct"200", % k ohne Verbindungsstrich
+"l" |=:| oct"200",
+oct"254" |=:| oct"200", % l ohne Verbindungsstrich
+"m" |=:| oct"200",
+oct"255" |=:| oct"200", % m ohne Verbindungsstrich
+"n" |=:| oct"200",
+oct"256" |=:| oct"200", % n ohne Verbindungsstrich
+"o" |=:| oct"200",
+oct"257"  |=:| oct"200", % o ohne Verbindungsstrich
+"p" |=:| oct"200",
+oct"260" |=:| oct"200",% p ohne Verbindungsstrich
+"q" |=:| oct"200",
+oct"261" |=:| oct"200",% q ohne Verbindungsstrich
+"r" |=:| oct"200",
+oct"262" |=:| oct"200",% r ohne Verbindungsstrich
+"s"  |=:| oct"200",
+oct"032"  |=:| oct"200",% s ohne Verbindungsstrich
+oct"263" |=:| oct"200",% s ohne Verbindungsstrich
+oct"377" |=:| oct"200",% scharfes s 
+oct"035"  |=:| oct"200",% scharfes s ohne Verbindungsstrich
+"t" |=:| oct"200",
+oct"264" |=:| oct"200",% t ohne Verbindungsstrich
+"u" |=:| oct"200",
+oct"265" |=:| oct"200", % u ohne Verbindungsstrich
+"v" |=:| oct"200",
+oct"266" |=:| oct"200", % v ohne Verbindungsstrich
+"w" |=:| oct"200",
+oct"267" |=:| oct"200", % w ohne Verbindungsstrich
+"x" |=:| oct"200",
+oct"270" |=:| oct"200", % x ohne Verbindungsstrich
+"y" |=:| oct"200",
+oct"271" |=:| oct"200",% y ohne Verbindungsstrich
+oct"344" |=:| oct"200", % ä
+oct"273" |=:| oct"200", % ä ohne Verbindungsstrich
+oct"366" |=:| oct"200", % ö
+oct"274" |=:| oct"200", % ö ohne Verbindungsstrich
+oct"374" |=:| oct"200", % ü
+oct"275" |=:| oct"200"  % ü  ohne Verbindungsstrich
+;
+
+% Langer Gedankenstrich (---)
+ligtable oct"025": "-" =: oct"026";
+
+%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%%%

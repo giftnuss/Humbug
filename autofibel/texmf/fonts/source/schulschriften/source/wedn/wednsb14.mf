@@ -1,0 +1,3 @@
+% wedn semi bold
+fetter:=1;
+input wedn14;

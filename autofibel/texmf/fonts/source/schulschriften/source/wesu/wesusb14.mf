@@ -1,0 +1,3 @@
+% wesu semi bold
+fetter:=1;
+input wesu14;

@@ -1,0 +1,8 @@
+% Suetterlinschrift  wesu
+% Parameter-File boldface (Bandzugfeder),  slanted
+% Walter Entenmann
+% 09.06.2011
+
+bold:=1;
+input wesusl14;
+%%%%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%

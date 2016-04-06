@@ -1,0 +1,56 @@
+% Paket schulschriften
+% Beispielfile zur  LaTeX-Anpassung 
+%    Auszeichnung durch Unterstreichen
+%    Umschaltung Schreibschrift/Normalschrift
+% Version 1
+% Walter Entenmann
+% 17.10.2012
+%
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{schulschriften_ltx}        % Umschaltung 
+                        % \normalschrift,\schreibschrift{<fontbefehl>}
+                        % <fontbefehl>=\usefont{T1}{<font>}{<series>}{<shape>} 
+                        % \thisfont (enthaelt den jeweils aktuellen Font) 
+                        % Unterstreichen mit \underline{<text>}
+
+
+\voffset-1in
+\hoffset-1in
+\textwidth16cm
+\textheight25cm
+\oddsidemargin2.5cm
+\parindent1em
+\sloppy
+
+\newtheorem{satz}{Satz}
+
+\begin{document}
+
+% Schriftgroesse:
+\fontsize{14pt}{18pt}\selectfont\par\parindent1em
+
+%%%%%%%%%%% Umschaltung auf Schreibschrift und Schriftauswahl:
+\schreibschrift{\usefont{T1}{wela}{m}{sl}}
+%
+\section{\underline{\strut Lesebuch in Schreibschrift}}
+\subsection{\underline{\strut Rationalit\"at im Wandel der Zeit}}
+ Aber worin besteht diese wohl schon so oft
+diskutierte Rationalit\"at der Vorsokratiker?
+\begin{enumerate}
+\item Nach der Pause, wenn's geht, wird die Besprechung 
+mit den G\"asten im Seminarraum stattfinden
+\end{enumerate}
+\begin{description}
+\item\underline{\strut Vorwort} Das Buch beginnt mit einem Vorwort, 
+in welchem die Zielsetzung und der wesentliche Inhalt
+\end{description}
+
+Und jetzt schalten wir wieder auf Normalschrift um.
+
+%%%%%%%%%%% Umschaltung auf Normalschrift (Standard-LaTeX):
+\normalschrift 
+\section{Normalfont}
+Und wieder ein Text in Standard-\LaTeX.
+\end{document}

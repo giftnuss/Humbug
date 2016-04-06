@@ -1,0 +1,550 @@
+% Lateinische Ausgangsschrift (LA)  wela
+% Parameter und Makrodefinitionen
+% 16.10.2011
+% 11.09.2014: Schleifchen-e modifiziert
+%             e am Wortanfang
+%             latin_e, latin_eg,
+%             latin_er, latin_eb, e mit langem Schweif, latin_e_form,
+%             Oberlaengen bei b,f,h,k,l Schnittpunkt tiefer gelegt (ht-Delta)
+%             n,m,r,v,w Spazierstock Biegung verschaerft
+%             a,ä,d,h,i,m,n,p,u,ü Stock staerker verrundet (0,2rho)..(1.5rho,0)
+%             s beginn jetzt oben abwaerts in Richtung Anstrich {-1,-m}
+%                 und Bauch etwas tiefer gelegt
+% 15.09.2014: Als neue Version von wela verwendet
+% 14.11.2014: s', r' geaendert
+%             
+% Parameter:
+
+% kl. Abstand in der Groesse der Strichstaerke
+eta:=1ut;
+% Steigung des Verbindungsstrichs
+m:=1.5;
+% Superellipse
+b=ht/2;
+k:=1.425;
+a*k=b;
+sigma:=0.73345;
+
+% Delta, delta
+  z1=(0,b); z2=(-a,0);
+  z5=(-sigma*a,sigma*b);
+  p := z1{left}..z5{z2-z1}..{down}z2;
+  x0:=whatever;y0:=whatever;
+    z0=(directionpoint(1,m) of (reverse (subpath (0,2) of p)));
+    delta:=a+x0;Delta:=b-y0;
+
+% typische kleine Masse
+dd:=2.5ut; 
+D:=5ut; 
+s:=7.5ut; 
+% Radius z.B. bei "a"
+rho:=2ut;
+
+% Unterschleife, Schnittpunkt bei (0,0)
+% Steigung m
+sb:=9ut;
+sbf:=0.35; % sb*sbf
+sbfh:=0.23; % dt*sbfh 
+% vor lat. e, Steigung m'
+m':=0.87;
+sb':=9ut;
+sbf':=sbf;
+sbfh':=0.28;
+% Oberschleife, Schnittpunkt bei (0,ht)
+% Steigung m
+sb'':=9ut;
+sbf'':=0.35; % sb''*sbf''
+sbfh'':=0.23; % dt*sbfh''
+% Breite von "h" etc (breite=ht/kh)
+kh:=1.66;
+% Breite der Fahne bei r
+rfahne:=12ut;
+% Einrollmass
+einroll:=ht/9;
+% Breite der Fahne bei o, v, w
+ofahne:=rfahne+einroll;
+% Breite der Fahne bei b
+bfahne:=ofahne;
+% Steigung der Fahne bei b, v, w
+mfahne:=2;
+% Breite von "s"
+sbreite:=7.5ut;
+% gekroepftes e
+me:=0.33;
+ebreite:=8ut;
+ef:=0.3;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parameter fuer Grossbuchstaben:
+
+% Flaggen
+flaggenbreite:=17.5ut;
+zbreite:=flaggenbreite;
+Zbreite:=22.5ut;
+% Stamm
+% Radius bei "Stamm"
+R:=10ut;
+% Abstand der Umlautstriche bei Grossbuchstaben:
+dumlaut:=7.5ut;
+% Oberschleifenbreite:
+Sb:=17.5ut; %  bei C, G  %%
+SbL:=15ut;% L
+% Schleifenbreitenfaktor
+Sbf:=0.267;
+sporn:=12.5ut; %% am Oschl
+Sporn:=10ut; % am Fuss von A,M,N...
+over:=7.5ut;  %% bei A, 5ut bei M,N
+Abreite:=ht; % 20ut %%
+Mbreite:=0.9Abreite;
+Nbreite:=12.5ut;
+mN:=5.33;
+% Superellipse: O, Q
+A:=12.5ut; %%
+B:=Ht/2;
+% Steigung des Ohrs bei "O"
+mO:=4;
+X:=ht/2; % fuer X
+% H-Kurve:
+Hf:=0.18;
+Hfx:=0.35;
+Hbreite:=12.5ut; %%
+mt:=m;
+% Parameter fuer Ziffern:
+s':=5ut;    % seitlicher Abstand
+w':= Wz-2s';  % effektive Breite der Ziffern
+r:=(w'-dd)/2;     % Radius bei "2"
+% Zeichen:
+hmath:=ht/2;
+hdash:=ht/2;
+% Kerning:
+Bkern#:=-10.5ut#;
+Dkern#:=-12.5ut#;
+Fkern#:=-20ut#;
+Ikern#:=-9ut#; 
+Nkern#:=-20ut#;  
+Okern#:=-18.79ut#;
+Pkern#:=-25ut#;
+Skern#:=-22.5ut#;
+Tkern#:=-20ut#;
+Vkern#:=-18.778ut#;   % auch W
+skern#:=-7.5ut#;
+sskern#:=-7.018ut#;
+
+%%%%%%%%%%%%%% Makros %%%%%
+Kern:=0;
+% Nur fuer Wartungszwecke
+% Makro aktivieren, um die 'width' der Zeichen auszugeben
+def zeigen=
+%  weite:=20*xpos/ht;
+%   if Kern>0:
+%    kernwert:=20*Kern/ht;
+%showvariable kernwert;
+%    fi 
+%  showvariable weite;
+%  Kern:=0;
+enddef;
+
+% Fuer Kleinbuchstaben:
+def oval(expr sx)=
+	         x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,b); z2=(-a,0); z3=(0,-b); z4=(a,0);
+  z5=(-sigma*a,sigma*b);
+  z6=(-sigma*a,-sigma*b);
+  z7=(sigma*a,-sigma*b);
+  z8=(sigma*a,sigma*b);
+  p:= (z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..
+    {right}z3..z7{z4-z3}..z4{up}..z8{z1-z4}..{left}z1);
+  draw p shifted (sx+a-delta,b);
+    x1:=whatever;y1:=whatever;
+  z1=(directionpoint (-1,mfahne) of (subpath (6,8) of p)) shifted (sx+a-delta,b);
+    xpos:=sx+2a-delta;
+  enddef;
+
+  def ohr=
+  draw (z1--(x1-(ht-y1)/mfahne,ht));
+  xpos:=x1-(ht-y1)/mfahne;
+    enddef;
+  
+  \def stock(expr sx)=
+    if not wortende:
+    draw ((0,2*rho){down}..(1.5rho,0){right}..tension2.5 and 4..{1,m}(2.5*rho+(ht-Delta)/m,ht-Delta)) shifted (sx,0);
+    xpos:=sx+2.5*rho+(ht-Delta)/m;
+  else:
+    draw ((0,2*rho){down}..{right}(1.5rho,0)) shifted (sx,0);
+    xpos:=sx+rho;
+    fi
+  enddef;
+
+  def oschl(expr sx)=
+  draw ((0,ht-Delta){1,m}..tension1.5..(sb'',Ht-dt*sbfh''){up}..((1-sbf'')*sb'',Ht){left}..tension 1.5..{down}(0,ht-Delta)) shifted (sx,0);
+  xpos:=sx;
+enddef;
+
+def uschl(expr sx)=
+draw ((0,0){down}..tension 1.5..(-(1-sbf)*sb,-dt){left}..(-sb,-dt*(1-sbfh)){up}..tension1.5..{1,m}(0,0))  shifted (sx,0);
+xpos:=sx;
+enddef;
+
+def latin_eg (expr sx) =
+%  draw ((0,0)--(0.5ht/m',ht/2))  shifted (sx,0);
+%  draw ((0.5ht/m',ht/2){1,me}..(ebreite+0.5ht/m',ht-ef*ebreite){up}..(ebreite*(1-ef)+0.5ht/m',ht){left}..(0.5ht/m',ht/2){down}..{right}(ebreite*(1-ef)+0.5ht/m',0))  shifted (sx,0);
+  draw ((0,0){1,m'}..(ebreite+8ut,ht-ef*ebreite){up}..(ebreite*(1-ef)+8ut,ht){left}..(8ut,ht/2){down}..{right}(ebreite*(1-ef)+8ut,0))  shifted (sx,0);
+xpos:=sx+ebreite*(1-ef)+8ut;
+enddef;
+
+def uschl_e (expr sx) =
+  draw ((0,0){down}..tension 1.5..(-(1-sbf')*sb',-dt){left}..(-sb',-dt*(1-sbfh')){up}..tension1.5..{1,m'}(0,0))  shifted (sx,0);
+xpos:=sx;
+  enddef;
+
+def stamm(expr ha, hb, sx)=
+  draw ((0,ha)--(0,hb)) shifted (sx,0);
+  xpos:=sx;
+enddef;
+
+def strich (expr sx)=
+  if not wortende:
+    draw ((0,0)--((ht-Delta)/m,ht-Delta)) shifted (sx,0);
+    xpos:=sx+(ht-Delta)/m;
+  else:
+    xpos:=sx;
+    fi
+enddef;
+
+def kurzstrich(expr sx)=
+  draw ((0,ht-Delta)--(Delta/m,ht)) shifted (sx,0);
+  xpos:=sx+Delta/m;
+enddef;
+
+def ipunkt (expr sx)=
+drawdot ((0,0)) shifted (sx,ht+dt/2);
+xpos:=sx;
+enddef;
+
+  def schweif (expr hl, hr, bt, phil, phir, tens, sx) =
+    p := (0,hl){dir phil}..tension tens..{dir phir}(bt,hr);
+    draw p shifted (sx,0);
+    if ((bt>0) and (phil<angle(1,mt)) and (angle(1,mt)<phir)) or ((bt<0) and (phir<angle(-1,-mt)) and (angle(-1,-mt)<phil)):
+         x0:=whatever; y0:=whatever;
+	 z0=(directionpoint (1,mt) of if bt>0:(subpath (0,1) of p)else: reverse(subpath (0,1) of p)fi ) shifted (sx,0);
+	 fi
+  xpos:=sx+bt;
+enddef;
+
+def fahne (expr hl, hr, bt, phil, phir, tens, sx) =
+  if not wortende:
+ schweif(hl, hr, bt, phil, phir, tens, sx);
+else:
+  xpos:=sx;
+fi  
+ enddef;
+
+   def spitz(expr sx)=
+%     draw ((0,ht-Delta){1,m}..{up}(eta,ht)) shifted (sx,0);  %%%%% leer
+%     xpos:=sx+eta;
+     xpos:=sx;                                                %%%% Breite=0
+     enddef;
+   
+   def bogen(expr hl,hm,hr,bt,fx,phil,phir,tensl,tensr,sx)=
+     p:=((0,hl){dir phil}..tension tensl..(bt*fx,hm){bt,0}..tension tensr..{dir phir}(bt,hr));
+     draw p shifted (sx,0);
+     if (hl>hm) and (hr>hm):
+x0:=whatever; y0:=whatever;
+z0=(directionpoint (1,mt) of if bt>0:(subpath (1,2) of p)else: reverse(subpath (0,1) of p)fi) shifted (sx,0);
+fi
+     xpos:=sx+bt;
+   enddef;
+
+   def fuss(expr sx)=
+     draw ((0,2*rho)..{right}(2*rho,0)) shifted (sx,0);
+     xpos:=sx+2*rho;
+   enddef;
+   
+     def quer(expr ha, sx)=
+       draw ((-s+dd/2,0)--(s-dd/2,0)) shifted (sx,ha);
+     enddef;
+
+       def gerade (expr ha, hb, bt, sx)=
+	 draw ((0,ha)--(bt,hb)) shifted (sx,0);
+	 xpos:=sx+bt;
+       enddef;
+       
+       def c_form (expr sx)=
+	         x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,b); z2=(-a,0); z3=(0,-b); z4=(a,0);
+  z5=(-sigma*a,sigma*b);
+  z6=(-sigma*a,-sigma*b);
+  z7=(sigma*a,-sigma*b);
+  z8=(sigma*a,sigma*b);
+  draw (z8{z1-z4}..z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..
+    {right}z3) shifted (sx+a-delta,b);
+    xpos:=sx+a-delta;
+  enddef;
+
+  def tangente (expr ddx)=
+    if not wortende:
+      draw ((x0,y0){1,mt}..{1,m}(x0+ddx+(ht-Delta-y0)/m,ht-Delta));
+      mt:=m;
+      xpos:=x0+ddx+(ht-Delta-y0)/m;
+    fi
+  enddef;
+
+  def spazierstock (expr sx)=
+%    draw ((0,ht-Delta){1,m}..(Delta+rho,ht){right}..{down}(Delta+2*rho,ht-rho)) shifted (sx,0);
+     draw ((0,ht-Delta){1,m}..(Delta,ht){right}..{down}(Delta+rho,ht-rho)) shifted (sx,0);
+    xpos:=sx+Delta+rho;
+  enddef;
+
+  def s_form(expr sx)=
+    p:= ((0,ht){-1,-m}..(sbreite,sbreite-2ut){down}..(0,0){left}..(-sbreite+2ut,dd));
+    draw p shifted (sx,0);
+    x0:=whatever;y0:=whatever;
+    z0=(directionpoint(1,mt) of (reverse (subpath (1,2) of p))) shifted (sx,0);
+    xpos:=sx+sbreite;
+    Kern:=sbreite;
+  enddef;
+
+def ss_form (expr sx)=
+  draw ((0,ht){up}..(0.6*ht/kh,Ht){right}..(ht/kh,ht+0.6*dt){down}..{left}(ht/6,ht)) shifted (sx,0);
+  p:=(ht/6,ht)--(ht/6+ht/12,ht){right}..(2*a,0.5*ht){down}..(a,0){left}..(ht/6,ht/12);
+  draw p shifted (sx,0);
+  x0:=whatever;y0:=whatever;
+  z0=(directionpoint (-1,-mt) of (subpath (2,3) of p)) shifted (sx,0);
+  xpos:=sx+2*a;
+  Kern:=a;
+enddef;
+
+def ss_ansatz(expr sx)=
+    draw ((0,ht-Delta){1,m}..(Delta,ht){right}..{down}(Delta+rho,ht-rho)) shifted (sx,0);
+    xpos:=sx+Delta+rho;
+  enddef;
+
+def a_char=
+oval(xpos);
+ stamm(ht,2rho,xpos);
+stock(xpos);
+enddef;
+
+def o_char=
+  oval(xpos);
+ohr;
+fahne(ht,ht-Delta,ofahne,angle(1,-mfahne),angle(1,m),1,xpos);
+enddef;
+
+def u_char=
+spitz(xpos);
+stamm(ht,ht/6,xpos);
+bogen(ht/6,0,3ht/4,ht/kh,0.2,-90,90,1,1.2,xpos);
+stamm(ht,2rho,xpos);
+stock(xpos);
+enddef;
+
+def umlaut(expr dx,sx)=
+  draw ((0,s/2)--(0,-s/2))  shifted (sx+dx,ht+dt/2);
+  draw ((D,s/2)--(D,-s/2))  shifted (sx+dx,ht+dt/2);
+  xpos:=sx;
+enddef;
+
+  def k_form(expr sx)=
+    draw ((0,ht/3){up}..(1.5*a,ht){right}..(2*a,0.8*ht){down}..tension1.2..{left}(ht/6,ht/2)) shifted (sx,0);
+        draw ((ht/6,ht/2){1,-0.5}..tension1.5..{right}(2*a-rho,0)) shifted (sx,0);
+xpos:=sx+2*a-rho;
+enddef;
+
+% lat. e, Normalform
+def latin_e (expr sx)=
+%  draw ((0,0){right}..tension1..{1,m}(3.5ut+0.5ht/m,ht/2)) shifted (sx,0);
+%  draw ((3.5ut+0.5ht/m,ht/2){1,me}..(ebreite+3.5ut+0.5ht/m,ht-ebreite*ef){up}..(ebreite*(1-ef)+3.5ut+0.5ht/m,ht){left}..(3.5ut+0.5ht/m,ht/2){down}..{right}(ebreite*(1-ef)+3.5ut+0.5ht/m,0)) shifted (sx,0);
+draw ((0,0){right}..(ebreite+0.5ut+0.5ht/m,ht-ebreite*ef){up}..(ebreite*(1-ef)+0.5ut+0.5ht/m,ht){left}..(0.5ut+0.5ht/m,ht/2){down}..{right}(ebreite*(1-ef)+0.5ut+0.5ht/m,0)) shifted (sx,0);
+  xpos:=sx+ebreite*(1-ef)+0.5ut+0.5ht/m;
+enddef;
+
+def latin_e_form (expr sx)=
+  draw ((ebreite,ht-ebreite*ef){up}..(ebreite*(1-ef),ht){left}..(0,ht/2){down}..{right}(ebreite*(1-ef),0)) shifted (sx,0);
+  xpos:=sx+ebreite*(1-ef);
+  enddef;
+
+
+
+% lat. e nach b, o, v, w
+def latin_eb (expr sx)=
+  draw ((0,ht){1,-mfahne}..(10ut,ht/2){right}..(17.5ut,ht-2.5ut){up}..(15ut,ht){left}..(10ut,ht/2){down}..{right}(15ut,0)) shifted (sx,0);
+  xpos:=sx+15ut;
+enddef;
+
+% lat. e nach r
+def latin_er (expr sx)=
+  draw ((0,ht){down}..(7.5ut,ht/2){right}..(15ut,ht-2.5ut){up}..(12.5ut,ht){left}..(7.5ut,ht/2){down}..{right}(12.5ut,0)) shifted (sx,0);
+  xpos:=sx+12.5ut;
+enddef;
+
+def x_form (expr bt, ha, sx)=
+  draw ((0,ha-Delta){1,m}..(0.2bt,ha){right}..(bt/2,2ha/3){down}--(bt/2,ha/3){down}..(0.2bt,0){left}..(0,0.15ha){up}..tension1.5..(bt,0.85ha){up}..(0.8bt,ha){left}..{down}(bt/2,2ha/3)--(bt/2,ha/3){down}..{right}(0.8bt,0)) shifted (sx,0);
+  xpos:=sx+0.8bt;
+  enddef;
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Makros fuer Grossbuchstaben
+def Umlaut (expr dx,sx)=
+  draw ((0,s/2)--(0,-s/2))  shifted (sx+dx,Ht+dumlaut);
+  draw ((D,s/2)--(D,-s/2))  shifted (sx+dx,Ht+dumlaut);
+  xpos:=sx;
+enddef;
+
+def Stamm (expr bt, ha, sx)=
+  p:=((0,dd)..(0.4bt,0){right}..{up}(bt,0.6bt)--(bt,ha));
+  draw p shifted (sx,0);
+  x0:=whatever; y0:=whatever;
+  z0=(directionpoint (1,mt) of (subpath (1,2) of p)) shifted (sx,0);
+  xpos:=sx+bt;
+enddef;
+
+  def Spazierstock (expr sx)=
+    draw ((0,Ht-D){1,2}..(D,Ht){right}..{down}(D+rho,Ht-rho)) shifted (sx,0);
+    xpos:=sx+D+rho;
+  enddef;
+
+  def Dach (expr sx)=
+    draw((0,Ht-dt/2){up}..(10ut,Ht){right}--(27.5ut,Ht))
+    shifted (sx,0);
+    xpos:=sx;
+    enddef;
+
+    def HaubeD(expr sx)=
+      p:= ((0,Ht-D){1,1}..(10ut,Ht){right}..(30ut,ht){down}..{left}(17.5ut,0));
+            draw p shifted (sx,0);
+      x0:=whatever;  y0:=whatever;
+      z0=(directionpoint (-1,-mt) of (subpath (2,3) of p)) shifted (sx,0);
+      enddef;
+
+    def schlinge_links (expr ha,dicke,bt,sx) =
+      draw ((0,ha+dicke/2){left}..(-bt,ha){down}..{right}(0,ha-dicke/2)) shifted (sx,0);
+      xpos:=sx;
+    enddef;
+
+def Flagge (expr sx) =
+bogen(Ht-D,Ht,Ht,flaggenbreite,0.3,75,90,1,1,sx);
+  enddef;    
+
+def Oschl (expr sp, bt, sx)=
+  bogen(ht+D,top(ht),Ht-bt*Sbf,sp+bt,sp/(sp+bt),-45,90,1,1,sx);
+  bogen(Ht-bt*Sbf,Ht,top(ht),-bt,Sbf,90,-90,1,1,xpos);
+enddef;
+
+def Oval(expr sx)=
+    x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,B); z2=(-A,0); z3=(0,-B); z4=(A,0);
+  z5=(-sigma*A,sigma*B);
+  z6=(-sigma*A,-sigma*B);
+  z7=(sigma*A,-sigma*B);
+  z8=(sigma*A,sigma*B);
+  p:= (z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..
+    {right}z3..{z4-z3}z7..z4{up}..z8{z1-z4}..{left}z1);
+  draw p shifted (sx+A,B);
+  x1:=whatever;y1:=whatever;
+  z1=(directionpoint (-1,mO) of (subpath (6,8) of p)) shifted (sx+A,B);
+  x0:=whatever; y0:=whatever;
+  z0=(directionpoint (1,mt) of (subpath (4,6) of p)) shifted (sx+A,B);
+xpos:=sx+2*A; % max Breite
+enddef;
+
+def Ohr =
+  draw (z1--(x1-(Ht-y1)/mO,Ht){1,-mO}..{1,4}(x1-(Ht-y1)/mO+10ut,Ht));
+  xpos:=x1-(Ht-y1)/mO+10ut;
+enddef;
+
+  def E_form(expr sx)=
+    draw ((s,Ht-dd)..(0,Ht){left}..(-10ut,Ht-dt/2){down}..{right}(dd,top(ht))) shifted (sx+12.5ut,0);
+     draw ((dd,top(ht)){left}..(-12.5ut,ht/2){down}..{right}(0,0)) shifted (sx+12.5ut,0);
+xpos:=sx+12.5ut;
+enddef;
+
+def Flanke(expr sp,bt,o,sx)=
+  mA:=(Ht+o)/bt;
+  draw ((0,dd)..(sp/2,0){right}..tension1.2..{1,mA}(sp+R/mA,R)--(sp+(Ht-R)/mA,Ht-R){1,mA}..(sp+bt,Ht)) shifted (sx,0);
+  xpos:=sx+sp+bt;
+enddef;
+
+def A_schlaufe(expr sx )=
+  draw ((0,0){up}..tension1..(-Abreite,ht/2+dd){-1,-Ht/Abreite}..{right}(0,0)) shifted (sx,0);
+  xpos:=sx;
+enddef;
+
+def X_form(expr sx)=
+    x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,B); z2=(-X,0); z3=(0,-B); z4=(X,0);
+  z5=(-sigma*X,sigma*B);
+  z6=(-sigma*X,-sigma*B);
+  z7=(sigma*X,-sigma*B);
+  z8=(sigma*X,sigma*B);
+  p:= ((X*sigma,B-dd)..z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..
+    {right}z3);
+  q:=((-X*sigma,-B+dd)..{right}z3..{z4-z3}z7..z4{up}..z8{z1-z4}..{left}z1..z5{z2-z1});
+  draw q shifted (sx+X*sigma,B);
+  draw p shifted (sx+X*(2+sigma),B);
+  xpos:=sx+X*(2+sigma);
+enddef;
+
+def S_kurve (expr sx)=
+  p:=((-s/2,-Ht/2+1.5R){down}..(-s/2-Hbreite*(1-Hfx),-Ht/2){left}..(-s/2-Hbreite,-Ht/2*(1-Hf)){up}..tension1.2..{1,0.65}(0,0));
+  draw p shifted (sx,Ht/2);
+  draw (p rotated 180) shifted (sx,Ht/2);
+  xpos:=sx+s/2;
+  enddef;
+
+def A_char=
+Flanke(Sporn,Abreite,over,xpos);
+stamm(Ht,0,xpos);
+A_schlaufe(xpos);
+fahne(0,ht-Delta,2rho+(ht-Delta)/m,0,angle(1,m),1.5,xpos);
+enddef;
+
+def O_char=
+    mt:=0.3;
+Oval(xpos);
+Ohr;
+Kern:=xpos-A;
+tangente(10ut);
+enddef;
+
+def U_char=
+    Spazierstock(xpos);
+    stamm(Ht-rho,ht/2,xpos);
+    bogen(ht/2,0,ht,ht,0.35,-90,90,1,1,xpos);
+    stamm(Ht,rho,xpos);
+    stock(xpos);
+enddef;
+
+% Sonderzeichen
+def komma (expr ha,sx)=
+draw ((0,0){down}--(0,-s)) shifted (sx,ha);
+    enddef;
+%%%%%%%%%%%%%%%%%%%%%% Ende Makros %%%%%%%%%%%%%%%%%%%%%%%%%%%

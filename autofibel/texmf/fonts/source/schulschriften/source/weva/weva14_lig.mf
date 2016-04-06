@@ -1,0 +1,246 @@
+% Ligaturtabelle fuer weva14
+% Vereinfachte Ausgangsschrift (VA)
+% Walter Entenmann
+% 07.11.2011
+%
+
+ligtable "-":
+"-" =: oct"025",    % --, Gedankenstrich
+"s" |=:| oct"030";  % s am Wortanfang (teil)
+
+ligtable oct"025":
+"-" =: oct"026";     % ---, langer Gedankenstrich
+
+ligtable "s":      "t"      =:  oct"034",       % st
+oct"040" =:| oct"031",     % Wortende erkennen
+"!"      =:| oct"031",
+oct"020" =:| oct"031",
+oct"042" =:| oct"031",
+"]"      =:| oct"031",
+"'"      =:| oct"031",
+")"      =:| oct"031",
+"*"      =:| oct"031",
+"+"      =:| oct"031",
+"-"      =:| oct"031",
+oct"177" =:| oct"031",
+","      =:| oct"031",
+"."      =:| oct"031",
+"/"      =:| oct"031",
+":"      =:| oct"031",
+";"      =:| oct"031",
+">"      =:| oct"031",
+"<"      =:| oct"031",
+"="      =:| oct"031",
+"?"      =:| oct"031",
+"@"      =:| oct"031",
+"b"      |=:| oct"200", % Verbindungsstueck  einfuegen
+"f"      |=:| oct"200",
+"h"      |=:| oct"200",
+"i"      |=:| oct"200",
+"j"      |=:| oct"200",
+"k"      |=:| oct"200",
+"l"      |=:| oct"200",
+"m"      |=:| oct"200",
+"n"      |=:| oct"200",
+"p"      |=:| oct"200",
+"r"      |=:| oct"200",
+"s"      |=:| oct"200",
+"t"      |=:| oct"200",
+"u"      |=:| oct"200",
+"v"      |=:| oct"200",
+"w"      |=:| oct"200",
+"x"      |=:| oct"200",
+"y"      |=:| oct"200",
+oct"377" |=:| oct"200",
+oct"374" |=:| oct"200"
+;
+
+ligtable "t":      "z"      =:  oct"037",        % tz
+"b"      |=:| oct"200", % Verbindungsstueck  einfuegen
+"f"      |=:| oct"200",
+"h"      |=:| oct"200",
+"i"      |=:| oct"200",
+"j"      |=:| oct"200",
+"k"      |=:| oct"200",
+"l"      |=:| oct"200",
+"m"      |=:| oct"200",
+"n"      |=:| oct"200",
+"p"      |=:| oct"200",
+"r"      |=:| oct"200",
+"s"      |=:| oct"200",
+"t"      |=:| oct"200",
+"u"      |=:| oct"200",
+"v"      |=:| oct"200",
+"w"      |=:| oct"200",
+"x"      |=:| oct"200",
+"y"      |=:| oct"200",
+oct"377" |=:| oct"200",
+oct"374" |=:| oct"200"
+;
+
+ligtable oct"377":  "t"     =:  oct"036",        % sst
+oct"040" =:| oct"035",     % Wortende erkennen
+"!"      =:| oct"035",
+oct"020" =:| oct"035",
+oct"042" =:| oct"035",
+"]"      =:| oct"035",
+"'"      =:| oct"035",
+")"      =:| oct"035",
+"*"      =:| oct"035",
+"+"      =:| oct"035",
+"-"      =:| oct"035",
+oct"177" =:| oct"035",
+","      =:| oct"035",
+"."      =:| oct"035",
+"/"      =:| oct"035",
+":"      =:| oct"035",
+";"      =:| oct"035",
+">"      =:| oct"035",
+"<"      =:| oct"035",
+"="      =:| oct"035",
+"?"      =:| oct"035",
+"@"      =:| oct"035",
+"b"      |=:| oct"200", % Verbindungsstueck  einfuegen: 
+"f"      |=:| oct"200",
+"h"      |=:| oct"200",
+"i"      |=:| oct"200",
+"j"      |=:| oct"200",
+"k"      |=:| oct"200",
+"l"      |=:| oct"200",
+"m"      |=:| oct"200",
+"n"      |=:| oct"200",
+"p"      |=:| oct"200",
+"r"      |=:| oct"200",
+"s"      |=:| oct"200",
+"t"      |=:| oct"200",
+"u"      |=:| oct"200",
+"v"      |=:| oct"200",
+"w"      |=:| oct"200",
+"x"      |=:| oct"200",
+"y"      |=:| oct"200",
+oct"377" |=:| oct"200",
+oct"374" |=:| oct"200"
+;
+		   
+		   
+ligtable ||:                 % Wortanfang erkennen
+"0": "1": "2": "3": "4": "5": "6": "7": "8": "9":
+oct"040": "[": "'": "(": "*": "+":
+  "/": ">": "<": "=": "@":
+ oct"022": oct"026": oct"023": oct"024": oct"016": oct"017":             
+"s" |=:| oct"030"
+;
+
+ligtable "B": "D": "I": "N": "O": "P": "S": oct"326":
+1:: oct"030" kern 5ut#,
+"a" kern 7.5ut#,
+"b"  kern 7.5ut#,
+"c"  kern 7.5ut#,
+"d"  kern 7.5ut#,
+"e"  kern 7.5ut#,
+"f"  kern 7.5ut#,
+"g"  kern 7.5ut#,
+"h"  kern 7.5ut#,
+"i" kern 7.5ut#,
+"j" kern 7.5ut#,
+"k"  kern 7.5ut#,
+"l"  kern 7.5ut#,
+"m" kern 7.5ut#,
+"n" kern 7.5ut#,
+"o"  kern 7.5ut#,
+"p" kern 7.5ut#,
+"q"  kern 7.5ut#,
+"r" kern 7.5ut#,
+"s"  |=:| oct"030",
+"t" kern 7.5ut#,
+"u" kern 7.5ut#,
+"v" kern 7.5ut#,
+"w" kern 7.5ut#,
+"x" kern 7.5ut#,
+"y" kern 7.5ut#,
+"z" kern 7.5ut#,
+oct"377" kern 7.5ut#,
+oct"034" |=:| oct"030",
+oct"036" kern 7.5ut#,
+oct"037" kern 7.5ut#,
+oct"344" kern 7.5ut#, 
+oct"366" kern 7.5ut#,
+oct"374" kern 7.5ut#,
+skipto 1
+;
+
+ligtable "T": "V": "W":
+2:: oct"030" kern -2.5ut#,
+"a" kern 2.5ut#,
+"b"  kern 5ut#,
+"c"  kern 2.5ut#,
+"d"  kern 2.5ut#,
+"e"  kern 2.5ut#,
+"f"  kern 5ut#,
+"g"  kern 2.5ut#,
+"h"  kern 5ut#,
+"i" kern 5ut#,
+"j" kern 5ut#,
+"k"  kern 5ut#,
+"l"  kern 5ut#,
+"m" kern 5ut#,
+"n" kern 5ut#,
+"o"  kern 2.5ut#,
+"p" kern 5ut#,
+"q"  kern 2.5ut#,
+"r" kern 5ut#,
+"s" |=:| oct"030",
+"t" kern 2.5ut#,
+"u" kern 5ut#,
+"v" kern 5ut#,
+"w" kern 5ut#,
+"x" kern 5ut#,
+"y" kern 5ut#,
+"z" kern -2.5ut#,
+oct"377" kern 5ut#,
+oct"034" |=:| oct"030",
+oct"036" kern 5ut#,
+oct"037" kern 2.5ut#,
+oct"344" kern 2.5ut#, 
+oct"366" kern 2.5ut#,
+oct"374" kern 5ut#,
+skipto 2
+;
+		   
+% alle verbundenen Buchst. vor spitzverb. Buchst,
+ % Verbindungsstueck  einfuegen:
+ligtable "A": "C": "E": "F": "G": "H": "J": "K": "L":
+		   "M": "Q": "R": "U": "X": "Y": "Z":
+		   "a": "b": "c": "d": "e": "f": "g": "h": "i": "j": "k": "l":
+		   "m": "n": "o": "p": "q": "r":
+		   "u": "v": "w": "x": "y": "z":
+		   oct"037": oct"034": oct"036":
+		   oct"304": oct"334":
+		   oct"344": oct"366": oct"374":
+		   "b"      |=:| oct"200",
+		   "f"      |=:| oct"200",
+		   "h"      |=:| oct"200",
+		         "i"      |=:| oct"200",
+		         "j"      |=:| oct"200",
+			 "k"      |=:| oct"200",
+			 "l"      |=:| oct"200",
+		         "m"      |=:| oct"200",
+		         "n"      |=:| oct"200",
+		         "p"      |=:| oct"200",
+		         "r"      |=:| oct"200",
+		         "s"      |=:| oct"200",
+			  "t"      |=:| oct"200",
+		         "u"      |=:| oct"200",
+		         "v"      |=:| oct"200",
+		         "w"      |=:| oct"200",
+                         "x"      |=:| oct"200",
+		         "y"      |=:| oct"200",
+			 oct"377"      |=:| oct"200",
+			 oct"034"      |=:| oct"200",
+			 oct"036"      |=:| oct"200",
+			 oct"037"      |=:| oct"200",
+			 oct"344"      |=:| oct"200",
+			 oct"366"      |=:| oct"200",
+			 oct"374"      |=:| oct"200"
+			  ;
+%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%%%%%%%%%%%%%

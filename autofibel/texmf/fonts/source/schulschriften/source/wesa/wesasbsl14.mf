@@ -1,0 +1,3 @@
+% wesa semi bold, slanted
+fetter:=1;
+input wesasl14;

@@ -1,0 +1,3 @@
+% wela bold, slanted
+fetter:=2;
+input welasl14;

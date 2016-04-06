@@ -1,0 +1,9 @@
+% Lateinische Ausgangsschrift (LA)  wela
+% Parameter-File Buchstabenformen am Wortende
+% Walter Entenmann
+% 16.10.2011
+
+wortende:=true;
+input wela14_gr;
+input wela14_kl;
+%%%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%

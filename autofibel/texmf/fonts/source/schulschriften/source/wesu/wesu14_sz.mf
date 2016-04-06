@@ -1,0 +1,416 @@
+% Suetterlinschrift  wesu
+% Program-File Sonderzeichen
+% Walter Entenmann
+% 09.06.2011
+% 14.11.2014: einheitliche Sonderzeichen # $ § ...
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% #
+beginchar("#",35ut#,Ht#,0);
+  pickup wesu_pen;
+  p:=(0,0)--(0,Ht);
+  draw p slanted 0.176 shifted (10ut,0);
+  draw p slanted 0.176 shifted (20ut,0);
+  q:=((0,0)--(26ut,0)) shifted (2ut,0);
+  draw q shifted(0,Ht/3) slanted 0.176;
+  draw q shifted(0,2Ht/3) slanted 0.176;
+endchar;
+
+% §
+  beginchar(oct"237",43.333ut#,Ht#,dt#);
+  pickup wesu_pen;
+sep:=10ut; breit:=20ut;
+p := ((8ut,20ut){curl 10}..(0ut,30ut){left}..(-breit/2,22ut){down}..
+  (breit/2,-2.5ut){down}..{-1,2/3}(2ut,-11ut)) scaled ((Ht+dt)/60ut);
+  draw p shifted (sep+breit*0.583,ht/2);
+  draw p rotated 180 shifted (sep+breit*0.583,ht/2);
+  endchar;
+  
+% *
+beginchar("*",30ut#,Ht#,0);
+  pickup wesu_pen;
+  p:= (-ht/2,0)--(ht/2,0);
+  draw p rotated 90 shifted (15ut,1.5ht);
+  draw p rotated 30 shifted (15ut,1.5ht);
+  draw p rotated -30 shifted (15ut,1.5ht);
+endchar;
+
+% Prozentzeichen (%)
+beginchar("%",40ut#,Ht#,0);
+  pickup wesu_pen;
+  q := (-23.6ut,0)--(23.6ut,0);
+  breit:=12.5ut;hoch:=17.5ut;
+  p := (breit/2,0){up}..(0,hoch/2){left}..(-breit/2,0){down}..(0,-hoch/2){right}..{up}(breit/2,0);
+  x0:=whatever;y0:=whatever;
+  z0=(directionpoint (-1,2) of (subpath (0,1) of p)) shifted (7.5ut+breit/2,Ht-hoch/2);
+  draw p shifted (7.5ut+breit/2,Ht-hoch/2);
+  draw p shifted (7.5ut+25ut-breit/2,hoch/2);
+  draw q rotated 58 shifted (w/2,h/2);
+  draw z0{1,-2}..{dir 58}(7.5ut+25ut,Ht);
+endchar;
+
+% &
+  beginchar("&",40ut#,Ht#,0);
+  pickup wesu_pen;
+  p := (22.5ut,12.5ut)..tension 1.2..(7.5ut,0){left}..(0,8ut){up}..
+  %(8.167ut,21ut){3,2}..
+  tension 1.2..(17ut,34.5ut){up}..(11.5ut,Ht){left}..(4ut,30ut){down}..{2,-3}(8.167ut,21ut)--(22.5ut,0);
+  draw p shifted (10ut,0);
+  endchar;
+
+% $
+beginchar("$",30ut#,Ht#,0);
+  pickup wesu_pen;
+  draw halfcircle xscaled 20ut yscaled 20ut shifted (15ut,30ut);
+   draw (halfcircle rotated 180 xscaled 20ut yscaled 20ut) shifted (15ut,10ut);
+   draw ((-10ut,10ut){down}..{down}(10ut,-10ut)) shifted (15ut,ht);
+   draw ((0,ht+2.5ut)--(0,-ht-2.5ut)) shifted (15ut,ht);
+endchar;
+
+% "+"
+beginchar("+",30ut#,22.5ut#,0);
+  path p;
+  pickup wesu_pen;
+  z0=(15ut,hmath);
+  z1=(0ut,10ut);
+  z2=(0ut,-10ut);
+  p := z1--z2;
+  draw p   shifted z0 ;
+  draw p   rotated 90 shifted z0 ;
+  labels(range 0 thru 2); 
+endchar;
+
+% ASCII Bindestrich oct"055" (OT1: auch Trennstrich)
+beginchar("-",27.5ut#,ht#,0);
+  pickup wesu_pen;
+  draw ((0,0)--(12.5ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% T1: Trennstrich
+beginchar(oct"177",27.5ut#,ht#,0);
+  pickup wesu_pen;
+  draw ((0,0)--(12.5ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% "/" 
+beginchar("/",25ut#,Ht#,0);
+  pickup wesu_pen;
+draw ((5ut,0)--(20ut,Ht));
+endchar;
+
+% ">" 
+beginchar(">",30ut#,Ht#,0);
+  path p;
+  pickup wesu_pen;
+p:=(0,0)--(20ut,0);
+draw p rotated 30 shifted (6.33ut,hmath);
+  draw p rotated -30 shifted (6.33ut,hmath);
+endchar;
+
+% "=" 
+beginchar("=",30ut#,ht#,0);
+    pickup wesu_pen;
+  draw((0,0)--(20ut,0)) shifted (5ut,hmath-2.5ut);
+  draw((0,0)--(20ut,0)) shifted (5ut,hmath+2.5ut);
+endchar;
+
+% "<" 
+beginchar("<",30ut#,Ht#,0);
+  path p;
+  pickup wesu_pen;
+p:=(0,0)--(-20ut,0);
+draw p rotated 30 shifted (23.66ut,hmath);
+  draw p rotated -30 shifted (23.66ut,hmath);
+endchar;
+
+% oct"025" Bis-Strich --, Gedankenstrich 
+beginchar(oct"025",30ut#,ht#,0);
+  pickup wesu_pen;
+draw ((0,0)--(20ut,0)) shifted (5ut,hdash);
+endchar;
+
+% engl. Gedankenstrich ---
+beginchar(oct"026",45ut#,ht#,0);
+  pickup wesu_pen;
+draw ((0,0)--(30ut,0)) shifted (7.5ut,hdash);
+endchar;
+
+% oct"023" franz. Anfz. <<
+beginchar(oct"023",32.5ut#,ht#,0);
+  path p, q;
+  pickup wesu_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+  z4=(6,1);
+  z5=(7.5ut,ht/2);
+z6=(15ut,ht/2);
+  p := (z1{z3}..z2) rotated 45;
+    q := (z1{z4}..z2) rotated -45;
+  draw p shifted z5  ;
+  draw p shifted z6 ;
+    draw q shifted z5 ;
+  draw q shifted z6 ;
+  labels(range 1 thru 6);
+endchar;  
+
+% oct"024" franz. Anfz. >>
+beginchar(oct"024",32.5ut#,ht#,0);
+  path p, q;
+  pickup wesu_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+    z4=(6,1);
+  z5=(17.5ut,ht/2);
+  z6=(25ut,ht/2);
+
+  p := (z1{z4}..z2) rotated 135;
+    q := (z1{z3}..z2) rotated -135;
+  draw p shifted z5 ;
+  draw p shifted z6 ;
+    draw q shifted z5 ;
+  draw q shifted z6 ;
+  labels(range 1 thru 6);
+endchar;  
+
+% oct"016" franz. Anfz. <
+beginchar(oct"016",25ut#,ht#,0);
+  path p, q;
+  pickup wesu_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+  z4=(6,1);
+  z5=(7.5ut,ht/2);
+  p := (z1{z3}..z2) rotated 45;
+    q := (z1{z4}..z2) rotated -45;
+  draw p shifted z5  ;
+    draw q shifted z5 ;
+  labels(range 1 thru 5);
+endchar;  
+
+% oct"017" franz. Anfz. >
+beginchar(oct"017",25ut#,ht#,0);
+  path p, q;
+  pickup wesu_pen;
+  z1=(0ut,0ut);
+  z2=(1.1*ht/2,0);
+  z3=(6,-1);
+    z4=(6,1);
+  z5=(17.5ut,ht/2);
+  p := (z1{z4}..z2) rotated 135;
+    q := (z1{z3}..z2) rotated -135;
+  draw p shifted z5 ;
+    draw q shifted z5 ;
+  labels(range 1 thru 5);
+endchar;  
+
+% "@":
+beginchar("@",50ut#,Ht#,0);
+  pickup wesu_pen;
+sep:=10ut;gap:=8ut;
+draw (superellipse((ata,0),(0,atb),(-ata,0),(0,-atb),sigma)) shifted (gap+ata+sep,ht);
+draw ((0,ht)--(0,5ut){down}..(2ut,0){right}..tension 1.5..(gap,ht/2){up}..
+  (-ata,3ht/2){left}..(-2*ata-gap,ht/2){down}..
+  (-ata,-ht/2){right}..(7.5ut,-5ut)) shifted (2*ata+gap+sep,ht/2);
+endchar;
+
+% Euro (\symbol{160})
+beginchar(oct"240",47.5ut#,Ht#,0);
+  pickup wesu_pen;
+  sep:=7.5ut; gap:=7.5ut;
+    draw (halfcircle rotated 90) xscaled 30ut yscaled Ht shifted (15ut+gap+sep,Ht/2);
+  draw ((0,0){right}..(7.5ut,-3ut)) shifted (15ut+gap+sep,Ht);
+  draw ((0,0){right}..(7.5ut,3ut)) shifted (15ut+gap+sep,0);
+  draw (((-25ut,2.5ut)--(0,2.5ut))  shifted (15ut+gap+sep,ht)) slanted 0.25;
+  draw (((-25ut,-2.5ut)--(0,-2.5ut)) shifted (15ut+gap+sep,ht)) slanted 0.25;
+endchar;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Spitzes s ohne Verbindungsstrich, z.B. vor Apostroph
+beginchar(oct"032",10ut#,Ht#,dt#);
+  pickup wesu_pen;
+  xpos:=0;
+  spitz(xpos);
+  stamm(Ht,-dt,xpos);
+endchar;
+
+% Aufstrich vor Kleinbuchstaben am Wortanfang
+beginchar(oct"200",7ut#,ht#,0);
+  pickup wesu_pen;
+  xpos:=0;
+  gerade(ht-endx,endx-dy,1,xpos);
+endchar;  
+
+% Ziffern
+Hz:=30ut; bt:=20ut; s':=5ut;
+beginchar("0",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((0,Hz){left}..(-bt/2,Hz/2){down}..(0,0){right}..(bt/2,Hz/2){up}..{left}(0,Hz)) shifted (s'+bt/2,0);
+endchar;
+
+beginchar("1",30ut#,30ut#,0);
+  pickup wesu_pen;
+ draw ((-7.5ut,ht){1,1}..{1,4}(0,Hz)--(0,0)) shifted (s'+12.5ut,0);
+endchar;
+
+beginchar("2",30ut#,Ht#,0);
+  pickup wesu_pen;
+draw ((1ut,ht-2ut)..(0,ht+1ut){up}..(bt/2,Hz){right}..(bt,ht+1ut){down}..tension2 and 3..{-1,-1}(0,0)) shifted (s',0);
+draw ((0,0){1,1}..(3bt/4,0){right}..(bt,2ut)) shifted (s',0);
+endchar;
+
+beginchar("3",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((2ut,Hz-2.5ut)..(bt/2,Hz){right}..(bt-2ut,ht+2ut){down}..(bt/2,ht-3ut){left}..(bt/2-2ut,ht-1.5ut){up}..(bt/2,ht){right}..(bt,ht/2){down}..(bt/2,0){left}..{-1,2}(0,3.5ut)) shifted (s',0);
+endchar;
+
+beginchar("4",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((15ut,Hz)--(15ut,0)) shifted (s',0);
+draw ((bt/2,Hz)--(0,7.5ut)) shifted (s',0);
+draw ((0,7.5ut){1,0.3}..(0.75bt,7.5ut){right}..(bt,8.5ut)) shifted (s',0);
+endchar;
+
+
+beginchar("5",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((1ut,ht-2ut)--(5ut,Hz){1,-0.3}..(bt-1ut,Hz)) shifted (s',0);
+draw ((1ut,ht-2ut)..(bt/2,ht){right}..(bt,ht/2){down}..(bt/2,0){left}..{-1,2}(0,3.5ut)) shifted (s',0);
+endchar;
+
+
+beginchar("6",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((bt-3ut,Hz-1.5ut){-1,0.7}..(bt/2,Hz){left}..(0,15ut){down}..(bt/2,0){right}..(bt,ht/2+1ut){up}..(bt/2,ht+2ut){left}..{-1,-5}(1ut,15ut)) shifted (s',0);
+endchar;
+
+
+beginchar("7",30ut#,Ht#,0);
+  pickup wesu_pen;
+draw ((0,Hz-1.5ut)..(5ut,Hz){right}..tension1.5..{1,2}(bt,Hz)--(5ut,0)) shifted (s',0);
+endchar;
+
+beginchar("8",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((0,Hz){left}..(-7ut,ht+4ut){down}..tension1..(0,ht-2ut)..(bt/2,ht/2-1ut){down}..(0,0){left}..(-bt/2,ht/2-1ut){up}..tension1..(0,ht-2ut)..(7ut,ht+4ut){up}..{left}(0,Hz))  shifted (s'+bt/2,0);
+endchar;
+
+
+beginchar("9",30ut#,30ut#,0);
+  pickup wesu_pen;
+draw ((bt-1ut,15ut){-1,-5}..(bt/2,8ut){left}..(0,ht-1ut){up}..(bt/2,Hz){right}..(bt,15ut){down}..(bt/2,0){left}..{-1,0.5}(3ut,2ut))  shifted (s',0);
+endchar;
+
+% ASCII-Zeichen
+beginchar("!",20ut#,40ut#,0);
+  pickup wesu_pen;
+  z1=(10ut,40ut);
+  z2=(10ut,10ut);
+  z3=(10ut,0);
+  p := z1--z2;
+  draw p;
+  pickup wesu_pen_thick;
+  drawdot z3;
+  labels(range 1 thru 3); 
+endchar;
+
+% ", Doppelapostroph, hier identisch mit oct"020", dt. Anfz. o.
+beginchar(oct"042",25ut#,Ht#,0);
+  pickup wesu_pen;
+  komma(12.5ut,Ht);
+  komma(17.5ut,Ht);
+endchar;
+
+% [
+beginchar("[",25ut#,Ht#,0);
+  pickup wesu_pen;
+  p := (5ut,Ht)--(0,Ht)--(0,0)--(5ut,0);
+  draw p shifted (10ut,0);
+  endchar;
+
+% ]
+beginchar("]",25ut#,Ht#,0);
+  pickup wesu_pen;
+    p := (-5ut,Ht)--(0,Ht)--(0,0)--(-5ut,0);
+  draw p shifted (15ut,0);
+  endchar;
+
+beginchar("'",20ut#,Ht#,0);
+  pickup wesu_pen;
+komma(12.5ut,Ht);
+endchar;
+
+beginchar("(",20ut#,Ht#,0);
+  pickup wesu_pen;
+  z1=(15ut,Ht);
+  z2=(10ut,ht);
+  z3=(15ut,0);
+  p := z1..z2{down}..z3;
+  draw p;
+  labels(range 1 thru 3); 
+endchar;
+
+beginchar(")",20ut#,Ht#,0);
+  pickup wesu_pen;
+  z1=(5ut,Ht);
+  z2=(10ut,ht);
+  z3=(5ut,0);
+  p := z1..z2{down}..z3;
+  draw p;
+  labels(range 1 thru 3); 
+endchar;
+
+beginchar(",",15ut#,ht#,dt#);
+  pickup wesu_pen;
+komma(7.5ut,3.5ut); 
+endchar;
+
+beginchar(".",15ut#,ht#,0);
+  pickup wesu_pen_thick;
+  z1=(7.5ut,0ut);
+  drawdot z1  ;
+  labels(1); 
+endchar;
+
+beginchar(":",20ut#,ht#,0);
+  pickup wesu_pen_thick;
+  drawdot (0,0) shifted (10ut,0);
+  drawdot (0,0) shifted (10ut,17.5ut);
+endchar;
+
+beginchar(";",20ut#,ht#,-dt#);
+  pickup wesu_pen;
+komma(10ut,3.5ut);
+  pickup wesu_pen_thick;
+  drawdot (0,0) shifted (10ut,17.5ut);
+endchar;
+ 
+beginchar("?",30ut#,Ht#,0);
+  pickup wesu_pen;
+draw ((-bt/2,ht+dt/2){up}..(0,Ht){right}..(bt/2,ht+dt/2+1ut){down}..tension1.2..(-5ut,15ut){down}..(0,ht/2){right}..(5ut,ht/2+2ut)) shifted (s'+bt/2,0);
+  pickup wesu_pen_thick;
+  drawdot (0,0) shifted (w/2,0);
+endchar;
+
+%
+% spezielle Sonderzeichen (T1-Kodierung)
+% dt. Anfuehrungszeichen oben (\grqq), wie oct"042"
+beginchar(oct"020",25ut#,Ht#,0);
+  pickup wesu_pen;
+  komma(12.5ut,Ht);
+  komma(17.5ut,Ht);
+endchar;
+
+% dt. Anfuehrungszeichen unten (\glqq)
+beginchar(oct"022",25ut#,ht#,dt#);
+  pickup wesu_pen;
+  komma(7.5ut,3.5ut);
+  komma(12.5ut,3.5ut);
+endchar;
+
+
+%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%%

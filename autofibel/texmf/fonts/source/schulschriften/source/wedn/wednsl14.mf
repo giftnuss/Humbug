@@ -1,0 +1,3 @@
+% wedn14 slanted, Deutsche Normalschrift (DN)
+slant:=0.25;
+input wedn14;

@@ -1,0 +1,75 @@
+% Suetterlinschrift wesu
+% Driver-File
+% Walter Entenmann
+% 09.06.2011
+%
+%%%%%%%%%%%%%%% wesu14 Metafont-Hauptfile %%%%%%%%%%%%%%%%%%
+font_identifier  "WESU";
+font_size 14pt#;
+font_coding_scheme := "WESU text";
+
+mode_setup;
+
+% Vereinbarungen:
+boolean wortende;
+path p, q;
+
+% sharp Variables:
+% unit_width
+ut#:=0.233pt#;
+% Linienabstand
+ht# := 20ut#;
+dt# := ht#;
+Ht#:=ht#+dt#;
+
+
+
+% Umrechnung in Pixel-Groessen:
+define_pixels(ut,ht,Ht,dt);
+
+% Federn:
+% runde Feder (Redisfeder) oder Bandzugfeder
+if unknown fetter: fetter:=0; fi
+fetter:=sqrt(2)**fetter;
+
+if unknown bold:
+  pickup pencircle scaled (fetter*1.25*ut); else:
+  pickup pencircle xscaled if unknown slant: 3ut else: 3.5ut fi yscaled 0.5ut rotated if unknown slant: 45 else: 39 fi; fi
+wesu_pen:=savepen;
+% fuer Punkte etc.
+if fetter>3: pickup pencircle scaled 7ut;
+elseif fetter>2.5: pickup pencircle scaled 5ut;
+else:
+  pickup pencircle scaled 4ut;
+  fi
+wesu_pen_thick := savepen;
+
+% Current Transformation, slanted:
+if unknown slant: slant:=0; else: currenttransform:=identity slanted slant; fi
+
+% Eingabe der Program-Files:
+wortende:=false;
+% Parameter- und Makrodefinitionen
+input wesu14_def;
+% Grossbuchstaben
+input wesu14_gr;
+% Kleinbuchstaben
+ input wesu14_kl;
+% Sonderzeichen (Ziffern, Satzzeichen, ...)
+ input wesu14_sz;
+% Buchstabenformen am Wortende
+ input wesu14_end;
+
+ % Abstandsmasse:
+font_quad := 14pt#;% 1em
+font_x_height := 4.667pt#; % 1ex, 1/3 von 14pt
+font_normal_space := 6pt#; % Wortzwischenraum
+font_normal_stretch := 3pt#;
+font_normal_shrink := 2pt#;
+
+boundarychar:=oct"040"; % space
+
+% Ligaturtabellen
+input wesu14_lig;
+end
+%%%%%%%% Ende wesu14 Metafont-Hauptfile (Driver-File) %%%%%%%

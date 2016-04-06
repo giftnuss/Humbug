@@ -1,0 +1,9 @@
+% Deutsche Normalschrift (DN)  wedn
+% Parameter-File Buchstabenformen am Wortende
+% Walter Entenmann
+% 23.09.2011
+
+wortende:=true;
+input wedn14_gr;
+input wedn14_kl;
+%%%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%

@@ -1,0 +1,471 @@
+% Lateinische Ausgangsschrift (LA) wela
+% Walter Entenmann
+% 16.10.2011
+%
+% Grossbuchstaben
+if not wortende:
+  beginchar("A",45.446ut#,Ht#,0);
+  else:
+beginchar(oct"201",30ut#,Ht#,0);
+    fi
+pickup wela_pen;
+xpos:=0;
+A_char;
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("B",41.488ut#,Ht#,0);
+  else:
+beginchar(oct"202",32.5ut#,Ht#,0); 
+    fi
+  pickup wela_pen;
+xpos:=0;
+Stamm(12.5ut,Ht-dd,xpos);
+bogen(Ht-D,Ht,Ht-dt/2,29ut,0.49,42,-90,1,1,xpos-12.5ut);
+schweif(Ht-dt/2,top(ht),-14ut,-90,-180,1.1,xpos);
+schweif(top(ht),ht/2,17.5ut,0,-90,1.1,xpos);
+mt:=1;
+bogen (ht/2,0,dd,-17.5ut,0.6,-90,135,1,1,xpos);
+xpos:=32.5ut; % max. Breite
+Kern:=0.6*17.5ut;
+tangente(dd);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("C",41.773ut#,Ht#,0);
+      else:
+beginchar(oct"203",25.327ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+   Oschl(sporn, Sb, xpos);
+schweif(top(ht),0,Sb*(1-Sbf),-90,0,1,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("D",39.051ut#,Ht#,0);
+      else:
+beginchar(oct"204",30ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+    xpos:=0;
+stamm(Ht-dd,R/2,xpos+10ut);
+schweif(R/2,0,-R+D,-90,180,1,xpos);
+schlinge_links(dd,D,D,xpos);
+schweif(D,0,12.5ut,0,0,1.5,xpos);
+xpos:=0;
+mt:=1;
+HaubeD(xpos);
+xpos:=30ut; % max Breite
+Kern:=12.5ut;
+tangente(D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("E",31.445ut#,Ht#,0);
+      else:
+beginchar(oct"205",12.5ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+E_form(xpos);
+fahne(0,ht-Delta,s+(ht-Delta)/m,0,angle(1,m),2,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("F",31.522ut#,Ht#,0);
+      else:
+beginchar(oct"206",27.5ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+    Dach(xpos);
+    mt:=0.01;
+Stamm(12.5ut,Ht-2ut,xpos+2.5ut);
+quer(top(ht),xpos);
+xpos:=27.5ut; % max. Breite
+Kern:=20ut;
+tangente(12.5ut);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("G",41.446ut#,Ht#,dt#);
+      else:
+beginchar(oct"207",30ut#,Ht#,dt#);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Oschl(sporn, Sb, xpos);
+stamm(top(ht),0.75ht,xpos);
+bogen(0.75ht,0,0.75*ht,Sb,0.45,-90,90,1,1,xpos);
+stamm(ht,0,xpos);
+if not wortende:
+uschl(xpos);
+strich(xpos);
+else:
+  uschl_e(xpos);
+  fi
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("H",49.571ut#,Ht#,0);
+      else:
+beginchar(oct"210",33.125ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Flagge(xpos);
+stamm(Ht,1.5R,xpos);
+S_kurve(xpos+s/2);
+stamm(Ht-1.5R,1.5R,xpos);
+schweif(1.5R,0,Hbreite*(1-Hfx),-90,0,1,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("I",28.335ut#,Ht#,0);
+      else:
+beginchar(oct"211",17.5ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+Flagge(xpos);
+mt:=0.5;
+Stamm(15ut,Ht,xpos-15ut);
+xpos:=flaggenbreite; % max Breite
+Kern:=9ut;
+tangente(D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("J",28.946ut#,Ht#,dt#);
+      else:
+beginchar(oct"212",17.5ut#,Ht#,dt#);
+    fi
+pickup wela_pen;
+  xpos:=0;
+Flagge(xpos);
+stamm(Ht,0,xpos);
+if not wortende:
+  uschl(xpos);
+  strich(xpos);
+else:
+  uschl_e(xpos);
+  fi
+zeigen;
+  endchar;
+
+  if not wortende:
+    beginchar("K",48.946ut#,Ht#,0);
+        else:
+beginchar(oct"213",35ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Flagge(xpos);
+Stamm(12.5ut,Ht,xpos-12.5ut);
+xpos:=xpos+ht;
+schweif(Ht,top(ht),-ht,180,180,1,xpos);
+schweif(top(ht),0,ht-dd,0,0,1.5,xpos);
+fahne(0,ht-Delta,dd+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("L",37.441ut#,Ht#,0);
+      else:
+beginchar(oct"214",23.495ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Oschl(sporn,SbL, xpos);
+stamm(top(ht),R/2,xpos);
+schweif(R/2,0,-R+D,-90,180,1,xpos);
+schlinge_links(dd,D,D,xpos);
+schweif(D,0,SbL*(1-Sbf)+D,0,0,1.5,xpos);
+fahne(0,ht-Delta,dd+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("M",61.946ut#,Ht#,0);
+      else:
+beginchar(oct"215",48.5ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Flanke(Sporn,Mbreite,5ut,xpos);
+stamm(Ht,0,xpos);
+gerade(0,Ht,Mbreite,xpos);
+stamm(Ht,D,xpos);
+schweif(D,0,dd,-90,0,1,xpos);
+fahne(0,ht-Delta,rho+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("N",50.946ut#,Ht#,0);
+      else:
+beginchar(oct"216",50ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Flanke(Sporn,12.5ut,5ut,xpos);
+gerade(Ht,0,7.5ut,xpos);
+gerade(0,Ht-s,(12.5/40)*(Ht-s),xpos);
+schweif(Ht-s,Ht,20ut-(12.5/40)*(Ht-s),angle(12.5ut,40ut),0,1,xpos);
+if not wortende:
+  fahne(0,ht-Delta,9.5ut+(ht-Delta)/m,0,angle(1,m),1.5,xpos-20ut);
+  fi
+%xpos:=50ut; % max. Breite, Verbindungspunt=max.Breite - 20ut.
+Kern:=20ut;
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("O",36.550ut#,Ht#,0);
+      else:
+beginchar(oct"217",31.290ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+  O_char;
+  zeigen;
+endchar;
+
+if not wortende:
+  beginchar("P",36.522ut#,Ht#,0);
+      else:
+beginchar(oct"220",30ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+bogen(Ht-D,Ht,Ht-dt/2,30ut,0.42,45,-90,1,1,xpos);
+schweif(Ht-dt/2,top(ht),-15ut,-90,-180,1.1,xpos);
+mt:=0.01;
+Stamm(12.5ut,Ht-dd,xpos-15ut);
+xpos:=30ut; % max Breite
+Kern:=xpos-0.4*12.5ut;
+tangente(20ut);
+     zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Q",38.446ut#,Ht#,0);
+      else:
+beginchar(oct"221",25ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+Oval(xpos);
+Ohr;
+xpos:=A-dd;
+bogen(D,D+dd/2,0,A+dd,0.28,45,0,1,1,xpos);
+fahne(0,ht-Delta,rho+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("R",43.946ut#,Ht#,0);
+      else:
+beginchar(oct"222",30ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+bogen(Ht-D,Ht,Ht-dt/2,30ut,0.42,45,-90,1,1,xpos);
+schweif(Ht-dt/2,top(ht),-15ut,-90,-180,1.1,xpos);
+Stamm(12.5ut,Ht-dd,xpos-15ut);
+  schweif(top(ht),0,15ut,0,0,1.5,xpos+dd);
+fahne(0,ht-Delta,dd+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("S",31.522ut#,Ht#,0);
+      else:
+beginchar(oct"223",27.500ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+    xpos:=0;
+    Oschl(sporn,SbL,xpos);
+    mt:=0.01;
+    Stamm(12.5ut,top(ht),xpos-12.5ut);
+    xpos:=12.5ut+SbL; % max Breite
+    Kern:=SbL+0.6*12.5ut;
+    tangente(15ut);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("T",31.522 ut#,Ht#,0);
+      else:
+beginchar(oct"224",27.5ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+    Dach(xpos);
+    mt:=0.01;
+    Stamm(12.5ut,Ht-2ut,xpos+2.5ut);
+    xpos:=27.5ut; % max Breite
+    Kern:=20ut;
+    tangente(12.5ut);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("U",42.446ut#,Ht#,0);
+      else:
+beginchar(oct"225",29ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+U_char;
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("V",38.377ut#,Ht#,0);
+      else:
+beginchar(oct"226",34.778ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+    Spazierstock(xpos);
+    stamm(Ht-rho,ht/2,xpos);
+    mt:=0.1;
+    bogen(ht/2,0,ht,ht,0.45,-90,90,1,1,xpos);
+    xtmp:=x0; ytmp:=y0;
+    schweif(ht,Ht,-einroll,90,angle(-1,mO),1,xpos);
+    schweif(Ht,Ht,10ut,angle(1,-mO),angle(1,4),1,xpos);
+    Kern:=xpos-(D+rho+0.45*ht);
+    x0:=whatever; y0:=whatever;
+    z0=(xtmp,ytmp);
+    tangente(10ut);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("W",58.377ut#,Ht#,0);
+      else:
+beginchar(oct"227",54.777ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+    Spazierstock(xpos);
+    stamm(Ht-rho,ht/2,xpos);
+    bogen(ht/2,0,ht,ht,0.35,-90,90,1,1,xpos);
+    stamm(Ht,ht/2,xpos);
+     mt:=0.1;
+     bogen(ht/2,0,ht,ht,0.45,-90,90,1,1,xpos);
+      xtmp:=x0; ytmp:=y0;
+    schweif(ht,Ht,-einroll,90,angle(-1,mO),1,xpos);
+    schweif(Ht,Ht,10ut,angle(1,-mO),angle(1,4),1,xpos);
+    Kern:=xpos-(D+rho+ht+0.45*ht);
+     x0:=whatever; y0:=whatever;
+     z0=(xtmp,ytmp);
+    tangente(10ut);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("X",37.446ut#,Ht#,0);
+      else:
+beginchar(oct"230",24ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+x_form(1.5ht,Ht,xpos);
+fahne(0,ht-Delta,rho+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Y",38.446ut#,Ht#,dt#);
+      else:
+beginchar(oct"231",27ut#,Ht#,dt#);
+    fi
+  pickup wela_pen;
+ xpos:=0;
+     Spazierstock(xpos);
+     stamm(Ht-rho,ht/2,xpos);
+     bogen(ht/2,0,ht,ht,0.35,-90,90,1,1,xpos);
+     stamm(Ht,0,xpos);
+     if not wortende:
+       uschl(xpos);
+       strich(xpos);
+     else:
+       uschl_e(xpos);
+       fi
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Z",33.946ut#,Ht#,0);
+      else:
+beginchar(oct"232",20ut#,Ht#,0);
+    fi
+  pickup wela_pen;
+xpos:=0;
+    mZ:=Ht/(Zbreite-D);
+bogen(Ht-D,Ht,Ht,Zbreite,0.3,75,angle(1,mZ),1,1,xpos);    
+quer(top(ht),xpos-ht/mZ);
+gerade(Ht,D,-(Ht-D)/mZ,xpos);
+schweif(D,0,-(dd+D/mZ),angle(-1,-mZ),180,1,xpos);
+schlinge_links(dd,D,dd,xpos);
+schweif(D,0,Zbreite-D,0,0,1.5,xpos);
+fahne(0,ht-Delta,dd+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+% Umlaute
+%\"A
+if not wortende:
+  beginchar(oct"304",45.446ut#,80ut#,0);
+      else:
+beginchar(oct"233",30ut#,42.5ut#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+  Umlaut(Sporn+Abreite-dd,xpos);
+    A_char;
+    zeigen;
+endchar;
+  
+%\"O
+if not wortende:
+  beginchar(oct"326",36.550ut#,80ut#,0);
+      else:
+beginchar(oct"234",31.290ut#,42.5ut#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+    Umlaut(A-dd,xpos);
+    O_char;
+    zeigen;
+endchar;
+ 
+%
+%\"U
+if not wortende:
+  beginchar(oct"334",42.446ut#,42.5ut#,0);
+      else:
+beginchar(oct"235",29ut#,80ut#,0);
+    fi
+  pickup wela_pen;
+  xpos:=0;
+  Umlaut(D+rho+ht/2-dd,xpos);
+    U_char;
+    zeigen;
+endchar;
+
+%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%

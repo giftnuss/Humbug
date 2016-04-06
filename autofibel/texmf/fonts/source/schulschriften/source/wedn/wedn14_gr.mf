@@ -1,0 +1,467 @@
+% Deutsche Normalschrift (DN) wedn
+% Walter Entenmann
+% 12.10.2010
+% 21.09.2011
+%
+% Grossbuchstaben
+if not wortende:
+  beginchar("A",59.669ut#,Ht#,0);
+  else:
+beginchar(oct"201",40ut#,Ht#,0);
+    fi
+pickup wedn_pen;
+xpos:=0;
+A_char;
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("B",52.981ut#,Ht#,0);
+  else:
+beginchar(oct"202",40ut#,Ht#,0); 
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Stamm(xpos);
+Haube(xpos);
+schweif(ht+s,ht-D,-2*ht/3+D,-90,-180,1.1,xpos);
+schlinge_links(ht-dd,D,D-eta,xpos);
+schweif(ht,ht/2,7U,0,-90,1.1,xpos);
+bogen (ht/2,0,dd,-3*ht/4,0.6,-90,135,1,1,xpos);
+xpos:=16U; % max. Breite
+tangente(dd);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("C",48.661ut#,Ht#,0);
+      else:
+beginchar(oct"203",26.493ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+Oschl(sporn, Sb, xpos);
+schweif(ht,0,Sb*(1-Sbf)-dd,-90,0,1,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("D",47.474ut#,Ht#,0);
+      else:
+beginchar(oct"204",35ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+    xpos:=0;
+    schweif(Ht,Ht-R-dd,-D,-135,-90,1,xpos+2*ht/3);
+stamm(Ht-R-dd,R+dd,xpos);
+schweif(R+dd,0,-R,-90,180,1,xpos);
+schlinge_links(dd,D,D,xpos);
+schweif(D,0,7U,0,0,1,xpos);
+xpos:=0;
+HaubeD(xpos);
+xpos:=14U; % max Breite
+tangente(dd);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("E",39.669ut#,Ht#,0);
+      else:
+beginchar(oct"205",15ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+E_form(xpos);
+fahne(0,ht-Delta,s+(ht-Delta)/m,0,angle(1,m),2,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("F",45.492ut#,Ht#,0);
+      else:
+beginchar(oct"206",40ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    Dach(xpos);
+    mt:=0.1;
+Stamm(xpos);
+quer(ht-Delta,xpos);
+xpos:=16U; % max. Breite
+tangente(ht/2+D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("G",57.169ut#,Ht#,dt#);
+      else:
+beginchar(oct"207",40ut#,Ht#,dt#);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Oschl(sporn, Sb, xpos);
+bogen(ht,0,0.75*ht,Sb+D,0.45,-90,90,1,1,xpos);
+stamm(ht,0,xpos);
+if not wortende:
+uschl(xpos);
+strich(xpos);
+else:
+  uschl_e(xpos);
+  fi
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("H",66.919ut#,Ht#,0);
+      else:
+beginchar(oct"210",44.750ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+schwalbe;
+draw (p rotated 180) shifted (ht,Ht);
+schweif(Ht,Ht-R,-D,-135,-90,1,xpos+ht);
+stamm(Ht-R,R,xpos);
+S_kurve(xpos+D);
+stamm(Ht-R,R,xpos);
+schweif(R,0,Hbreite*(1-Hfx),-90,0,1,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("I",40.722ut#,Ht#,0);
+      else:
+beginchar(oct"211",30ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+Schwalbe;
+draw (p rotated 180) shifted (ht,Ht);
+schweif(Ht,Ht-R,-D,-135,-90,1,xpos+ht);
+stamm(Ht-R,R+D,xpos);
+bogen(R+D,0,D,-10U,0.5,-90,135,1,1,xpos);
+xpos:=ht; % max Breite
+tangente(D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("J",42.169ut#,Ht#,dt#);
+      else:
+beginchar(oct"212",25ut#,Ht#,dt#);
+    fi
+pickup wedn_pen;
+  xpos:=0;
+Schwalbe;
+draw (p rotated 180) shifted (ht,Ht);
+schweif(Ht,Ht-R,-D,-135,-90,1,xpos+ht);
+stamm(Ht-R,0,xpos);
+if not wortende:
+uschl(xpos);
+strich(xpos);
+else:
+  uschl_e(xpos);
+  fi
+zeigen;
+  endchar;
+
+  if not wortende:
+    beginchar("K",73.169ut#,Ht#,0);
+        else:
+beginchar(oct"213",51ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Schwalbe;
+draw (p rotated 180) shifted (ht,Ht);
+schweif(Ht,Ht-R,-D,-135,-90,1,xpos+ht);
+stamm(Ht-R,R+D,xpos);
+bogen(R+D,0,D,-10U,0.5,-90,135,1,1,xpos);
+xpos:=xpos+ht+eta;
+schlinge_links(ht-ht/15,2*ht/15,D,xpos);
+xpos:=xpos+10U;
+bogen(Ht-eta,Ht,ht-2*ht/15,-10U,0.15,150,180,1,1.5,xpos);
+schweif(ht,0,8U,0,0,1.5,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("L",49.669ut#,Ht#,0);
+      else:
+beginchar(oct"214",27.5ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Oschl(spornL,SbL, xpos);
+stamm(ht,R+dd,xpos);
+schweif(R+dd,0,-R,-90,180,1,xpos);
+schlinge_links(3*eta,6*eta,D,xpos);
+schweif(6*eta,0,3*ht/4,0,0,1.5,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("M",82.169ut#,Ht#,0);
+      else:
+beginchar(oct"215",60ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Flanke(spornM,Mbreite,0,xpos);
+stamm(Ht,0,xpos);
+schweif(0,Ht,2*ht/3,90,45,1,xpos);
+schweif(Ht,0,0,-135,0,2,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("N",74.669ut#,Ht#,0);
+      else:
+beginchar(oct"216",70ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Flanke(spornM,Mbreite,0,xpos);
+stamm(Ht,0,xpos);
+gerade(0,Ht-R,(Ht-R)/mA,xpos);
+bogen(Ht-R,Ht,Ht-eta,R/mA+ht/3,0.65,angle(1,mA),-30,1,1,xpos);
+xtmp:=xpos;% max Breite
+mt:=0.5;
+x0:=whatever; y0:=whatever;
+z0=(xtmp-(Ht-R)/mA-(R/mA+ht/3),0);
+xpos:=xtmp;
+tangente(ht/2+dd);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("O",47.703ut#,Ht#,0);
+      else:
+beginchar(oct"217",35ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+  O_char;
+  zeigen;
+endchar;
+
+if not wortende:
+  beginchar("P",45.492ut#,Ht#,0);
+      else:
+beginchar(oct"220",37.5ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    mt:=0.1;
+    Stamm(xpos);
+    xtmp:=x0; ytmp:=y0;
+    Haube(xpos);
+    schweif(ht+s,ht,-dd,-90,-135,1,xpos);
+    xpos:=15U; % max Breite
+    x0:=whatever; y0:=whatever;
+     z0=(xtmp,ytmp);
+     tangente(8U);
+     zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Q",59.669ut#,Ht#,0);
+      else:
+beginchar(oct"221",37.500ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Oval(xpos);
+schweif(D,0,10U,30,0,1,xpos-A-D);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("R",64.669ut#,Ht#,0);
+      else:
+beginchar(oct"222",42.500ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Stamm(xpos);
+Haube(xpos);
+schweif(ht+s,ht-D,-2*ht/3+D,-90,-180,1,xpos);
+schlinge_links(ht-dd,D,D-eta,xpos);
+schweif(ht,0,2*ht/3,0,0,1.5,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("S",44.885ut#,Ht#,0);
+      else:
+beginchar(oct"223",32.500ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+    xpos:=0;
+    S_form(xpos);
+    xpos:=13U; % max Breite
+tangente(dd);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("T",45.492ut#,Ht#,0);
+      else:
+beginchar(oct"224",40ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    Dach(xpos);
+    mt:=0.1;
+    Stamm(xpos);
+    xpos:=16U; % max Breite
+tangente(ht/2+D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("U",60.221ut#,Ht#,0);
+      else:
+beginchar(oct"225",39.553ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+U_char;
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("V",51.142ut#,Ht#,0);
+      else:
+beginchar(oct"226",43.553ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+bogen(ht,Ht,ht,ht/2,0.5,90,-90,1,1,xpos);
+stamm(ht,R+D,xpos);
+bogen(R+D,0,ht,2*a,0.4,-90,90,1,1,xpos);
+schweif(ht,Ht,-D,90,180,2,xpos);
+V_ohr(xpos);
+tangente(D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("W",72.195ut#,Ht#,0);
+      else:
+beginchar(oct"227",64.605ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+bogen(ht,Ht,ht,ht/2,0.5,90,-90,1,1,xpos);
+stamm(ht,R+D,xpos);
+bogen(R+D,0,2*ht/3,2*a,0.4,-90,90,1,1,xpos);
+stamm(Ht,R+D,xpos);
+bogen(R+D,0,ht,2*a,0.4,-90,90,1,1,xpos);
+schweif(ht,Ht,-D,90,180,2,xpos);
+V_ohr(xpos);
+tangente(D);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("X",68.170ut#,Ht#,0);
+      else:
+beginchar(oct"230",41.002ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+quer(ht-Delta,xpos+(1+sigma)*X);
+X_form(xpos);
+fahne(0,ht-Delta,R+(ht-Delta)/m,0,angle(1,m),1.5,xpos);
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Y",53.221ut#,Ht#,dt#);
+      else:
+beginchar(oct"231",36.053ut#,Ht#,dt#);
+    fi
+  pickup wedn_pen;
+ xpos:=0;
+bogen(ht,Ht,ht,ht/2,0.5,90,-90,1,1,xpos);
+stamm(ht,R+D,xpos);
+bogen(R+D,0,2*ht/3,2*a,0.4,-90,90,1,1,xpos);
+stamm(Ht,0,xpos);
+if not wortende:
+uschl(xpos);
+strich(xpos);
+else:
+  uschl_e(xpos);
+  fi
+zeigen;
+endchar;
+
+if not wortende:
+  beginchar("Z",52.169ut#,Ht#,0);
+      else:
+beginchar(oct"232",30ut#,Ht#,0);
+    fi
+  pickup wedn_pen;
+xpos:=0;
+Schwalbe;
+draw (p rotated 180) scaled ((ht+dd)/ht) shifted (ht+dd,Ht);
+xpos:=xpos+ht+dd;
+quer(ht-Delta,xpos-(dt+Delta)/2);
+gerade(Ht,R,-(Ht-R)/2,xpos);
+schweif(R,0,-s,angle(-1,-2),180,1.5,xpos);
+schlinge_links(s/2,s,D,xpos);
+schweif(s,0,10U,0,0,1.2,xpos);
+fahne(0,ht-Delta,D+(ht-Delta)/m,0,angle(1,m),2.5,xpos);
+zeigen;
+endchar;
+
+% Umlaute
+%\"A
+if not wortende:
+  beginchar(oct"304",60.669ut#,80ut#,0);
+      else:
+beginchar(oct"233",40ut#,42.5ut#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    Umlaut(spornA+Abreite-dd,xpos);
+    A_char;
+    zeigen;
+endchar;
+  
+%\"O
+if not wortende:
+  beginchar(oct"326",47.703ut#,80ut#,0);
+      else:
+beginchar(oct"234",35ut#,42.5ut#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    Umlaut(A-dd,xpos);
+    O_char;
+    zeigen;
+endchar;
+ 
+%
+%\"U
+if not wortende:
+  beginchar(oct"334",60.221ut#,42.5ut#,0);
+      else:
+beginchar(oct"235",39.553ut#,80ut#,0);
+    fi
+  pickup wedn_pen;
+  xpos:=0;
+    Umlaut(ht/2+a-dd,xpos);
+    U_char;
+    zeigen;
+endchar;
+
+%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%

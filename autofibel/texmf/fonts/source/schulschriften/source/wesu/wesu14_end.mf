@@ -1,0 +1,9 @@
+% Suetterlinschrift  wesu
+% Parameter-File Buchstabenformen am Wortende
+% Walter Entenmann
+% 09.06.2011
+
+wortende:=true;
+input wesu14_gr;
+input wesu14_kl;
+%%%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%

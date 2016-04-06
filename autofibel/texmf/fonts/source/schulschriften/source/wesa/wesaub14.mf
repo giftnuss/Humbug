@@ -1,0 +1,3 @@
+% wesa ultra bold
+fetter:=4;
+input wesa14;

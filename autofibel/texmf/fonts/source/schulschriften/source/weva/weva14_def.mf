@@ -1,0 +1,409 @@
+% Definitionen fuer weva Vereinfchte Ausgangsschrift (VA)
+% Walter Entenmann
+% 06.09.2011
+% 13.09.2012
+%
+% Parameter und Makros
+% Math. Sonderzeichen
+hmath:=ht/2;
+hdash:=ht/2;
+
+% Steigung des Verbindungsstrichs
+m:=4/3;
+
+% Superellipse (klein)
+b:=ht/2;
+a:=7ut;
+k:=b/a;
+sigma:=0.73345;
+% Superellipse (gross)
+    B:=Ht/2;
+    A:=13.75ut;
+    K:=B/A;
+    Sigma:=sigma;
+% Rundungsradius bei Stock, etc.
+r:=3.5ut;
+fr:=1;
+% "b"
+db:=2.5ut;
+mb:=2.5;
+% Oberschleife, Unterschleife; Breite, Faktor
+sb:=9ut;
+fs:=0.4;
+% Fahnenbreiten
+fahnekurz:=12ut;   % fuer r,x
+fahnemittel:=13ut; % fuer o,v,w
+fahnelang:=15ut;   % fuer b
+% Ansatz beim scharfen s, etc.
+nase:=1.5ut;
+% Ansatz beim q
+qnase:=1.5ut;
+% Fundamentale Breiten
+    H_breit:=22.5ut;
+    N_breit:=25ut;C:=N_breit/2;
+    O_breit:=2*A;
+    V_breit:=30ut;
+
+% Anlauf bei A, M etc
+xauf=8.5ut;  mxauf:=6ut;  
+yauf=3.5ut;
+
+% Spornbreite, horiz.Teile bei B, D, etc.
+  sporn:=6ut;
+  flach:=sporn; % fuer B
+  Flach:=10ut; % fuer B
+
+% Steigung bei 8
+  macht:=1/3;
+
+%
+% Delta, delta
+x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x5:=whatever;y5:=whatever; 
+  z1=(0,b); z2=(-a,0);
+  z5=(-sigma*a,sigma*b);
+  p := z1{left}..z5{z2-z1}..{down}z2;
+  x0:=whatever;y0:=whatever;
+    z0=(directionpoint(1,m) of (reverse (subpath (0,2) of p)));
+    delta:=a+x0;Delta:=b-y0;
+
+%
+    def oval (expr  sx) =
+          x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,b); z2=(-a,0); z3=(0,-b); z4=(a,0);
+  z5=(-sigma*a,sigma*b);
+  z6=(-sigma*a,-sigma*b);
+  z7=(sigma*a,-sigma*b);
+  z8=(sigma*a,sigma*b);
+  draw (z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..z3{right}..z7{z4-z3}..z4{up}..z8{z1-z4}..cycle)
+    shifted (sx+a-delta,b);
+    xpos:=sx+2*a-delta;
+  enddef;
+
+  def Oval (expr  sx) =
+    x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,B); z2=(-A,0); z3=(0,-B); z4=(A,0);
+  z5=(-Sigma*A,Sigma*B);
+  z6=(-Sigma*A,-Sigma*B);
+  z7=(Sigma*A,-Sigma*B);
+  z8=(Sigma*A,Sigma*B);
+  draw (z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..z3{right}..z7{z4-z3}..z4{up}..z8{z1-z4}..cycle)
+    shifted (sx+A,B);
+    xpos:=sx+2*A;
+  enddef;
+  
+
+  def stamm (expr ha, hb, sx)=
+    draw ((0,ha)--(0,hb)) shifted (sx,0);
+    xpos:=sx;
+  enddef;
+
+  def strich(expr sx) =
+    draw ((0,0)--((ht-Delta)/m,ht-Delta)) shifted (sx,0);
+    xpos:=sx+(ht-Delta)/m;
+  enddef;
+
+    % Ansatz beim q
+  def qansatz (expr sx)=
+    draw ((0,-5ut){up}..{1,m}(qnase,0)) shifted (sx,0);
+    xpos:=sx+qnase;
+  enddef;
+
+    % Ansatz beim scharfen s
+  def ansatz (expr sx)=
+    draw ((0,ht)..{down}(nase,ht-5ut)) shifted (sx,0);
+    xpos:=sx+nase;
+  enddef;  
+
+def stock(expr sx) =
+  draw ((0,r){down}..(r*fr,0){right}..tension2 and 4.5..{1,m}(ht-Delta/m,ht-Delta)) shifted (sx,0);
+  xpos:=sx+ht-Delta/m;
+enddef;
+
+  def gerade (expr hl, hr, abstand, sx)=
+    draw ((0,hl)--(abstand,hr)) shifted (sx,0);
+    xpos:=sx+abstand;
+  enddef;
+
+def ipunkt(expr sx) =
+  pickup weva_pen_thick;
+  drawdot (0,0) shifted (sx,ht+7.5ut);
+  pickup weva_pen;
+  xpos:=sx;
+enddef;
+
+def umlaut (expr dx,sx) =
+  pickup weva_pen_thick;
+drawdot (0,0) shifted (sx+dx,ht+7.5ut);
+drawdot (0,0) shifted (sx+dx+10ut,ht+7.5ut);
+pickup weva_pen;
+    xpos:=sx;
+  enddef;
+
+def Umlaut (expr dx,sx) =
+  pickup weva_pen_thick;
+drawdot (0,0) shifted (sx+dx,Ht+5ut);
+drawdot (0,0) shifted (sx+dx+6.5ut,Ht+5ut);
+pickup weva_pen;
+    xpos:=sx;
+  enddef;  
+
+  def c_form (expr sx) =
+        x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,b); z2=(-a,0); z3=(0,-b); z4=(a,0);
+  z5=(-sigma*a,sigma*b);
+  z6=(-sigma*a,-sigma*b);
+  z7=(sigma*a,-sigma*b);
+  z8=(sigma*a,sigma*b);
+  draw (z8{z1-z4}..z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..{right}z3)
+    shifted (sx+a-delta,b);
+    xpos:=sx+a-delta;
+  enddef;
+
+  def schweif (expr hl, hr, bt, phil, phir, tens, sx) =
+  p := (0,hl){dir phil}..tension tens..{dir phir}(bt,hr);
+    draw p shifted (sx,0);
+  xpos:=sx+bt;
+%  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def halbellipse(expr sx) =
+          x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+  z1=(0,b); z2=(-a,0); z3=(0,-b);
+  z5=(-sigma*a,sigma*b);
+  z6=(-sigma*a,-sigma*b);
+    draw (z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..{right}z3)
+    shifted (sx+a-delta,b);
+        xpos:=sx+a-delta;
+      enddef;
+
+ def ekopf(expr sx) =
+   draw ((0,ht){right}..(3.5ut,ht-6ut){down}..(-1.5ut,ht-12ut){left}..{1,m}(-a+delta,ht-Delta)) shifted (sx,0);
+   xpos:=sx;
+ enddef;
+
+ def oschl(expr sx) =
+   draw ((0,ht){1,m}..(sb,Ht-fs*sb){up}..(sb*(1-fs),Ht){left}..tension1.5..{down}(0,ht)) shifted (sx,0);
+   xpos:=sx;
+ enddef;
+
+ def uschl (expr sx) =
+   draw ((0,0){down}..tension1.5..(-(1-fs)*sb,-dt){left}..(-sb,-dt+fs*sb){up}..{1,m}(0,0)) shifted (sx,0);
+   xpos:=sx;
+   enddef;
+
+ def bbauch (expr sx) =
+   draw ((0,ht){down}..(a,0){right}..(2*a,ht/2){up}..{-1,mb}(2*a-db,ht)) shifted (sx,0);
+   xpos:=sx+2*a-db;
+ enddef;
+
+% Hermite-Interpolation, 2 Intervalle
+% Scheitelpunkt bei (fx*b,hm)
+def bogen (expr hl, hm, hr, b, fx, phil, phir, tensl, tensr, sx) =
+  p := (0,hl){dir phil}..tension tensl..(fx*b,hm){b/abs(b),0}..tension tensr..{dir phir}(b,hr);
+  draw p shifted (sx,0);
+  xpos:=sx+b;
+%  if wmax<xpos: wmax:=xpos; fi
+enddef;
+
+def nbogen=
+bogen(ht/4,ht,3*ht/4,2*a,0.75,90,-90,1.2,1,xpos);
+enddef;
+
+def ubogen=
+bogen(ht/3,0,3*ht/4,2*a,0.375,-90,90,1,1,xpos);
+  enddef;
+
+def k_form (expr sx) =
+  draw ((0,ht/4){up}..(10ut,ht){right}..(15ut,15ut){down}..{left}(5ut,ht/2)--(15ut-r/sqrt2,(1-1/sqrt2)*r)..{right}(15ut,0)) shifted (sx,0);
+  xpos:=sx+15ut;
+enddef;
+
+def s_form (expr sx) =
+  draw ((0,ht){1,-m}..(7.5ut,7.5ut){down}..(0,0){left}..(-5ut,2.5ut)) shifted (sx,0);
+  xpos:=sx+7.5ut;
+enddef;
+
+def s_char (expr sx) =
+  draw ((0,ht){1,-m}..(7.5ut,5ut){down}..(3.75ut,0){left}..(0,5ut){up}..
+    tension1.5..{1,m}(ht-Delta/m,ht-Delta)) shifted (sx,0);
+  xpos:=sx+ht-Delta/m;
+enddef;
+
+def st_char (expr sx) =
+  draw ((0,ht){1,-m}..(7.5ut,5ut){down}..(3.75ut,0){left}..(0,5ut){up}..
+      tension1..{1,m}(10ut,ht)..(20ut,Ht){up}) shifted (sx,0);
+  draw ((20ut,Ht)--(20ut,0))  shifted (sx,0);
+  draw ((12.5ut,6ut)..(20ut,3.5ut){right}..tension1.2..{1,m}(40ut-Delta/m,ht-Delta))   shifted (sx,0);
+  xpos:=sx+20ut+20ut-Delta/m;
+enddef;
+
+def t_char (expr sx) =
+  draw ((0,ht){1,m}..{up}(10ut,Ht)) shifted (sx,0);
+  draw ((10ut,Ht)--(10ut,0))  shifted (sx,0);
+draw ((0,7.5ut)..(10ut,3.5ut){right}..tension1.2..{1,m}(30ut-Delta/m,ht-Delta))  shifted (sx,0);
+  xpos:=sx+30ut-Delta/m;
+enddef;
+
+def x_form (expr sx)=
+  draw ((2*a-15ut,0)--(2*a,ht)) shifted (sx,0);
+  draw ((0,ht)--(2*a,0)) shifted (sx,0);
+  xpos:=sx+2*a;
+enddef;
+
+def z_char (expr sx)=
+  draw ((0,ht-Delta){1,m}..(5ut,ht){right}..(10ut,ht-5ut){down}..{-1,-0.75}(0,3ut)) shifted (sx,0);
+  draw ((0,3ut){1,0.75}..(10ut,-5ut){down}..tension1.5..(3ut,-dt){left}..(0,-15ut){up}..tension1.5..{1,m}(9ut,0)--(24ut-Delta/m,ht-Delta)) shifted (sx,0);
+  xpos:=sx+24ut-Delta/m;
+ enddef;
+
+ def tz_char (expr sx)=
+   draw ((0,ht){1,m}..{up}(10ut,Ht)) shifted (sx,0);
+   draw ((10ut,Ht)--(10ut,0))  shifted (sx,0);
+     draw ((5ut,ht-7.5ut){1,0.7}..(25ut,ht){right}..(30ut,ht-5ut){down}..{-1,-0.75}(20ut,3ut)) shifted (sx,0);
+     draw ((20ut,3ut){1,0.75}..(30ut,-5ut){down}..tension1.5..(23ut,-dt){left}..(20ut,-15ut){up}..tension1.5..{1,m}(29ut,0)--(44ut-Delta/m,ht-Delta)) shifted (sx,0);
+     xpos:=sx+44ut-Delta/m;
+   enddef;
+
+% scharfes s am Wortende   
+   def ss_form(expr sx)=
+     draw ((0,-dt)--(0,ht){up}..tension1.5..(8ut,Ht){right}..(14ut,Ht-6ut){down}..(5ut,ht){-1,-1})  shifted (sx,0);
+     draw ((5ut,ht){1,-0.7}..(17.5ut,7.5ut){down}..(10ut,0){left}..(5ut,2.5ut))  shifted (sx,0);
+     xpos:=sx+17.5ut;
+   enddef;
+
+% scharfes s im Wort   
+   def ss_char (expr sx)=
+     draw ((0,-dt)--(0,ht){up}..tension1.5..(8ut,Ht){right}..(14ut,Ht-6ut){down}..(5ut,ht){-1,-1})  shifted (sx,0);
+     draw ((5ut,ht){1,-0.7}..(17.5ut,5ut){down}..(14ut,0){left}..(10ut,5ut){up}..tension2.5..{1,m}(27.5ut-Delta/m,ht-Delta))  shifted (sx,0);
+     xpos:=sx+27.5ut-Delta/m;
+   enddef;
+
+   def sst_char (expr sx)=
+     draw ((0,-dt)--(0,ht){up}..tension1.5..(8ut,Ht){right}..(14ut,Ht-6ut){down}..(5ut,ht){-1,-1})  shifted (sx,0);
+     draw ((5ut,ht){1,-0.7}..(17.5ut,5ut){down}..(14ut,0){left}..(10ut,5ut){up}..tension1..{1,m}(20ut,ht))  shifted (sx,0);
+     draw ((0,ht){1,m}..(10ut,Ht){up})  shifted (sx+20ut,0);
+     draw ((0,Ht)--(0,0))  shifted (sx+30ut,0);
+     draw ((-7.5ut,5ut)..(0,3ut){right}..tension1.5..{1,m}(20ut-Delta/m,ht-Delta))  shifted (sx+30ut,0);
+     xpos:=sx+50ut-Delta/m;
+     enddef;
+
+     def a_char=
+oval(xpos);
+stamm(ht,r,xpos);
+stock(xpos);
+enddef;
+
+def o_char=
+oval(xpos);
+stamm(ht,ht/2,xpos);
+schweif(ht,ht-Delta,fahnemittel-Delta/m,-90,angle(1,m),1.2,xpos);
+enddef;
+
+def u_char=
+  stamm(ht,ht/3,xpos);
+  ubogen;
+  stamm(ht,r,xpos);
+  stock(xpos);
+enddef;
+
+% Grossbuchstaben:
+  def C_form(expr sx)=
+        x1:=whatever;y1:=whatever;
+    x2:=whatever;y2:=whatever;
+    x3:=whatever;y3:=whatever;
+    x4:=whatever;y4:=whatever;
+    x5:=whatever;y5:=whatever;
+    x6:=whatever;y6:=whatever;
+    x7:=whatever;y7:=whatever;
+    x8:=whatever;y8:=whatever; 
+  z1=(0,Ht/2); z2=(-C,0); z3=(0,-Ht/2); z4=(C,0);
+  z5=(-Sigma*C,Sigma*Ht/2);
+  z6=(-Sigma*C,-Sigma*Ht/2);
+  z7=(Sigma*C,-Sigma*Ht/2);
+  z8=(Sigma*C,Sigma*Ht/2);
+  draw (z8{z1-z4}..z1{left}..z5{z2-z1}..z2{down}..z6{z3-z2}..{right}z3)
+    shifted (sx+C,Ht/2);
+    xpos:=sx+C;
+  enddef;
+
+        def Bauch (expr ha, hb, br, sx)=
+    draw ((0,ha){right}..(br,(ha+hb)/2){down}..{left}(0,hb)) shifted (sx,0);
+    xpos:=sx;
+  enddef;
+
+  def welle(expr breit, sx)=
+    draw ((0,0){H_breit,Ht})..(5ut,2.5ut){right}..{right}(breit,0) shifted (sx,0);
+    xpos:=sx+breit;
+  enddef;
+
+  def E_form(expr sx)=
+    draw ((18.5ut,Ht-2ut)..(C,Ht){left}..(2.5ut,30ut){down}..{right}(C,ht+1ut)) shifted (sx,0);
+    draw ((C,ht+1ut){left}..(0,11ut){down}..{right}(C,0)) shifted (sx,0);
+    xpos:=sx+C;
+  enddef;
+
+  def G_form(expr sx)=
+    draw ((2*C,Ht-2.5ut)..(2*C-8ut,Ht){left}..(0,ht){down}..(2*C-12ut,0){right}..{up}(2*C,ht)) shifted (sx,0);
+    xpos:=sx+2*C;
+  enddef;
+
+  def S_char(expr sx)=
+    draw ((21ut,Ht-2.5ut)..(12ut,Ht){left}..(3ut,Ht-10ut){down}..(12ut,ht)..(21ut,10ut){down}..(12ut,0){left}..(0,3ut)) shifted (sx,0);
+    xpos:=sx+21ut;
+  enddef;
+
+  def A_char=
+  xpos:=0;
+  schweif(0,yauf,xauf,0,angle(H_breit,Ht),1,xpos);
+  gerade(yauf,Ht,H_breit-yauf*H_breit/Ht,xpos);
+  stamm(Ht,0,xpos);
+  bogen(ht-6ut,10.5ut,ht-Delta,35ut,0.35,-35,angle(1,m),1,1.2,xpos-20ut);
+enddef;
+
+
+def U_char=
+    xpos:=0;
+    stamm(Ht,ht/2,xpos);
+    bogen(ht/2,0,1.5*ht,2*C,0.375,-90,90,1,1.2,xpos);
+    stamm(Ht,r,xpos);
+    stock(xpos);
+  enddef;
+
+  % Nur fuer Testzwecke zur Bestimmung der Breite der Lettern
+  def zeigen=
+%    weite:=20*xpos/ht;
+%    showvariable weite;
+  enddef;
+
+% Fuer Sonderzeichen
+def komma(expr deltax, deltay) =
+  draw ((0,0){down}..(-2.5ut,-10ut)) shifted (deltax,deltay);
+  enddef;  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ende des Files wesut14_def.mf %%%%%%%%%%%

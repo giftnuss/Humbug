@@ -1,0 +1,8 @@
+% Suetterlinschrift  wesu
+% Parameter-File slanted
+% Walter Entenmann
+% 09.06.2011
+
+slant:=0.25;
+input wesu14;
+%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%

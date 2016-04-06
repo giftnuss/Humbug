@@ -1,0 +1,414 @@
+% Suetterlinschrift  wesu
+% Program-File Grossbuchstaben
+% Walter Entenmann
+% 09.06.2011
+%
+if not wortende:
+beginchar("A",52.5ut#,40ut#,0);
+else:
+  beginchar(oct"201",37.5ut#,40ut#,0); fi
+  pickup wesu_pen;
+  A_char;
+endchar;
+
+if not wortende:
+beginchar("B",40ut#,40ut#,0ut#);
+else:
+  beginchar(oct"202",31.5ut#,40ut#,0ut#); fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+Oschl(xpos);
+stamm(ht,5ut,xpos);
+L_fuss(10ut,xpos);
+B_bauch(xpos);
+fahne(lasty,ht-dy,ht-2.5ut,0,45,1.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("C",37.5ut#,40ut#,0ut#);
+else:
+  beginchar(oct"203",26.5ut#,40ut#,0ut#); fi
+  pickup wesu_pen;
+  xpos:=23.5ut;wmax:=xpos;
+  schweif(Ht,Ht,-8.5ut,-135,90,1,1,xpos);
+schweif(Ht,25ut,-7.5ut,-180,-90,1,1,xpos);
+stamm(25ut,5ut,xpos);
+L_fuss(10ut,xpos);
+fahne(0,ht-dy,ht,0,45,2.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("D",47.115ut#,40ut#,0ut#);
+  else:
+  beginchar(oct"204",40ut#,40ut#,0ut#); fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+bogen(15ut,ht,ht/2,12ut,0.45,90,-90,1,1,xpos);
+bogen(ht/2,0,ht,20.5ut,0.39,-90,90,1,1,xpos);
+D_kopf(xpos);
+tangente(5ut);
+endchar;
+
+if not wortende:
+beginchar("E",37.5ut#,40ut#,20ut#);
+  else:
+  beginchar(oct"205",25ut#,40ut#,20ut#);fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+Oschl(xpos);
+stamm(ht,-5ut,xpos);
+bogen(-5ut,-dt,-dt/2,15ut,0.5,-90,90,1,1,xpos);
+xpos:=xpos-15ut-7.5ut;
+schweif(10ut,5ut,10ut,-45,0,1,1,xpos);
+fahne(5ut,ht-dy,ht+5ut,0,45,1.2,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("F",32.5ut#,40ut#,20ut#);
+  else:
+  beginchar(oct"206",27.5ut#,40ut#,20ut#);fi
+  pickup wesu_pen;
+  xpos:=27.5ut;wmax:=xpos;
+bogen(32.5ut,Ht,25ut,-15ut,0.5,90,-90,1,1,xpos);
+stamm(25ut,5ut,xpos);
+uschl(1.25,5ut,xpos);
+lschleife(S,5ut,1,xpos);
+fahne(5ut,ht-dy,ht,0,45,1,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("G",45.5ut#,40ut#,20ut#);
+  else:
+  beginchar(oct"207",39ut#,40ut#,20ut#);fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+A_teil;
+stamm(Ht,5ut,xpos);
+uschl(1.25,5ut,xpos);
+fahne(5ut,ht-dy,15.5ut,45,45,1,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("H",43ut#,40ut#,20ut#);
+  else:
+  beginchar(oct"210",39ut#,40ut#,20ut#);fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+Oschl(xpos);
+stamm(ht,0,xpos);
+bogen(0,ht,5ut,20ut,0.625,90,-90,1.5,1,xpos);
+uschl(1.25,5ut,xpos);
+fahne(5ut,ht-dy,ht-dy-5ut,45,45,1,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("I",34.827ut#,40ut#,0ut#);
+  else:
+beginchar(oct"211",22.5ut#,40ut#,0ut#);fi
+pickup wesu_pen;
+xpos:=10ut;wmax:=xpos;
+Ihaken;
+stamm(30ut,10ut,xpos);
+Ibogen;
+tangente(0.5ut);
+endchar;
+
+if not wortende:
+beginchar("J",25.5ut#,40ut#,20ut#);
+  else:
+  beginchar(oct"212",21.5ut#,40ut#,20ut#);fi
+  pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  Ihaken;
+stamm(30ut,5ut,xpos);
+uschl(1.25,5ut,xpos);
+fahne(5ut,ht-dy,ht-dy-5ut,45,45,1,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("K",53ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"213",42ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+ xpos:=33ut;wmax:=xpos;
+bogen(Ht-7.5ut,Ht,30ut,-13ut,0.42,90,-90,1,1,xpos);
+stamm(30ut,ht,xpos);
+K_teil(xpos);
+fahne(0,ht-dy,ht,0,45,2.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("L",40ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"214",29ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+Oschl(xpos);
+stamm(ht,5ut,xpos);
+L_fuss(10ut,xpos);
+fahne(0,ht-dy,ht,0,45,2.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("M",70ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"215",55ut#,40ut#,0ut#);fi
+    pickup wesu_pen;
+    xpos:=0;wmax:=xpos;
+    Shalbe(Bs);
+bogen(Hs,Ht,Hs,2*Bs+gap,0.5,90,-90,1.2,1.2,xpos);
+bogen(Hs,0,Hs,-Bs,0.5,-90,90,1,1,xpos);
+Nrechts;
+N_fuss(Hs,6ut,1.5,1.5,xpos);
+tangente(0);
+endchar;
+
+if not wortende:
+beginchar("N",50ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"216",35ut#,40ut#,0ut#);fi
+    pickup wesu_pen;
+    xpos:=0;wmax:=xpos;
+    Shalbe(Bs);
+    Nrechts;
+N_fuss(Hs,6ut,1.5,1.5,xpos);
+tangente(0);
+endchar;
+
+if not wortende:
+beginchar("O",40.734ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"217",30ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+O_char;
+endchar;
+
+if not wortende:
+beginchar("P",37.5ut#,40ut#,20ut#);
+  else:
+    beginchar(oct"220",32.5ut#,40ut#,20ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+Stock(xpos);
+stamm(Ht-10ut,-dt,xpos);
+P_teil(xpos);
+tangente(0);
+endchar;
+
+if not wortende:
+beginchar("Q",48ut#,40ut#,20ut#);
+  else:
+    beginchar(oct"221",39ut#,40ut#,20ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+A_teil;
+ stamm(Ht,-dt,xpos);
+strich(xpos);
+endchar;
+
+if not wortende:
+beginchar("R",59.5ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"222",48.5ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+      xpos:=0;wmax:=xpos;
+      Shalbe(BS);
+schweif(Hs,Ht,BS+gap,90,0,1.2,1,xpos);
+R_teil(xpos);
+fahne(0,ht-dy,ht,0,45,2.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("S",34.608ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"223",25ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+      xpos:=0;wmax:=xpos;
+Shalbe(BS);     
+Szwbogen(BS+gap,Sab,angle(1,-Sm));
+tangente(0);
+endchar;
+
+if not wortende:
+beginchar("T",35ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"224",26.5ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+bogen(32.5ut,Ht,30ut,17.5ut,0.5,90,-90,1,1,xpos);
+stamm(30ut,0,xpos);
+lschleife(S,5ut,1,xpos);
+fahne(5ut,ht-dy,ht-2.5ut,0,45,1.5,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("U",60ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"225",45ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+ U_char;
+endchar;
+
+if not wortende:
+beginchar("V",50.206ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"226",38.5ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+Stock(xpos);
+stamm(Ht-10ut,0,xpos);
+Salt:=S;
+faktor:=1.4;
+S:=S*faktor;
+schweif(0,S/faktor,gap,90,0,1,1,xpos);
+rschleife(S,S/faktor,S,1/faktor,xpos);
+Vbauch(2*S/faktor,xpos);
+S:=Salt;
+tangente(7.5ut);
+endchar;
+
+if not wortende:
+beginchar("W",62.706ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"227",51ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+      xpos:=0;wmax:=xpos;
+      Shalbe(Bs);
+      Szwbogen(Bs+gap,10ut,-90);
+stamm(Ht-10ut,0,xpos);
+Salt:=S;
+faktor:=1.4;
+S:=S*faktor;
+schweif(0,S/faktor,gap,90,0,1,1,xpos);
+rschleife(S,S/faktor,S,1/faktor,xpos);
+Vbauch(2*S/faktor,xpos);
+S:=Salt;
+tangente(7.5ut);
+endchar;
+
+if not wortende:
+beginchar("X",46.5ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"230",32.5ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+  xpos:=0;wmax:=xpos;
+  fsalt:=fs;fs:=0.35;
+  bogen(Ht-5ut,Ht,ht,BX,0.5,angle(1,2),-90,1,1,xpos);
+  Dschl(xpos);
+  N_fuss(ht,7.5ut,1,1.5,xpos);
+  tangente(0);
+  fs:=fsalt;
+endchar;
+
+if not wortende:
+beginchar("Y",50.5ut#,40ut#,20ut#);
+  else:
+    beginchar(oct"231",46.5ut#,40ut#,20ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+Stock(xpos);
+stamm(Ht-10ut,0,xpos);
+schweif(0,S,gap,90,0,1,1,xpos);
+rschleife(S,S,S,1,xpos);
+bogen(2*S,Ht,ht,20ut,0.5,90,-90,1.2,1,xpos);
+stamm(ht,0,xpos);
+uschl(1.25,5ut,xpos);
+fahne(5ut,ht-dy,ht-dy-5ut,45,45,1,1,xpos);
+endchar;
+
+if not wortende:
+beginchar("Z",32ut#,40ut#,20ut#);
+  else:
+    beginchar(oct"232",24ut#,40ut#,20ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+Z_teil(xpos);
+tangente(0);
+endchar;
+
+% Umlaute
+% Ä (\"A)
+if not wortende:
+beginchar(oct"304",54ut#,55ut#,0);
+  else:
+    beginchar(oct"233",40ut#,55ut#,0);fi
+      pickup wesu_pen;
+A_char;
+Umlaut(13ut,0);
+endchar;
+  
+% Ö (\"O)
+if not wortende:
+beginchar(oct"326",40.234ut#,55ut#,0ut#);
+  else:
+    beginchar(oct"234",30ut#,55ut#,0ut#);fi
+      pickup wesu_pen;
+O_char;
+Umlaut(15ut,0);
+endchar;
+ 
+% Ü (\"U)
+if not wortende:
+beginchar(oct"334",61.5ut#,55ut#,0ut#);
+  else:
+    beginchar(oct"235",47.5ut#,55ut#,0ut#);fi
+      pickup wesu_pen;
+U_char;
+Umlaut(17.5ut,0);
+endchar;
+
+% Ligaturen
+% St
+if not wortende:
+beginchar(oct"033",50ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"236",39ut#,40ut#,0ut#); fi
+      pickup wesu_pen;
+      xpos:=0;wmax:=xpos;
+      Shalbe(BS);
+      Szwbogen(BS+gap+S,10ut,-90);
+stamm(Ht-10ut,0,xpos);
+lschleife(S,5ut,1,xpos);
+fahne(5ut,ht-dy,ht,0,45,1.5,1,xpos);
+endchar;
+
+% Varianten
+% I variant (\'I)
+if not wortende:
+beginchar(oct"315",34.827ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"002",22.5ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+xpos:=7.5ut;wmax:=xpos;
+schwalbe(xpos);
+stamm(Ht,10ut,xpos);
+Ibogen;
+tangente(0.5ut);
+endchar;
+
+% J variant (\^I)
+if not wortende:
+beginchar(oct"316",28ut#,40ut#,20ut#);
+  else:
+    beginchar(oct"003",24ut#,40ut#,20ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+schwalbe(xpos);
+stamm(Ht,5ut,xpos);
+uschl(1.25,5ut,xpos);
+fahne(5ut,ht-dy,ht-dy-5ut,45,45,1,1,xpos);
+endchar;
+
+% T variant (\"I)
+if not wortende:
+beginchar(oct"317",32.5ut#,40ut#,0ut#);
+  else:
+    beginchar(oct"004",24ut#,40ut#,0ut#);fi
+      pickup wesu_pen;
+xpos:=0;wmax:=xpos;
+schwalbe(xpos);
+stamm(Ht,0,xpos);
+lschleife(S,5ut,1,xpos);
+fahne(5ut,ht-dy,ht-2.5ut,0,45,1.5,1,xpos);
+endchar;
+%%%%%%%%%%%%%%%%%%%% File-Ende %%%%%%%%%%%%%%%%%

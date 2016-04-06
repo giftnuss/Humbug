@@ -1,0 +1,3 @@
+% wesu bold, slanted
+fetter:=2;
+input wesusl14;

@@ -1,0 +1,3 @@
+% wela14 slanted, Lateinische Ausgangsschrift (LA)
+slant:=0.325;
+input wela14;
