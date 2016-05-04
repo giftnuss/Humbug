@@ -6,6 +6,7 @@ export TEXMFHOME
 .PHONY: tests all clean
 
 LULUBOOK=texmf/tex/latex/lulubook/lulubook.cls
+AUTOFIBEL=texmf/tex/latex/autofibel/autofibel.cls
 
 TESTFILES=\
   t/Roman/1.pdf\
@@ -20,10 +21,15 @@ TESTFILES=\
 # -interaction=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
+#$(AUTOFIBEL): $(LULUBOOK)
+#	true
+
 %.pdf: %.tex
 	latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -interaction=nonstopmode" -use-make $<
 
-all: tests
+fibel.pdf: fibel.tex $(AUTOFIBEL) $(LULUBOOK)
+
+all: tests fibel.pdf
 
 tests: $(LULUBOOK) $(TESTFILES)
 

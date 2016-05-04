@@ -1,0 +1,13 @@
+
+\ProvidesClass{autofibel}[2016/05/05 version 0.001 autofibel]
+\NeedsTexFormat{LaTeX2e}
+
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{lulubook}}
+
+\ExecuteOptions{11pt,Carre}
+\ProcessOptions\relax
+
+\LoadClass{lulubook}
+
+\endinput
