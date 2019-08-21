@@ -1,0 +1,3 @@
+
+requires 'Badger', '0.13';
+requires 'Hash::MultiValue', '0.16';
